@@ -1,0 +1,69 @@
+<!--
+  ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
+  ~
+  ~ Copyright (C) 2010-2011, International Institute of Social History
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd
+       http://www.springframework.org/schema/security/oauth2
+       http://www.springframework.org/schema/security/spring-security-oauth2.xsd">
+
+    <security:http auto-config="false">
+        <security:intercept-url pattern="/oauth/**" access="ROLE_USER"/>
+        <security:intercept-url pattern="/secure/**" access="ROLE_USER"/>
+        <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <security:form-login authentication-failure-url="/login.jsp"
+                             default-target-url="/index.jsp"
+                             login-page="/login.jsp"
+                             login-processing-url="/login.do"
+                />
+        <security:logout logout-success-url="/index.jsp" logout-url="/logout.do"/>
+    </security:http>
+
+    <bean id="mongoUserDetailService" class="org.socialhistoryservices.security.MongoUserDetailService">
+        <property name="mongo" ref="mongo"/>
+        <property name="database" value="#{pidProperties['mongo.database']}"/>
+    </bean>
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="mongoUserDetailService">
+            <security:password-encoder hash="sha-256"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+    <bean id="tokenServices"
+          class="org.socialhistoryservices.security.MongoOAuth2ProviderTokenServices">
+        <constructor-arg name="mongo" ref="mongo"/>
+        <property name="database" value="#{pidProperties['mongo.database']}"/>
+        <property name="supportRefreshToken" value="true"/>
+        <property name="clientId" value="#{pidProperties['clientDetails.clientId']}"/>
+        <property name="reuseRefreshToken" value="false"/>
+        <property name="accessTokenValiditySeconds" value="31556925"/>
+        <property name="refreshTokenValiditySeconds" value="31556925"/>
+    </bean>
+    <oauth:provider client-details-service-ref="clientDetails" token-services-ref="tokenServices">
+        <oauth:verification-code user-approval-page="/oauth/confirm_access"/>
+    </oauth:provider>
+    <oauth:client-details-service id="clientDetails">
+        <oauth:client clientId="#{pidProperties['clientDetails.clientId']}"
+                      authorizedGrantTypes="authorization_code,refresh_token"/>
+    </oauth:client-details-service>
+</beans>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
+  ~
+  ~ Copyright (C) 2010-2011, International Institute of Social History
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:tns="http://pid.socialhistoryservices.org/"
+           targetNamespace="http://pid.socialhistoryservices.org/"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://pid.socialhistoryservices.org/ http://pid.socialhistoryservices.org/1.0/pid.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:annotation>
+        <xs:documentation>
+            These methods together form the SOAP interface. They drive the Handle System local resolver database.
+        </xs:documentation>
+    </xs:annotation>
+
+    <!-- Method parameters and return values. -->
+    <xs:complexType name="pidType">
+        <xs:annotation>
+            <xs:documentation>
+                pidType : Used as a request and response parameter. It contains pid and resolve attributes.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:anyURI" name="pid">
+                <xs:annotation>
+                    <xs:documentation>
+                        pid : the persistent identifier, including the naming authority.
+                        Example: 12345/abcdefg
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="xs:anyURI" name="resolveUrl">
+                <xs:annotation>
+                    <xs:documentation>
+                        resolveUrl : the resolve URL that directs a web client to a webresource.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="tns:locAttType" name="locAtt">
+                <xs:annotation>
+                    <xs:documentation>locAtt : see locAttType</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="xs:string" name="localIdentifier">
+                <xs:annotation>
+                    <xs:documentation>localIdentifier : a locality or local system identifier.
+                        See GetPidByAttributeRequestType for its usage.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="locAttType">
+        <xs:annotation>
+            <xs:documentation>locAttType : a package of one or more resolve urls.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="tns:locationType" name="location" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="locationType">
+        <xs:annotation>
+            <xs:documentation>locationType : a resolve Url. Just like the pidType.resolveUrl it points to a web
+                resource.
+                However the locationType is activated by extending parameters such as a -view to the handle request.
+                Example: http://hdl.handle.net/12345/abcdefg?view=master
+                For more information about the locationType, visit http://www.handle.net/ and read the section on the
+                10622/loc type.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:anyURI" name="href" use="required"/>
+                <xs:attribute type="xs:string" name="id" use="optional"/>
+                <xs:attribute type="xs:string" name="weight" use="optional"/>
+                <xs:attribute type="xs:string" name="view" use="optional"/>
+                <xs:attribute type="xs:string" name="country" use="optional"/>
+                <xs:anyAttribute namespace="##targetNamespace"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Methods -->
+    <xs:element name="CreatePidRequest" type="tns:CreatePidRequestType"/>
+    <xs:element name="CreatePidResponse" type="tns:CreatePidResponseType"/>
+    <xs:element name="UpdatePidRequest" type="tns:UpdatePidRequestType"/>
+    <xs:element name="UpdatePidResponse" type="tns:UpdatePidResponseType"/>
+    <xs:element name="GetPidRequest" type="tns:GetPidRequestType"/>
+    <xs:element name="GetPidResponse" type="tns:GetPidResponseType"/>
+    <xs:element name="GetPidByAttributeRequest" type="tns:GetPidByAttributeRequestType"/>
+    <xs:element name="GetPidByAttributeResponse" type="tns:GetPidByAttributeResponseType"/>
+    <xs:element name="GetQuickPidRequest" type="tns:GetQuickPidRequestType"/>
+    <xs:element name="GetQuickPidResponse" type="tns:GetQuickPidResponseType"/>
+    <xs:element name="DeletePidsRequest" type="tns:DeletePidsRequestType"/>
+    <xs:element name="DeletePidsResponse" type="tns:DeletePidsResponseType"/>
+
+    <xs:complexType name="CreatePidRequestType">
+        <xs:annotation>
+            <xs:documentation>
+                CreatePidRequestType (method CreatePidRequest): inserts a Pid and binds it to the supplied resolve
+                attributes as defined in the pidType.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:string" name="na">
+                <xs:annotation>
+                    <xs:documentation>na : the naming authority</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="tns:pidType" name="handle"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreatePidResponseType">
+        <xs:sequence>
+            <xs:element type="tns:pidType" name="handle" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UpdatePidRequestType">
+        <xs:annotation>
+            <xs:documentation>UpdatePidRequestType (method UpdatePidRequest):
+                re-binds the pidType.pid to the supplied pidType.resolveUrl, pidType.locAtt and pidType.localIdentifier.
+                If the pidType.resolveUrl or pidType.locAtt are not supplied they will be un-bound\removed from the pid
+                (if there). A pidType.localIdentifier cannot be removed, only changed or added.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="tns:pidType" name="handle"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="UpdatePidResponseType">
+        <xs:sequence>
+            <xs:element type="tns:pidType" name="handle"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetPidRequestType">
+        <xs:annotation>
+            <xs:documentation>GetPidRequestType (method GetPidRequest):
+                retrieves all known bound attributes that belong to this pid.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:string" name="pid"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetPidResponseType">
+        <xs:sequence>
+            <xs:element type="tns:pidType" name="handle" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetPidByAttributeRequestType">
+        <xs:annotation>
+            <xs:documentation>
+                GetPidByAttributeRequestType (method GetPidByAttribute): a reverse lookup of a Pid using a bound
+                pidType.resolveUrl or pidType.localIdentifier as the attribute value. It is possible there are more than
+                one pid to include the lookup result.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:string" name="na">
+                <xs:annotation>
+                    <xs:documentation>na : the naming authority</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="xs:string" name="attribute" nillable="false"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetPidByAttributeResponseType">
+        <xs:sequence>
+            <xs:element type="tns:pidType" name="handle" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetQuickPidRequestType">
+        <xs:annotation>
+            <xs:documentation>GetQuickPidRequestType ( method: GetQuickPidRequest ): use for creation, binding and
+                reverse lookup of a Pid. Specifically:
+                1. Pid creation: when the localIdentifier is not bound to a known pid, the webservice creates a pid and
+                then binds it to the resolveUrl and localIdentifier.
+                2. Pid lookup: when the localIdentifier is bound to an existing Pid, the method will echo back all data
+                bound to the pid.
+                3. Pid update: when the localIdentifier is bound to an existing Pid and the supplied resolveUrl is
+                different to the bound resolveUrl, a rebind will be made.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:string" name="na">
+                <xs:annotation>
+                    <xs:documentation>na : the naming authority</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="xs:string" name="localIdentifier"/>
+            <xs:element type="xs:anyURI" name="resolveUrl"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetQuickPidResponseType">
+        <xs:sequence>
+            <xs:element type="tns:pidType" name="handle" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeletePidsRequestType">
+        <xs:annotation>
+            <xs:documentation>na : the naming authority used for testing. This method will only accept naming authority
+                prefixes used for testing.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:string" name="na"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DeletePidsResponseType">
+        <xs:annotation>
+            <xs:documentation>count : the number of PIDs deleted.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:long" name="count"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

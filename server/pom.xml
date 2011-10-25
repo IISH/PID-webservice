@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
+  ~
+  ~ Copyright (C) 2010-2011, International Institute of Social History
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.socialhistoryservices</groupId>
+        <artifactId>pid</artifactId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>server</artifactId>
+    <packaging>war</packaging>
+    <version>2.0</version>
+    <name>server</name>
+    <url>http://socialhistoryservices.org/</url>
+
+    <developers>
+        <developer>
+            <name>Lucien van Wouw</name>
+            <email>lwo@iisg.nl</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+    <build>
+        <finalName>pid</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${jdkLevel}</source>
+                    <target>${jdkLevel}</target>
+                    <excludes>
+                        <exclude>pid.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.26</version>
+                <configuration>
+                    <contextPath>/</contextPath>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>pid.properties</name>
+                            <value>./pid.properties</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>jetty.port</name>
+                            <value>8282</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>start-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <!--suppress MavenModelInspection -->
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.8.1</version>
+                <configuration>
+                    <systemProperties>
+                        <property>
+                            <name>pid.properties</name>
+                            <value>pid.properties</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>1.5.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
+            <version>${spring.ws.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-xml</artifactId>
+            <version>${spring.ws.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+<!--
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+<!--
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>8.4-701.jdbc3</version>
+        </dependency>
+-->
+<!--
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
+        </dependency>
+-->
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>servlet-api-2.5</artifactId>
+            <version>6.1.9</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth</artifactId>
+            <version>1.0.0.M2</version>
+        </dependency>
+        <dependency>
+            <groupId>net.handle</groupId>
+            <artifactId>mongodb-handlestorage</artifactId>
+            <version>7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.socialhistoryservices</groupId>
+            <artifactId>security</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+    <organization>
+        <name>Hope Consortium</name>
+        <url>http://socialhistoryservices.org/</url>
+    </organization>
+
+    <properties>
+        <jdkLevel>1.6</jdkLevel>
+        <spring.version>3.0.6.RELEASE</spring.version>
+        <spring.ws.version>2.0.2.RELEASE</spring.ws.version>
+        <spring.security.version>3.0.5.RELEASE</spring.security.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+</project>

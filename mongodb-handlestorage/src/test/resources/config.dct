@@ -1,0 +1,23 @@
+{
+"server_config" = {
+"case_sensitive" = "no"
+"storage_class" = "net.handle.server.MongoDBHandleStorage"
+"storage_type" = "custom"
+"storage_config" = {
+"database_name" = "handlesystem_test"
+"collection_nas" = "nas_test"
+"collection_handles" = handles
+"connections_per_host" = 11
+"write_concern" = 1
+"indices" = (
+handle
+handles.type
+_lookup
+)
+urls = (
+"localhost"
+)
+read_only = "no"
+}
+}
+}
