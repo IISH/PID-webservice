@@ -44,7 +44,7 @@
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.0.5.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.0.5.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.0.3.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework.security.oauth:spring-security-oauth:1.0.0.M2" />
+            <element id="library" level="project" name="Maven: org.springframework.security.oauth:spring-security-oauth:1.0.0.M3" />
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.0.3.RELEASE" />
             <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.3" />
             <element id="archive" name="mongodb-handlestorage.jar">
@@ -482,17 +482,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework.security.oauth:spring-security-oauth:1.0.0.M2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth/1.0.0.M2/spring-security-oauth-1.0.0.M2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth/1.0.0.M2/spring-security-oauth-1.0.0.M2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth/1.0.0.M2/spring-security-oauth-1.0.0.M2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework.security.oauth:spring-security-oauth:1.0.0.M3">
