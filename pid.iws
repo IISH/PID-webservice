@@ -3,102 +3,102 @@
   <component name="ChangeListManager">
     <list default="true" id="6a1192a9-b02a-48d7-a2b4-56e08c5c4f91" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.txt" />
-      <change type="DELETED" beforePath="C:\Users\lwo\pid\keystore.README.txt" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\lwo\pid\.keystore" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/server/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/security/NAAuthentication.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/security/NAAuthentication.java" />
+      <change type="DELETED" beforePath="C:\Users\lwo\pid\keystore.README.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/NamingAuthority.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/NamingAuthority.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-1.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/CreatePidRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/CreatePidRequestType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/log4j.xml" afterPath="$PROJECT_DIR$/server/log4j.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/util/HashPassword.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/util/HashPassword.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-7.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-7.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/LocationType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/LocationType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoAuthority.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoAuthority.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-6.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-6.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log4j.xml" afterPath="$PROJECT_DIR$/log4j.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/PidProperties.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/PidProperties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/PidGenerator.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/PidGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-13.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-13.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-security.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-4.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-4.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/access_confirmation.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/access_confirmation.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-2.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/PidType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/PidType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-summary.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/UpdatePidResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/UpdatePidResponseType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/deprecated-list.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidResponseType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/login.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/allclasses-noframe.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/allclasses-noframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb-handlestorage/src/test/java/net/handle/server/MongoDBHandleStorageTest.java" afterPath="$PROJECT_DIR$/mongodb-handlestorage/src/test/java/net/handle/server/MongoDBHandleStorageTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/domain/Handle.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/domain/Handle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/PidResourceService.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/PidResourceService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/UpdatePidRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/UpdatePidRequestType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/DeletePidsResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/DeletePidsResponseType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/overview-tree.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/overview-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/exceptions/PidException.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/exceptions/PidException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/WsdlAdapter.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/WsdlAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-frame.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-frame.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/stylesheet.css" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/stylesheet.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/net/handle/server/MongoDBHandleStorage.java" afterPath="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/net/handle/server/MongoDBHandleStorage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-3.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/DeletePidsRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/DeletePidsRequestType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-14.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-14.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/AccessConfirmationController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/AccessConfirmationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/LocAttType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/LocAttType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetQuickPidResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetQuickPidResponseType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/pid-1.0.xsd" afterPath="$PROJECT_DIR$/server/src/main/resources/pid-1.0.xsd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/login.form.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/login.form.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidRequestType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/ObjectFactory.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/ObjectFactory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pom.xml" afterPath="$PROJECT_DIR$/server/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoUserDetails.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoUserDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetQuickPidRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetQuickPidRequestType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/User.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/1.0/pid.xsd" afterPath="$PROJECT_DIR$/server/src/main/webapp/1.0/pid.xsd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidByAttributeRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidByAttributeRequestType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/constant-values.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/constant-values.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/help-doc.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/help-doc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/security-servlet.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/security-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-11.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-11.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb-handlestorage/pom.xml" afterPath="$PROJECT_DIR$/mongodb-handlestorage/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoUserDetailService.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoUserDetailService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pid.properties" afterPath="$PROJECT_DIR$/server/pid.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/org/socialhistoryservices/dao/MongoDBSingleton.java" afterPath="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/org/socialhistoryservices/dao/MongoDBSingleton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/util/HashPassword.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/util/HashPassword.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidByAttributeResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidByAttributeResponseType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/util/PidGeneratorTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/util/PidGeneratorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-webservice.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-webservice.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-12.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-12.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/CreatePidResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/CreatePidResponseType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-9.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-9.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/pom.xml" afterPath="$PROJECT_DIR$/security/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-15.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-15.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-10.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-10.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-5.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-5.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/test/java/org/socialhistoryservices/security/UserTest.java" afterPath="$PROJECT_DIR$/security/src/test/java/org/socialhistoryservices/security/UserTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-tree.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-8.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-8.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/request_token_authorized.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/request_token_authorized.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-data.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-data.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-webservice.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-webservice.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-5.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-5.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/constant-values.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/constant-values.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-9.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-9.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-10.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-10.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/test/java/org/socialhistoryservices/security/UserTest.java" afterPath="$PROJECT_DIR$/security/src/test/java/org/socialhistoryservices/security/UserTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-logging.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-logging.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/allclasses-frame.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/allclasses-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/PidProperties.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/PidProperties.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/LocAttType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/LocAttType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/security/NAAuthentication.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/security/NAAuthentication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/deprecated-list.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/deprecated-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/exceptions/PidException.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/exceptions/PidException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/security-servlet.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/security-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/UpdatePidResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/UpdatePidResponseType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetQuickPidRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetQuickPidRequestType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log4j.xml" afterPath="$PROJECT_DIR$/log4j.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-data.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-data.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-7.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-7.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-13.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-13.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb-handlestorage/src/test/java/net/handle/server/MongoDBHandleStorageTest.java" afterPath="$PROJECT_DIR$/mongodb-handlestorage/src/test/java/net/handle/server/MongoDBHandleStorageTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/PidGenerator.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/PidGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-3.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-3.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/UpdatePidRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/UpdatePidRequestType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-15.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-15.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/pom.xml" afterPath="$PROJECT_DIR$/security/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/log4j.xml" afterPath="$PROJECT_DIR$/server/log4j.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/DeletePidsResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/DeletePidsResponseType.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-properties.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-properties.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/request_token_authorized.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/request_token_authorized.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-2.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidResponseType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/net/handle/server/MongoDBHandleStorage.java" afterPath="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/net/handle/server/MongoDBHandleStorage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoAuthority.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoAuthority.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/PidResourceService.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/PidResourceService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-1.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidByAttributeRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidByAttributeRequestType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/login.form.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/login.form.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-6.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-6.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/allclasses-frame.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/allclasses-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/CreatePidResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/CreatePidResponseType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/overview-tree.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/overview-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/ObjectFactory.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/ObjectFactory.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-14.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-14.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/WsdlAdapter.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/WsdlAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/login.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/pid-1.0.xsd" afterPath="$PROJECT_DIR$/server/src/main/resources/pid-1.0.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/1.0/pid.xsd" afterPath="$PROJECT_DIR$/server/src/main/webapp/1.0/pid.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/util/PidGeneratorTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/util/PidGeneratorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/org/socialhistoryservices/dao/MongoDBSingleton.java" afterPath="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/org/socialhistoryservices/dao/MongoDBSingleton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-summary.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/PidType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/PidType.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetPidRequestType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/access_confirmation.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/access_confirmation.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoUserDetails.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoUserDetails.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pid.properties" afterPath="$PROJECT_DIR$/server/pid.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-frame.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/package-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/DeletePidsRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/DeletePidsRequestType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/server/src/main/resources/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/LocationType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/LocationType.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoOAuth2ProviderTokenServices.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoOAuth2ProviderTokenServices.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/stylesheet.css" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/domain/Handle.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/domain/Handle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/allclasses-noframe.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/allclasses-noframe.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb-handlestorage/pom.xml" afterPath="$PROJECT_DIR$/mongodb-handlestorage/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-8.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-8.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/help-doc.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/help-doc.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-security.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-security.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetQuickPidResponseType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/GetQuickPidResponseType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-12.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-12.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/CreatePidRequestType.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/org/socialhistoryservices/pid/schema/CreatePidRequestType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-4.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-4.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-11.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index-files/index-11.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/User.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index.html" afterPath="$PROJECT_DIR$/server/src/main/webapp/javadoc/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pom.xml" afterPath="$PROJECT_DIR$/server/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoUserDetailService.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoUserDetailService.java" />
     </list>
     <ignored path="pid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -256,11 +256,13 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
+    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/PidResourceService.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" />
         <option value="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" />
@@ -275,6 +277,8 @@
         <option value="$PROJECT_DIR$/server/pom.xml" />
         <option value="$PROJECT_DIR$/security/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/log4j.xml" />
+        <option value="$PROJECT_DIR$/server/log4j.xml" />
       </list>
     </option>
   </component>
@@ -325,6 +329,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -343,9 +349,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PID-webservice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -380,7 +399,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,9 +417,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lwo\PID-webservice" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.StubPidResourceServiceTest.testUpsertPidCreateNoPid">
     <configuration default="false" name="StubPidResourceServiceTest.testUpsertPidCreate" type="JUnit" factoryName="JUnit" temporary="true">
@@ -806,10 +829,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3504065" sideWeight="0.6756757" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35691056" sideWeight="0.6756757" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.6756757" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.6756757" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3243243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -870,16 +893,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/security/NAAuthentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="46" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.71506107" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="0" selection-start="3079" selection-end="3079" vertical-scroll-proportion="0.023480663" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/PidType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="0.023066485" />
@@ -895,22 +908,12 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/pid.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="801" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/resources/application-context-data.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="51" selection-start="667" selection-end="667" vertical-scroll-proportion="0.27450982" />
       </provider>
       <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log4j.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="5" selection-start="40" selection-end="879" vertical-scroll-proportion="0.0389016" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/License.txt">
@@ -940,21 +943,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="49" selection-start="2848" selection-end="2848" vertical-scroll-proportion="0.7302552">
-          <folding />
-        </state>
+        <state line="80" column="49" selection-start="2848" selection-end="2848" vertical-scroll-proportion="0.7302552" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/security/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="19" selection-start="2504" selection-end="2504" vertical-scroll-proportion="0.8031592">
-          <folding />
-        </state>
+        <state line="64" column="19" selection-start="2504" selection-end="2504" vertical-scroll-proportion="0.8031592" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="4" selection-start="7278" selection-end="7665" vertical-scroll-proportion="0.4784689">
+        <state line="187" column="4" selection-start="7278" selection-end="7665" vertical-scroll-proportion="0.4784689" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pid.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.2028302">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/pid.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="29" selection-start="1352" selection-end="1356" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="23" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.5412736">
           <folding />
         </state>
       </provider>
