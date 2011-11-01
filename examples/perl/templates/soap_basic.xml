@@ -1,0 +1,10 @@
+ <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pid="http://pid.socialhistoryservices.org/">
+    <soapenv:Body>
+      <pid:CreatePidRequest>
+        <pid:na>%%org%%</pid:na>
+        <pid:handle>
+          <pid:resolveUrl>%%url%%</pid:resolveUrl>
+        </pid:handle>
+      </pid:CreatePidRequest>
+    </soapenv:Body>
+  </soapenv:Envelope>
