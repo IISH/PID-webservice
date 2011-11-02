@@ -17,10 +17,32 @@ mkdir $logdir unless (-e $logdir);
 
 #my $addparam = "-b ";
 my ($xmlbasic, $xmlimage) = loadtemplates($templatedir);
-my $org = "10622";
-my $authkey = "199b2ba6-83fb-4992-a382-f912452b3f84";
+my %params = loadconf($Bin);
+my ($org, $authkey) = ($params{org}, $params{authkey});
+print "$org $authkey\n";
 
+# Original ID or file with IDs
 $pidsource = $ARGV[0];
+# Overwriting org and key 
+$org = $ARGV[1] if ($ARGV[1]);
+$authkey = $ARGV[2] if ($ARGV[2]);
+
+unless ($pidsource)
+{
+    print << "EOL";
+# Simple PID generator
+Usage: 
+./pid.realtime.pl id [params]
+where
+id: some ID
+params are optional:
+org - id of organization
+authkey - authorization key from PID webservice
+Example: 
+./pid.realtime.pl 1447312 
+EOL
+}
+
 if ($pidsource=~/^\d+$/)
 {
     $pid = $pidsource;
@@ -115,6 +137,29 @@ sub createpidrequest
 
     return $PID;
 };
+
+sub loadconf
+{
+    my ($confdir, $DEBUG) = @_;
+    my (%config, $confitem);
+
+    open(config, "$confdir/config");
+    my @config = <config>;
+    close(config);
+
+    foreach $confitem (@config)
+    {
+	$confitem=~s/\r|\n//g;
+	if ($confitem!~/^\#/)
+	{
+	    my ($name, $value) = split(/\s*\=\s*/, $confitem);
+	    $config{$name} = $value;
+	    print "$name => $value\n" if ($DEBUG);
+	};
+    }
+
+    return %config;
+}
 
 sub loadtemplates
 {
