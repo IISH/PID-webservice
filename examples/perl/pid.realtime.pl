@@ -15,6 +15,9 @@ die "Can't find templates" unless (-e $templatedir);
 $logdir = "$Bin/logs";
 mkdir $logdir unless (-e $logdir);
 
+my %params = loadconf($Bin);
+my ($org, $authkey) = ($params{org}, $params{authkey});
+
 use Getopt::Std;
 %options=();
 getopts("p:i:b:o:a:d",\%options);
@@ -27,8 +30,6 @@ $DEBUG++ if ($options{d});
 
 #my $addparam = "-b ";
 my ($xmlbasic, $xmlimage) = loadtemplates($templatedir);
-my %params = loadconf($Bin);
-my ($org, $authkey) = ($params{org}, $params{authkey});
 print "$org $authkey $barcode\n" if ($DEBUG);
 
 unless ($pidsource)
@@ -84,7 +85,7 @@ else
 	    {
 	        $counter++;
 	        print "#$counter\n";
-                createpidrequest($pidfile, $dirlogs, $addparam);
+                createpidrequest($pidfile, $dirlogs, $addparam, $DEBUG);
 	    }
 	    else
 	    {
@@ -140,6 +141,7 @@ sub createpidrequest
     $statusfile = "$outdir/$statusfile" if ($outdir);
 
     $command = "$bin/wget $addparam --header=\"Content-Type: text/xml\" --header=\"Authorization: oauth $authkey\" https://pid.socialhistoryservices.org/secure --no-check-certificate --post-file=$postfile -O $statusfile -a $logdir/pid.log";
+print "$command\n";
     print "$command\n" if ($DEBUG);
     $exe = `$command`;
 
@@ -191,6 +193,11 @@ sub loadtemplates
     @xmlimage = <template2>;
     close(template2);
 
+    foreach $str (@xmlimage)
+    {
+	$str=~s/^\s//g;
+    }
+
     return ("@xmlbasic", "@xmlimage");
 }
 
@@ -207,7 +214,7 @@ sub filltemplate
     print fileout "$template\n";
     close(fileout);
 
-    print "DEBUG $template\n" if ($DEBUG);
+    print "DEBUG $pidfile $template\n" if ($DEBUG);
 
     return $pidfile;
 }

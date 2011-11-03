@@ -1,2 +1,4 @@
+# ID for orginization
 org = 10622
-authkey = e3536bb2-da25-4a00-8ca9-440d01b2a159
+# Use https://pid.socialhistoryservices.org/oauth/keys to generate your key
+authkey = 415acd81-7d20-41c1-a56f-c77e27958498

@@ -1,11 +1,14 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pid="http://pid.socialhistoryservices.org/">
 <soapenv:Body>
-     <pid:CreatePidRequest>
-	<pid:na>%%org%%</pid:na>
-	<pid:handle>      
-	 	<pid:pid>%%org%%/%%barcode%%</pid:pid>
-		<pid:resolveUrl>%%url%%</pid:resolveUrl>
-        </pid:handle>
-      </pid:CreatePidRequest>
+       <pid:UpsertPidRequest>
+         <pid:na>%%org%%</pid:na>
+         <pid:handle>
+           <pid:pid>%%org%%/%%barcode%%</pid:pid>
+           <pid:locAtt>
+	     <pid:location href="http://search.iisg.nl/search/search?action=get&amp;id=%%barcode%%&amp;col=images&amp;fieldname=resource" view="level2" weight="1" />
+	     <pid:location href="http://search.iisg.nl/search/search?action=get&amp;id=%%barcode%%&amp;col=images&amp;fieldname=thumbnail" view="level3" weight="0"/>
+           </pid:locAtt>
+         </pid:handle>
+</pid:UpsertPidRequest>
 </soapenv:Body>
 </soapenv:Envelope>
