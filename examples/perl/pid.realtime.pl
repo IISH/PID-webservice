@@ -15,39 +15,52 @@ die "Can't find templates" unless (-e $templatedir);
 $logdir = "$Bin/logs";
 mkdir $logdir unless (-e $logdir);
 
+use Getopt::Std;
+%options=();
+getopts("p:i:b:o:a:d",\%options);
+
+$pidsource = $options{i} if ($options{i});
+$barcode = $options{b} if ($options{b});
+$org = $options{o} if ($options{o});
+$authkey = $options{a} if ($options{a});
+$DEBUG++ if ($options{d});
+
 #my $addparam = "-b ";
 my ($xmlbasic, $xmlimage) = loadtemplates($templatedir);
 my %params = loadconf($Bin);
 my ($org, $authkey) = ($params{org}, $params{authkey});
-print "$org $authkey\n";
-
-# Original ID or file with IDs
-$pidsource = $ARGV[0];
-# Overwriting org and key 
-$org = $ARGV[1] if ($ARGV[1]);
-$authkey = $ARGV[2] if ($ARGV[2]);
+print "$org $authkey $barcode\n" if ($DEBUG);
 
 unless ($pidsource)
 {
     print << "EOL";
 # Simple PID generator
 Usage: 
-./pid.realtime.pl id [params]
-where
-id: some ID
-params are optional:
-org - id of organization
-authkey - authorization key from PID webservice
+./pid.realtime.pl [params]
+
+where params are:
+-i ID of the object
+optional:
+-b [barcode]: for images
+-o [org_id]: id of organization
+-a [authkey]: authorization key from PID webservice
+
 Example: 
 ./pid.realtime.pl 1447312 
 EOL
 }
 
-if ($pidsource=~/^\d+$/)
+if (!$barcode)
 {
     $pid = $pidsource;
     my $PID = pidrequest($pid);
     print "$pid => $PID\n";
+}
+elsif ($barcode)
+{
+    $pid = $pidsource;
+    my $PID = pidrequest($pid, $barcode, $DEBUG);
+    print "Barcode: $pid => $PID\n";
 }
 else
 {
@@ -83,13 +96,17 @@ else
 
 sub pidrequest
 {
-    my ($pid, $DEBUG) = @_;
+    my ($pid, $barcode, $DEBUG) = @_;
     my $PID;
+
+    my $template = "$xmlbasic";
+    $template = "$xmlimage" if ($barcode);
+    print "$template" if ($DEBUG);
 
     if ($pid)
     {
             $urls{$pid} = "http://search.socialhistoryservices.org/Record/$pid";
-            $pidfile = filltemplate("$xmlbasic", $dirpid, $pid);
+            $pidfile = filltemplate("$template", $dirpid, $pid, $barcode, $DEBUG);
 
             if (-e "$dirpid/$pidfile")
             {
@@ -129,6 +146,7 @@ sub createpidrequest
     $soap = `/bin/cat $statusfile`;
 #   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:CreatePidResponse xmlns:ns2="http://pid.socialhistoryservices.org/"><ns2:handle><ns2:pid>10622/54F60846-49C1
 #-4ED9-A7EA-09418D6B8FE4</ns2:pid><ns2:resolveUrl>http://search.socialhistoryservices.org/Record/312</ns2:resolveUrl></ns2:handle></ns2:CreatePidResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+    print "[SOAP] $soap\n" if ($DEBUG);
     if ($soap=~/<ns2\:pid>(.+?)<\/ns2\:pid>/i)
     {
        $PID = $1;
@@ -178,16 +196,18 @@ sub loadtemplates
 
 sub filltemplate
 {
-    my ($template, $dirpid, $pid, $DEBUG) = @_;
+    my ($template, $dirpid, $pid, $barcode, $DEBUG) = @_;
 
     $template=~s/\%\%org\%\%/$org/sxgi;
     $template=~s/\%\%url\%\%/$urls{$pid}/sxgi;
-    $template=~s/\%\%barcode\%\%/$barcode{$pid}/sxgi;
+    $template=~s/\%\%barcode\%\%/$barcode/sxgi;
 
     my $pidfile = "$pid.xml";
     open(fileout, ">$dirpid/$pidfile");
     print fileout "$template\n";
     close(fileout);
+
+    print "DEBUG $template\n" if ($DEBUG);
 
     return $pidfile;
 }
