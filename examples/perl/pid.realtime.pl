@@ -78,7 +78,7 @@ else
 
 	if ($true)
 	{
-            $urls{$pid} = "http://search.socialhistoryservices.org/Record/$pid";
+            $urls{$pid} = "http://search.socialhistory.org/Record/$pid";
             $pidfile = filltemplate("$xmlbasic", $dirpid, $pid);
 
 	    if (-e "$dirpid/$pidfile")
@@ -106,7 +106,7 @@ sub pidrequest
 
     if ($pid)
     {
-            $urls{$pid} = "http://search.socialhistoryservices.org/Record/$pid";
+            $urls{$pid} = "http://search.socialhistory.org/Record/$pid";
             $pidfile = filltemplate("$template", $dirpid, $pid, $barcode, $DEBUG);
 
             if (-e "$dirpid/$pidfile")
@@ -140,14 +140,13 @@ sub createpidrequest
 
     $statusfile = "$outdir/$statusfile" if ($outdir);
 
-    $command = "$bin/wget $addparam --header=\"Content-Type: text/xml\" --header=\"Authorization: oauth $authkey\" https://pid.socialhistoryservices.org/secure --no-check-certificate --post-file=$postfile -O $statusfile -a $logdir/pid.log";
-print "$command\n";
+    $command = "$bin/wget $addparam --header=\"Content-Type: text/xml\" --header=\"Authorization: oauth $authkey\" https://pid.socialhistory.org/secure --no-check-certificate --post-file=$postfile -O $statusfile -a $logdir/pid.log";
     print "$command\n" if ($DEBUG);
     $exe = `$command`;
 
     $soap = `/bin/cat $statusfile`;
-#   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:CreatePidResponse xmlns:ns2="http://pid.socialhistoryservices.org/"><ns2:handle><ns2:pid>10622/54F60846-49C1
-#-4ED9-A7EA-09418D6B8FE4</ns2:pid><ns2:resolveUrl>http://search.socialhistoryservices.org/Record/312</ns2:resolveUrl></ns2:handle></ns2:CreatePidResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+#   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:CreatePidResponse xmlns:ns2="http://pid.socialhistory.org/"><ns2:handle><ns2:pid>10622/54F60846-49C1
+#-4ED9-A7EA-09418D6B8FE4</ns2:pid><ns2:resolveUrl>http://search.socialhistory.org/Record/312</ns2:resolveUrl></ns2:handle></ns2:CreatePidResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
     print "[SOAP] $soap\n" if ($DEBUG);
     if ($soap=~/<ns2\:pid>(.+?)<\/ns2\:pid>/i)
     {
@@ -163,7 +162,7 @@ sub loadconf
     my ($confdir, $DEBUG) = @_;
     my (%config, $confitem);
 
-    open(config, "$confdir/config");
+    open(config, "$confdir/pid.config");
     my @config = <config>;
     close(config);
 
