@@ -1,0 +1,5 @@
+# Simple PID generator implementation
+PID for id:
+pid.realtime.pl -i 697211
+PID for image with barcode:
+pid.realtime.pl -i 697211 -b 3005100111002
