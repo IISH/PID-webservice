@@ -224,10 +224,13 @@ public class HandleDaoImpl implements HandleDao {
 
         // add non-PID webservice handles ( other than those managed here like URL, LID and the 10320/loc )
         preserveHandles(na, pid, currentValues, handles);
-
+        final int timestamp = (int)(System.currentTimeMillis()/1000);
         final BasicDBList _lookup = new BasicDBList();
         final BasicDBList list = new BasicDBList();
         for (Handle handle : handles) {
+            handle.setTimestamp(timestamp);
+            handle.setTTLType(HandleValue.TTL_TYPE_RELATIVE);     
+            handle.setTTL(86400);     
             final BasicDBObject hv = handleStorage.setHandleValue(handle);
             list.add(hv);
             _lookup.addAll(handle.getLocations());

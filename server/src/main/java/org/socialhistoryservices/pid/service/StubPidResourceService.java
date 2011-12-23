@@ -68,12 +68,14 @@ public class StubPidResourceService implements PidResourceService {
         String lidCandidate = pidType.getLocalIdentifier();
         if (lidCandidate != null) {
             final List<Handle> h = handleDao.fetchHandleByAttribute(na, lidCandidate, "LID");
-            if (h.size() != 0) {
+            if (h.size() == 0) {
+                // As a PID is synonymous to a LID, we allow new LIDs to bind to PIDs
+            } else {
                 final String pid = h.get(0).getHandle();
                 if (pidType.getPid() == null) {
                     pidType.setPid(pid);
                 } else if (!pid.equalsIgnoreCase(pidType.getPid())) {
-                    throw new PidException("Cannot create local identifier " + lidCandidate + " because it already is bound to PID " + pid);
+                    throw new PidException("Cannot accept local identifier " + lidCandidate + " because it already is bound to PID " + pid);
                 }
             }
         }
@@ -114,7 +116,7 @@ public class StubPidResourceService implements PidResourceService {
         String na = NAAuthentication.authorize(handle.getPid());
         String lidCandidate = handle.getLocalIdentifier();
         checkAvailability(handle.getPid(), na, lidCandidate);
-        return convertHandleToPidType( handleDao.updateHandle(na, handle));
+        return convertHandleToPidType(handleDao.updateHandle(na, handle));
     }
 
     private void checkAvailability(String pid, String na, String lidCandidate) {
