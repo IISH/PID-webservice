@@ -7,6 +7,20 @@ First of all, setup your environment. We recommend:
 - the webservice uses MongoDB to store the handles. You need to install on the same service nodes a replica set.
 See http://www.mongodb.org/ to set it up.
 - Install your Handle System resolver(s). See http://hdl.handle.net/ for complete documentation.
+- build the war and jar dependencies using:
+$ mvn clean package
+or download the latest stable build from:
+https://bamboo.socialhistoryservices.org/browse/PID
+
+Place the war file as ROOT.war in your tomcat's webapp
+- copy the pid.properties file onto a different part of your server. For example to:
+/etc/tomcat6/pid.properties
+And change it's properties according to your custom setup of the MongoDB replicaset and proxy URL
+
+Declare the pid.properties file in the setup.sh. For example :
+JAVA_OPTS="$JAVA_OPTS -Dpid.properties=/etc/tomcat6/pid.properties"
+
+The tomcat instance does not have special memory requirements. You may want to start at -Xmx256M
 
 2. Master and mirrors
 Note that replication is now left to MongoDB's replica set. Hence the synchronization by the Handle System
