@@ -257,6 +257,7 @@ are bound to the resolve url http://some.domain.org/. Note that the reverse look
 is limited to 10 records.
 
 Request:
+
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -268,6 +269,7 @@ Request:
     </soapenv:Envelope>
 
 Response:
+
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidByAttributeResponse xmlns:ns2="http://localhost/">
@@ -291,7 +293,6 @@ Response:
                     <ns2:pid>10622.1/aaa3481b-442e-416e-bb87-91dcfcd5a51c</ns2:pid>
                     <ns2:resolveUrl>http://some.domain.org/</ns2:resolveUrl>
                 </ns2:handle>
-
                 <ns2:handle>
                     <ns2:pid>10622.1/19ef01a2-8c0a-4932-b39e-b62c8362fa30</ns2:pid>
                     <ns2:resolveUrl>http://some.domain.org/</ns2:resolveUrl>
@@ -315,6 +316,7 @@ case, the local identifier needed to be set when creating or updating the pid.
 For example, if the local identifier was 12345 and bound like this:
 
 Request:
+
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -329,6 +331,7 @@ Request:
     </soapenv:Envelope>
 
 Response:
+
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:CreatePidResponse xmlns:ns2="http://localhost/">
@@ -343,6 +346,7 @@ Response:
 
 Then the reverse lookup would be:
 Request:
+
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -354,6 +358,7 @@ Request:
     </soapenv:Envelope>
 
 Response:
+
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidByAttributeResponse xmlns:ns2="http://localhost/">
@@ -370,7 +375,7 @@ Response:
 Unless you are an service provider whose clients cannot supply anything else but local identifiers, this method would
 not be useful to an organization delivering pids. The GetQuickPid method utilizes the earlier mentioned methods:
 
-1 .Pid creation: when the localIdentifier is not bound to a known pid, the webservice creates a pid and then binds it to
+1 Pid creation: when the localIdentifier is not bound to a known pid, the webservice creates a pid and then binds it to
 the resolveUrl and localIdentifier.
 2. Pid lookup: when the localIdentifier is bound to an existing Pid, the method will echo back all data bound to the pid.
 3. Pid update: when the localIdentifier is bound to an existing Pid and the supplied resolveUrl is different to the bound
