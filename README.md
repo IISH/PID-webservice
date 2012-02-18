@@ -1,40 +1,45 @@
-Pid webservice
+#Pid webservice
 
-1. Installation
-First of all, setup your environment. We recommend:
-- one Apache webservice with SSL to act as proxy and load balance method
-- a minimum of two service nodes. Each ought to have a tomcat6\7 instance.
-- the webservice uses MongoDB to store the handles. You need to install on the same service nodes a replica set.
-See http://www.mongodb.org/ to set it up.
-- Install your Handle System resolver(s). See http://hdl.handle.net/ for complete documentation.
-- build the war and jar dependencies using:
-$ mvn clean package
-or download the latest stable build from:
+##Setup
+
+First of all, setup your environment ( Linux or Windows 64 bit). We recommend:
+
+* one Apache webservice with SSL to act as proxy and load balance method
+* a minimum of three service nodes to run the resolvers and tomcat instances on. Each ought to have a tomcat6\7
+instance.
+* Make daily backups using a mongodump to remote storage
+
+##Builds
+build the war and jar dependencies using:
+<code>$ mvn clean package</code>
+
+Or download the latest stable build from:
 https://bamboo.socialhistoryservices.org/browse/PID
 
-Place the war file as ROOT.war in your tomcat's webapp
-- copy the pid.properties file onto a different part of your server. For example to:
-/etc/tomcat6/pid.properties
-And change it's properties according to your custom setup of the MongoDB replicaset and proxy URL
-
-Declare the pid.properties file in the setup.sh. For example :
-JAVA_OPTS="$JAVA_OPTS -Dpid.properties=/etc/tomcat6/pid.properties"
+##Install
+###The pid webservice
+* Place the war file as ROOT.war in your tomcat's webapp folder.
+* copy the pid.properties file onto a different part of your server. For example to:
+<code>/etc/tomcat6/pid.properties</code>
+* Change it's properties according to your custom setup of the MongoDB replicaset and proxy URL
+* Declare the pid.properties file in the setup.sh. For example :
+<code>JAVA_OPTS="$JAVA_OPTS -Dpid.properties=/etc/tomcat6/pid.properties"</code>
 
 The tomcat instance does not have special memory requirements. You may want to start at -Xmx256M
 
-2. Master and mirrors
-Note that replication is now left to MongoDB's replica set. Hence the synchronization by the Handle System
-resolver from master to mirror(s) is no longer required.
+###Handle System resolvers
+To setup a primary and secondary Handle System resolver visit http://hdl.handle.net/ for instructions
 
-3. Drivers
-You need to install the mongodb-handlestorage custom database driver and register it in the config.cfg file. For example
-your installation of Handle System's resolver /lib folder ought to contain:
-mongodb-handlestorage-7.0.jar
-mongo-java-driver-2.6.5.jar
+Note that replication is now left to MongoDB's replica set. Hence the synchronization by the Handle System
+resolver from master\primary to mirror\secondary servers is no longer required.
+
+You need to install the mongodb-handlestorage custom database driver and register it in the config.cfg file.
+For example your installation of Handle System's resolver <code>/lib</code> folder ought to contain:
+** mongodb-handlestorage-7.0.jar
+** mongo-java-driver-2.6.5.jar
 ... the other handle dependencies
 
-4. Config.cfg
-Register the MongoDB replicaset in the 'urls' key and register the custom drivers. Example:
+The config.cfg needs to register the custom drivers and its settings. Example:
 
   "server_config" = {
 
@@ -62,55 +67,53 @@ Register the MongoDB replicaset in the 'urls' key and register the custom driver
 ... other settings
 }
 
-==============================================================================
 
-Usage
+##Usage
 
-1. What is the Pid webservice
+##What is the Pid webservice
 The Pid webservice is a driver for Handle System's resolver technology. It eases the creation of persistent identifiers
 and their bindings to attributes such as web locations with the use of a Soap protocol. This means it is system
 agnostic: an external application offering web methods that can be integrated into your catalog and archival system
 solutions. All with the purpose to offer a consistent delivery via pids of your web resources to yourself, your users
 and external discovery services alike.
 
-2. Webservice keys
+##Webservice keys
 Access to the webservice is HTTP over SSL. A private webservice key is needed to be able to create and update your pids.
 This single key can be changed at any time you want, should it be compromised. You can manage pids from different naming
 authorities ( for example a naming authority for production pids, and another for testing). There are two ways to obtain
 webservice keys:
 
- - The pid webservice offers an Oauth 2 protocol with which to distribute and refresh access tokens. The Oauth entry
+* The pid webservice offers an Oauth 2 protocol with which to distribute and refresh access tokens. The Oauth entry
  point is at http://localhost/oauth/. The Oauth consumer client id must be set in the properties file
- - An elegant administration page at http://localhost/oauth/keys to produce keys . 
+* An elegant administration page at http://localhost/oauth/keys to produce keys . 
 
-Place the key in a HTTP header request as expressed in this pseude code:
-HTTP-header(headerName, headerValue) = { "Authorization", "oauth [key]" } 
+To call the webserver, place the key in a HTTP header request as expressed in this pseude code:
+<code>HTTP-header(headerName, headerValue) = { "Authorization", "oauth [key]" } 
 Whereby [key] is the webservice key. For example, if the key is 12345, the header is: 
-HTTP-header("Authorization", "oauth 12345") 
+HTTP-header("Authorization", "oauth 12345")</code> 
 
-3. Discover the webservice
-The Pid webservice offers seven operations:
+##Discover the webservice
+The Pid webservice offers a high level API for seven operations:
 
-1.Creation and update of pids using an Upsert method
-2.Creation of pids (automatic and custom) and its bind properties: single resolve url, set of resolvable urls, or local
+1. Creation and update of pids using an Upsert method
+2. Creation of pids (automatic and custom) and its bind properties: single resolve url, set of resolvable urls, or local
 identifier.
-3.Update of pids and its bindings
-4.Lookup of bindings via a pid
-5.Reverse lookup of a pid via resolve url or an attribute (local identifier)
-6.Quick binding
-7.Deletion of pids
+3. Update of pids and its bindings
+4. Lookup of bindings via a pid
+5. Reverse lookup of a pid via resolve url or an attribute (local identifier)
+6. Quick binding
+7. Deletion of pids
 
 Use Soap to operate the webservice API:
-
-- WSDL document is at http://localhost/pid.wsdl 
-- and the webservice endpoint is located at http://localhost/secure/ 
+* WSDL document is at http://localhost/pid.wsdl
+* and the webservice endpoint is located at http://localhost/secure/
  
-4. Examples
-4.1. Create a Pid with a resolve Url
+##Examples
+###Create a Pid with a resolve Url
 The following example will create a pid 10622.1/32dc9242-a978-43b0-befd-831fa02af673 Once created, the url handle:
 http://hdl.handle.net/10622.1/32dc9242-a978-43b0-befd-831fa02af673 would resolve to the url http://some.domain.org/
 
-Request:
+    Request:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -136,13 +139,16 @@ Request:
     </SOAP-ENV:Envelope>
 You can also create the PIDs yourself as demonstrated in this movie:
 
-4.1.2 Create a custom pid with multiple urls
+###Create a custom pid with multiple urls
 This example demonstrates a custom pid that is bound to three resolve urls. This will make possible three ways of
 resolving with one pid:
+
 1.http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3
 2.http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?view=master
 3.http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?view=thumbnail
+
 Request:
+```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -160,8 +166,10 @@ Request:
             </pid:CreatePidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
+```
 
-    Response:
+Response:
+```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Header/>
         <SOAP-ENV:Body>
@@ -178,14 +186,16 @@ Request:
             </ns2:CreatePidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
+    ```
 
 You do not need the locatt expicitly mentioned in the handle to redirect endusers to the desired locations. The country
 attribute can be used to direct users using GeoIP. We demonstrate this here:
 
-4.2 Update a Pid with a new resolve Url
+###Update a Pid with a new resolve Url
 To change a resolve url, use the update method
 
-Request:
+ Request:
+ ```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -198,8 +208,10 @@ Request:
             </pid:UpdatePidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
+ ```
 
-    Response:
+Response:
+```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:UpdatePidResponse xmlns:ns2="http://localhost/">
@@ -210,12 +222,14 @@ Request:
             </ns2:UpdatePidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
+```
 
-4.3.1 Lookup bound attributes of a known pid
+##Lookup bound attributes of a known pid
 To know that bindings exist for a given pid, use the getPid method. In this example we find out that the resolve url is
 http://new-domain/
 
 Request:
+```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -224,8 +238,10 @@ Request:
             </pid:GetPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
+```
 
-    Response:
+Response:
+```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidResponse xmlns:ns2="http://localhost/">
@@ -236,13 +252,15 @@ Request:
             </ns2:GetPidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
+```
 
-4.3.2 Lookup a pid from its know resolve urls
+###Lookup a pid from its know resolve urls
 It is possible to find a pid through it's bound attributes such as resolve urls. In this example we look for pids that
 are bound to the resolve url http://some.domain.org/. Note that the reverse lookup is case sensitive and the result set
 is limited to 10 records.
 
 Request:
+```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -252,8 +270,10 @@ Request:
             </pid:GetPidByAttributeRequest>
         </soapenv:Body>
     </soapenv:Envelope>
+```
 
-    Response:
+Response:
+```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidByAttributeResponse xmlns:ns2="http://localhost/">
@@ -277,6 +297,7 @@ Request:
                     <ns2:pid>10622.1/aaa3481b-442e-416e-bb87-91dcfcd5a51c</ns2:pid>
                     <ns2:resolveUrl>http://some.domain.org/</ns2:resolveUrl>
                 </ns2:handle>
+
                 <ns2:handle>
                     <ns2:pid>10622.1/19ef01a2-8c0a-4932-b39e-b62c8362fa30</ns2:pid>
                     <ns2:resolveUrl>http://some.domain.org/</ns2:resolveUrl>
@@ -292,14 +313,16 @@ Request:
             </ns2:GetPidByAttributeResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
+```
 
-4.3.3 Lookup a pid from its know local identifiers
+###Lookup a pid from its know local identifiers
 It is possible to bind other attributes to a pid, such as a local identifier or any other tag for that matter. In this
 case, the local identifier needed to be set when creating or updating the pid.
 
 For example, if the local identifier was 12345 and bound like this:
 
 Request:
+```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -312,8 +335,9 @@ Request:
             </pid:CreatePidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
-
-    Response:
+```
+Response:
+```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:CreatePidResponse xmlns:ns2="http://localhost/">
@@ -325,10 +349,11 @@ Request:
             </ns2:CreatePidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
+```
 
 Then the reverse lookup would be:
-
 Request:
+```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -338,9 +363,11 @@ Request:
             </pid:GetPidByAttributeRequest>
         </soapenv:Body>
     </soapenv:Envelope>
+```
 
-    Response:
-    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+Response:
+```
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidByAttributeResponse xmlns:ns2="http://localhost/">
                 <ns2:handle>
@@ -351,20 +378,22 @@ Request:
             </ns2:GetPidByAttributeResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
+```
 
-4.4 Quick pid method
+###Quick pid method
 Unless you are an service provider whose clients cannot supply anything else but local identifiers, this method would
 not be useful to an organization delivering pids. The GetQuickPid method utilizes the earlier mentioned methods:
 
-1.Pid creation: when the localIdentifier is not bound to a known pid, the webservice creates a pid and then binds it to
+1 .Pid creation: when the localIdentifier is not bound to a known pid, the webservice creates a pid and then binds it to
 the resolveUrl and localIdentifier.
-2.Pid lookup: when the localIdentifier is bound to an existing Pid, the method will echo back all data bound to the pid. 
-3.Pid update: when the localIdentifier is bound to an existing Pid and the supplied resolveUrl is different to the bound
+2. Pid lookup: when the localIdentifier is bound to an existing Pid, the method will echo back all data bound to the pid.
+3. Pid update: when the localIdentifier is bound to an existing Pid and the supplied resolveUrl is different to the bound
 resolveUrl, a rebind will be made.
-5.5 UpsertPid method
+
+###UpsertPid method
 The upsert method does exactly the same as the createPid and updatePid combined; and is more efficient. It will create
 new pids; and update a pid if it already exists. Use this method if you do not need to check explicitly for PIDs that
 do not exist whilst updating... or already exist while creating them.
 
-4.6 DeletePid method
+###DeletePid method
 This method will delete a pid and all it's bound attributes.
