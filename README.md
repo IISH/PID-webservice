@@ -113,7 +113,7 @@ Use Soap to operate the webservice API:
 The following example will create a pid 10622.1/32dc9242-a978-43b0-befd-831fa02af673 Once created, the url handle:
 http://hdl.handle.net/10622.1/32dc9242-a978-43b0-befd-831fa02af673 would resolve to the url http://some.domain.org/
 
-    Request:
+Request:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -126,7 +126,7 @@ http://hdl.handle.net/10622.1/32dc9242-a978-43b0-befd-831fa02af673 would resolve
         </soapenv:Body>
     </soapenv:Envelope>
 
-    Response:
+Response:
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:CreatePidResponse xmlns:ns2="http://localhost/">
@@ -137,18 +137,18 @@ http://hdl.handle.net/10622.1/32dc9242-a978-43b0-befd-831fa02af673 would resolve
             </ns2:CreatePidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
+
 You can also create the PIDs yourself as demonstrated in this movie:
 
 ###Create a custom pid with multiple urls
 This example demonstrates a custom pid that is bound to three resolve urls. This will make possible three ways of
 resolving with one pid:
 
-1.http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3
-2.http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?view=master
-3.http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?view=thumbnail
+1. http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3
+2. http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?view=master
+3. http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?view=thumbnail
 
 Request:
-```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -166,10 +166,8 @@ Request:
             </pid:CreatePidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
-```
 
 Response:
-```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Header/>
         <SOAP-ENV:Body>
@@ -194,8 +192,7 @@ attribute can be used to direct users using GeoIP. We demonstrate this here:
 ###Update a Pid with a new resolve Url
 To change a resolve url, use the update method
 
- Request:
- ```
+Request:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -208,10 +205,8 @@ To change a resolve url, use the update method
             </pid:UpdatePidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
- ```
 
 Response:
-```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:UpdatePidResponse xmlns:ns2="http://localhost/">
@@ -222,14 +217,12 @@ Response:
             </ns2:UpdatePidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
-```
 
 ##Lookup bound attributes of a known pid
 To know that bindings exist for a given pid, use the getPid method. In this example we find out that the resolve url is
 http://new-domain/
 
 Request:
-```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -238,10 +231,8 @@ Request:
             </pid:GetPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
-```
 
 Response:
-```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidResponse xmlns:ns2="http://localhost/">
@@ -252,7 +243,6 @@ Response:
             </ns2:GetPidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
-```
 
 ###Lookup a pid from its know resolve urls
 It is possible to find a pid through it's bound attributes such as resolve urls. In this example we look for pids that
@@ -260,7 +250,6 @@ are bound to the resolve url http://some.domain.org/. Note that the reverse look
 is limited to 10 records.
 
 Request:
-```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -270,10 +259,8 @@ Request:
             </pid:GetPidByAttributeRequest>
         </soapenv:Body>
     </soapenv:Envelope>
-```
 
 Response:
-```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidByAttributeResponse xmlns:ns2="http://localhost/">
@@ -313,7 +300,6 @@ Response:
             </ns2:GetPidByAttributeResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
-```
 
 ###Lookup a pid from its know local identifiers
 It is possible to bind other attributes to a pid, such as a local identifier or any other tag for that matter. In this
@@ -322,7 +308,6 @@ case, the local identifier needed to be set when creating or updating the pid.
 For example, if the local identifier was 12345 and bound like this:
 
 Request:
-```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -335,9 +320,8 @@ Request:
             </pid:CreatePidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
-```
+
 Response:
-```
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:CreatePidResponse xmlns:ns2="http://localhost/">
@@ -349,11 +333,9 @@ Response:
             </ns2:CreatePidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
-```
 
 Then the reverse lookup would be:
 Request:
-```
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -363,11 +345,9 @@ Request:
             </pid:GetPidByAttributeRequest>
         </soapenv:Body>
     </soapenv:Envelope>
-```
 
 Response:
-```
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidByAttributeResponse xmlns:ns2="http://localhost/">
                 <ns2:handle>
@@ -378,7 +358,6 @@ Response:
             </ns2:GetPidByAttributeResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
-```
 
 ###Quick pid method
 Unless you are an service provider whose clients cannot supply anything else but local identifiers, this method would
