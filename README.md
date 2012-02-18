@@ -114,6 +114,7 @@ The following example will create a pid 10622.1/32dc9242-a978-43b0-befd-831fa02a
 http://hdl.handle.net/10622.1/32dc9242-a978-43b0-befd-831fa02af673 would resolve to the url http://some.domain.org/
 
 Request:
+
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -127,6 +128,7 @@ Request:
     </soapenv:Envelope>
 
 Response:
+
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:CreatePidResponse xmlns:ns2="http://localhost/">
@@ -149,6 +151,7 @@ resolving with one pid:
 3. http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?view=thumbnail
 
 Request:
+
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -168,6 +171,7 @@ Request:
     </soapenv:Envelope>
 
 Response:
+
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Header/>
         <SOAP-ENV:Body>
@@ -184,7 +188,6 @@ Response:
             </ns2:CreatePidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
-    ```
 
 You do not need the locatt expicitly mentioned in the handle to redirect endusers to the desired locations. The country
 attribute can be used to direct users using GeoIP. We demonstrate this here:
@@ -193,6 +196,7 @@ attribute can be used to direct users using GeoIP. We demonstrate this here:
 To change a resolve url, use the update method
 
 Request:
+
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -207,6 +211,7 @@ Request:
     </soapenv:Envelope>
 
 Response:
+
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:UpdatePidResponse xmlns:ns2="http://localhost/">
@@ -223,6 +228,7 @@ To know that bindings exist for a given pid, use the getPid method. In this exam
 http://new-domain/
 
 Request:
+
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
@@ -233,6 +239,7 @@ Request:
     </soapenv:Envelope>
 
 Response:
+
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
             <ns2:GetPidResponse xmlns:ns2="http://localhost/">
