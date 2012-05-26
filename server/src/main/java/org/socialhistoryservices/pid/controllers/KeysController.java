@@ -20,7 +20,7 @@
 package org.socialhistoryservices.pid.controllers;
 
 import org.socialhistoryservices.pid.util.NamingAuthority;
-import org.socialhistoryservices.security.MongoOAuth2ProviderTokenServices;
+import org.socialhistoryservices.security.MongoTokenStore;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,7 +37,7 @@ import java.util.List;
 public class KeysController {
 
     @Resource
-    private MongoOAuth2ProviderTokenServices tokenServices;
+    private MongoTokenStore mongoTokenStore;
 
     @RequestMapping("/keys")
     public ModelAndView list(
@@ -48,11 +48,11 @@ public class KeysController {
         Authentication authentication = context.getAuthentication();
         List<String> nas = NamingAuthority.getNaRole(authentication);
         if (refresh_token != null){
-            tokenServices.recreateRefreshAccessToken(refresh_token);
+            //mongoTokenStore.recreateRefreshAccessToken(refresh_token);
         }
-        OAuth2AccessToken token = tokenServices.selectKeys(authentication.getName());
+        OAuth2AccessToken token = mongoTokenStore.selectKeys(authentication.getName());
         if (token == null)
-            token = tokenServices.createToken( authentication);
+            //token = mongoTokenStore.createToken( authentication);
         mav.addObject("token", token);
         mav.addObject("nas", nas); // ToDo: when authorities are changed, the ones stored in the oauth table are not updated.
         return mav;

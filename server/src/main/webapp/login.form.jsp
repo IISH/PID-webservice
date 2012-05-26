@@ -28,7 +28,7 @@
 </form>
 <hr/>
 <form id="loginLink" name="loginLink" action="oauth/keys" method="post">
-    <label>Or use a webservice key: <input type="password" id="oauth_token" name="oauth_token" value="" size="50"></label>
+    <label>Or use a webservice key: <input type="password" id="access_token" name="access_token" value="" size="50"></label>
 
     <p><input name='login' value='Login' type='submit'></p>
 </form>

@@ -11,10 +11,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:2.6.5" level="project" />
     <orderEntry type="library" name="Maven: net.handle:handle:7.0" level="project" />
     <orderEntry type="library" name="Maven: net.cnri:util:7.0" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:4.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:2.7.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.8.1" level="project" />
   </component>
 </module>
 

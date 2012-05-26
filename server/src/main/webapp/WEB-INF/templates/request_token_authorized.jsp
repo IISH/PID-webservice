@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
+<%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%--
   ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
   ~
-  ~ Copyright (C) 2010-2011, International Institute of Social History
+  ~ Copyright (C) 2010-2012, International Institute of Social History
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -17,17 +17,24 @@
   ~
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
-  -->
+  --%>
 
-<beans
-        xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+  <title>Pid webservice</title>
+</head>
 
-    <bean id="pidProperties" class="org.socialhistoryservices.pid.util.PidProperties"/>
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="properties" ref="pidProperties"/>
-    </bean>
+<body>
 
-</beans>
+  <h1>Pid webservice</h1>
+
+  <div id="content">
+    <h2>Home</h2>
+
+    <p>You have successfully authorized the request for a protected resource.</p>
+  </div>
+
+</body>
+</html>

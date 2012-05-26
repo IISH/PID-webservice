@@ -38,7 +38,7 @@ public class NamingAuthority {
 
     public static List<String> getNaRole(Authentication userAuthentication) {
 
-        final Collection<GrantedAuthority> authorities = userAuthentication.getAuthorities();
+        final Collection<? extends GrantedAuthority> authorities = userAuthentication.getAuthorities();
         final List<String> nas = new ArrayList(authorities.size());
         for (GrantedAuthority authority : authorities) {
             String role = authority.getAuthority().replace("\n",""); // ToDo: find out why there sometimes is a \n in the role ?

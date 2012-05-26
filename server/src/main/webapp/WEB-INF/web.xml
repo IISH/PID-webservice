@@ -22,6 +22,11 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:/application-context.xml,classpath:/application-context-security.xml</param-value>
+    </context-param>
+
     <display-name>PID webservice</display-name>
     <servlet>
         <servlet-name>pid</servlet-name>
@@ -39,10 +44,6 @@
         <servlet-name>pid</servlet-name>
         <url-pattern>/secure/*</url-pattern>
     </servlet-mapping>
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/application-context.xml</param-value>
-    </context-param>
 
     <servlet>
         <servlet-name>security</servlet-name>
@@ -51,16 +52,15 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>security</servlet-name>
-        <url-pattern>/oauth/*</url-pattern>
+        <url-pattern>/oauth/authorize</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>security</servlet-name>
-        <url-pattern>/oauth/user/authorize</url-pattern>
+        <url-pattern>/oauth/confirm_access</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>/javadoc/*</url-pattern>
+        <servlet-name>security</servlet-name>
+        <url-pattern>/oauth/token</url-pattern>
     </servlet-mapping>
 
     <filter>

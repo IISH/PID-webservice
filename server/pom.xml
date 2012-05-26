@@ -150,8 +150,8 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
-            <artifactId>spring-security-oauth</artifactId>
-            <version>1.0.0.M2</version>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>${oauth.version}</version>
         </dependency>
         <dependency>
             <groupId>net.handle</groupId>
@@ -165,25 +165,9 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>oss</id>
-            <name>Sonatype</name>
-            <url>https://oss.sonatype.org/content/repositories/springsource-milestones/</url>
-        </repository>
-    </repositories>
-
     <organization>
         <name>International Institute for Social History</name>
         <url>http://socialhistoryservices.org/</url>
     </organization>
 
-    <properties>
-        <jdkLevel>1.6</jdkLevel>
-        <spring.version>3.0.6.RELEASE</spring.version>
-        <spring.ws.version>2.0.2.RELEASE</spring.ws.version>
-        <spring.security.version>3.0.5.RELEASE</spring.security.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
 </project>

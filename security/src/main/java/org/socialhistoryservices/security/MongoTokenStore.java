@@ -1,7 +1,7 @@
 /*
  * The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
  *
- * Copyright (C) 2010-2011, International Institute of Social History
+ * Copyright (C) 2010-2012, International Institute of Social History
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,52 +20,42 @@
 package org.socialhistoryservices.security;
 
 import com.mongodb.*;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.common.ExpiringOAuth2RefreshToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
-import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
 import org.springframework.security.oauth2.common.util.SerializationUtils;
-import org.springframework.security.oauth2.provider.AuthorizedClientAuthenticationToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
-import org.springframework.security.oauth2.provider.token.JdbcOAuth2ProviderTokenServices;
-import org.springframework.security.oauth2.provider.token.RandomValueOAuth2ProviderTokenServices;
-import org.springframework.util.Assert;
+import org.springframework.security.oauth2.provider.token.AuthenticationKeyGenerator;
+import org.springframework.security.oauth2.provider.token.DefaultAuthenticationKeyGenerator;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 
 import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * OAuth2 provider of tokens. Made for MongoDB
- * As this is a port of the JDBC class, the Token and RefreshToken are divided into two collections.
- * Therefore a todo: compose the two documents into one schema for one collection.
  */
-public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderTokenServices {
+final public class MongoTokenStore implements TokenStore {
 
     private static final String DATABASE = "iaa";
     private static final String OAUTH_ACCESS_TOKEN = "oauth_access_token";
     private static final String OAUTH_REFRESH_TOKEN = "oauth_refresh_token";
-    private final Log log = LogFactory.getLog(JdbcOAuth2ProviderTokenServices.class);
     private final ConcurrentHashMap<String, OAuth2AccessToken> accessTokenStore = new ConcurrentHashMap<String, OAuth2AccessToken>();
     private final ConcurrentHashMap<String, OAuth2Authentication> authenticationTokenStore = new ConcurrentHashMap<String, OAuth2Authentication>();
     private final ConcurrentHashMap<String, Long> expirationTokenStore = new ConcurrentHashMap<String, Long>();
     private long sliderExpiration = 30000; // Thirty seconds
-    private String clientId;
     private String database;
     private Mongo mongo;
+    private AuthenticationKeyGenerator authenticationKeyGenerator = new DefaultAuthenticationKeyGenerator();
 
-    public MongoOAuth2ProviderTokenServices(Mongo mongo) {
-        Assert.notNull(mongo, "DataSource required");
-        this.mongo = mongo;
-    }
-
+    /**
+     * selectKeys
+     * <p/>
+     * returns all keys that belong to a principal
+     *
+     * @param username
+     * @return
+     */
     public OAuth2AccessToken selectKeys(String username) {
-
-        // select token, authentication from oauth_access_token
         final BasicDBObject query = new BasicDBObject("name", username);
         final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
         DBObject document = collection.findOne(query);
@@ -75,37 +65,8 @@ public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderT
         return token;
     }
 
-    public OAuth2AccessToken recreateRefreshAccessToken(String refreshTokenValue) throws AuthenticationException {
-
-        if (!isSupportRefreshToken()) {
-            throw new InvalidTokenException("Invalid refresh token: " + refreshTokenValue);
-        }
-
-        ExpiringOAuth2RefreshToken refreshToken = readRefreshToken(refreshTokenValue);
-        if (refreshToken == null) {
-            throw new InvalidTokenException("Invalid refresh token: " + refreshTokenValue);
-        } else if (isExpired(refreshToken)) {
-            removeRefreshToken(refreshTokenValue);
-            throw new InvalidTokenException("Invalid refresh token: " + refreshToken);
-        }
-        removeAccessTokenUsingRefreshToken(refreshTokenValue); //clear out any access tokens already associated with the refresh token.
-
-        final SecurityContext context = SecurityContextHolder.getContext();
-        Authentication userAuthentication = context.getAuthentication();
-        OAuth2Authentication authentication = clientAuthentication(userAuthentication);
-
-        if (!isReuseRefreshToken()) {
-            removeRefreshToken(refreshTokenValue);
-            refreshToken = createRefreshToken(authentication);
-        }
-
-        return createAccessToken(authentication, refreshToken);
-    }
-
-    @Override
-    protected void storeAccessToken(OAuth2AccessToken token, OAuth2Authentication authentication) {
-
-        // "insert into oauth_access_token (token_id, token, authentication, refresh_token) values (?, ?, ?, ?)";
+    public void storeAccessToken(OAuth2AccessToken token, OAuth2Authentication authentication) {
+        // insert into oauth_access_token (token_id, token, authentication_id, authentication, refresh_token) values (?, ?, ?, ?, ?)
         String refreshToken = null;
         if (token.getRefreshToken() != null) {
             refreshToken = token.getRefreshToken().getValue();
@@ -113,29 +74,27 @@ public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderT
         final BasicDBObject document = new BasicDBObject();
         document.put("token_id", token.getValue());
         document.put("token", SerializationUtils.serialize(token));
+        document.put("authentication_id", authenticationKeyGenerator.extractKey(authentication));
         document.put("authentication", SerializationUtils.serialize(authentication));
         document.put("refresh_token", refreshToken);
-        document.put("name", authentication.getName());
+        document.put("name", authentication.getPrincipal().toString());
         final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
         collection.insert(document);
+
+
     }
 
-    @Override
-    protected OAuth2AccessToken readAccessToken(String tokenValue) {
+    public OAuth2AccessToken readAccessToken(String tokenValue) {
 
         OAuth2AccessToken accessToken = (isFresh(tokenValue))
                 ? this.accessTokenStore.get(tokenValue)
                 : null;
         if (accessToken == null) {
             // select token_id, token from oauth_access_token where token_id = ?
-            final BasicDBObject query = new BasicDBObject();
-            query.put("token_id", tokenValue);
+            final BasicDBObject query = new BasicDBObject("token_id", tokenValue);
             final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
             DBObject document = collection.findOne(query);
             if (document == null) {
-                if (log.isInfoEnabled()) {
-                    log.info("Failed to find access token for token " + tokenValue);
-                }
             } else {
                 accessToken = SerializationUtils.deserialize((byte[]) document.get("token"));
                 this.accessTokenStore.put(tokenValue, accessToken);
@@ -145,18 +104,15 @@ public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderT
         return accessToken;
     }
 
-    @Override
-    protected void removeAccessToken(String tokenValue) {
+    public void removeAccessToken(String tokenValue) {
 
-        final BasicDBObject query = new BasicDBObject();
-        query.put("token_id", tokenValue);
+        final BasicDBObject query = new BasicDBObject("token_id", tokenValue);
         final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
         collection.remove(query);
         this.accessTokenStore.remove(tokenValue);
     }
 
-    @Override
-    protected OAuth2Authentication readAuthentication(OAuth2AccessToken token) {
+    public OAuth2Authentication readAuthentication(OAuth2AccessToken token) {
 
         final String tokenValue = token.getValue();
         OAuth2Authentication authentication = (isFresh(tokenValue))
@@ -169,9 +125,6 @@ public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderT
             final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
             final DBObject document = collection.findOne(query);
             if (document == null) {
-                if (log.isInfoEnabled()) {
-                    log.info("Failed to find access token for token " + token);
-                }
             } else {
                 authentication = SerializationUtils.deserialize((byte[]) document.get("authentication"));
                 this.authenticationTokenStore.put(tokenValue, authentication);
@@ -181,8 +134,7 @@ public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderT
         return authentication;
     }
 
-    @Override
-    protected void storeRefreshToken(ExpiringOAuth2RefreshToken refreshToken, OAuth2Authentication authentication) {
+    public void storeRefreshToken(ExpiringOAuth2RefreshToken refreshToken, OAuth2Authentication authentication) {
 
         // insert into oauth_refresh_token (token_id, token, authentication) values (?, ?, ?)
         final BasicDBObject document = new BasicDBObject();
@@ -193,62 +145,64 @@ public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderT
         collection.insert(document);
     }
 
-    @Override
-    protected ExpiringOAuth2RefreshToken readRefreshToken(String token) {
+    public ExpiringOAuth2RefreshToken readRefreshToken(String token) {
 
         // select token_id, token from oauth_refresh_token where token_id = ?
         ExpiringOAuth2RefreshToken refreshToken = null;
-        final BasicDBObject query = new BasicDBObject();
-        query.put("token_id", token);
+        final BasicDBObject query = new BasicDBObject("token_id", token);
         final DBCollection collection = getCollection(OAUTH_REFRESH_TOKEN);
         final DBObject document = collection.findOne(query);
         if (document == null) {
-            if (log.isInfoEnabled()) {
-                log.info("Failed to find refresh token for token " + token);
-            }
         } else {
             refreshToken = SerializationUtils.deserialize((byte[]) document.get("token"));
         }
         return refreshToken;
     }
 
-    @Override
-    protected void removeRefreshToken(String token) {
+    public void removeRefreshToken(String token) {
 
         // remove from oauth_refresh_token where token_id = ?
-        final BasicDBObject query = new BasicDBObject();
-        query.put("token_id", token);
+        final BasicDBObject query = new BasicDBObject("token_id", token);
         final DBCollection collection = getCollection(OAUTH_REFRESH_TOKEN);
         collection.remove(query);
     }
 
-    @Override
-    protected OAuth2Authentication readAuthentication(ExpiringOAuth2RefreshToken token) {
+    public OAuth2Authentication readAuthentication(ExpiringOAuth2RefreshToken token) {
 
         // select token_id, authentication from oauth_refresh_token where token_id = ?
         OAuth2Authentication authentication = null;
-        final BasicDBObject query = new BasicDBObject();
-        query.put("token_id", token.getValue());
-        final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
+        final BasicDBObject query = new BasicDBObject("token_id", token.getValue());
+        final DBCollection collection = getCollection(OAUTH_REFRESH_TOKEN);
         final DBObject document = collection.findOne(query);
         if (document == null) {
-            if (log.isInfoEnabled()) {
-                log.info("Failed to find access token for token " + token.getValue());
-            }
         } else {
             authentication = SerializationUtils.deserialize((byte[]) document.get("authentication"));
         }
         return authentication;
     }
 
-    @Override
-    protected void removeAccessTokenUsingRefreshToken(String refreshToken) {
+    public void removeAccessTokenUsingRefreshToken(String refreshToken) {
 
         // remove from oauth_access_token where refresh_token = ?
-        final BasicDBObject query = new BasicDBObject();
-        query.put("refresh_token", refreshToken);
+        final BasicDBObject query = new BasicDBObject("refresh_token", refreshToken);
         final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
         collection.remove(query);
+    }
+
+    @Override
+    public OAuth2AccessToken getAccessToken(OAuth2Authentication authentication) {
+        // select token_id, token from oauth_access_token where authentication_id = ?;
+
+        final String authentication_id = authenticationKeyGenerator.extractKey(authentication);
+        final BasicDBObject query = new BasicDBObject("authentication_id", authentication_id);
+        final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
+        DBObject document = collection.findOne(query);
+        OAuth2AccessToken accessToken = null;
+        if (document == null) {
+        } else {
+            accessToken = SerializationUtils.deserialize((byte[]) document.get("token"));
+        }
+        return accessToken;
     }
 
     private void expiration(String tokenValue) {
@@ -277,23 +231,8 @@ public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderT
         return false;
     }
 
-    public OAuth2AccessToken createToken(Authentication userAuthentication) {
-
-        OAuth2Authentication authentication = clientAuthentication(userAuthentication);
-        return createAccessToken(authentication);
-    }
-
-    private OAuth2Authentication clientAuthentication(Authentication userAuthentication) {
-        AuthorizedClientAuthenticationToken clientAuthentication = new AuthorizedClientAuthenticationToken(clientId, null, null, null);
-        return new OAuth2Authentication(clientAuthentication, userAuthentication);
-    }
-
     public void setSliderExpiration(long sliderExpiration) {
         this.sliderExpiration = sliderExpiration;
-    }
-
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
     }
 
     private DBCollection getCollection(String collection) {
@@ -308,10 +247,60 @@ public class MongoOAuth2ProviderTokenServices extends RandomValueOAuth2ProviderT
         return database;
     }
 
+    public void setMongo(Mongo mongo) {
+        this.mongo = mongo;
+    }
+
     public void setDatabase(String database) {
         this.database = database;
         final DBCollection c = getCollection(OAUTH_ACCESS_TOKEN);
         c.ensureIndex("token_id");
         c.ensureIndex("token_id");
+    }
+
+    /*private static byte[] serialize(Object state) {
+        ObjectOutputStream oos = null;
+        try {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream(512);
+            oos = new ObjectOutputStream(bos);
+            oos.writeObject(state);
+            oos.flush();
+            return bos.toByteArray();
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        } finally {
+            if (oos != null) {
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    // eat it
+                }
+            }
+        }
+    }
+
+    private static <T> T deserialize(byte[] byteArray) {
+        ObjectInputStream oip = null;
+        try {
+            oip = new ObjectInputStream(new ByteArrayInputStream(byteArray));
+            return (T) oip.readObject();
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        } catch (ClassNotFoundException e) {
+            throw new IllegalArgumentException(e);
+        } finally {
+            if (oip != null) {
+                try {
+                    oip.close();
+                } catch (IOException e) {
+                    // eat it
+                }
+            }
+        }
+    }*/
+
+
+    public void setAuthenticationKeyGenerator(AuthenticationKeyGenerator authenticationKeyGenerator) {
+        this.authenticationKeyGenerator = authenticationKeyGenerator;
     }
 }

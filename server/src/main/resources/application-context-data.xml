@@ -23,7 +23,7 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
     <bean id="datasourcemongo" class="org.socialhistoryservices.dao.MongoDBSingleton">
         <constructor-arg name="hosts" value="#{pidProperties['mongo.hosts']}"/>

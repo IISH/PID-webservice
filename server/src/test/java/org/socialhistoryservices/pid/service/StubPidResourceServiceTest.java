@@ -23,7 +23,6 @@ import net.handle.hdllib.HandleException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.socialhistoryservices.pid.database.domain.Handle;
 import org.socialhistoryservices.pid.exceptions.PidException;
 import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.PidType;
@@ -34,7 +33,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.provider.AuthorizedClientAuthenticationToken;
+import org.springframework.security.oauth2.provider.AuthorizationRequest;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -93,7 +92,7 @@ public class StubPidResourceServiceTest {
         authorities.add(new Grant("ROLE_NA_00000.1"));
         authorities.add(new Grant("ROLE_NA_" + na));
         authorities.add(new Grant("ROLE_NA_00000.2"));
-        AuthorizedClientAuthenticationToken clientAuthentication = new AuthorizedClientAuthenticationToken("socialhistoryservices.org", null, null, null);
+        AuthorizationRequest clientAuthentication = new AuthorizationRequest("socialhistoryservices.org", null, null, null);
         UsernamePasswordAuthenticationToken usernamePasswordAuthentication = new UsernamePasswordAuthenticationToken(null, null, authorities);
         OAuth2Authentication auth2Authentication = new OAuth2Authentication(clientAuthentication, usernamePasswordAuthentication);
         final SecurityContext context = SecurityContextHolder.getContext();
@@ -327,7 +326,7 @@ public class StubPidResourceServiceTest {
 
         // Update
         String new_Url = getResolveUrl();
-        PidType update = pidResourceService.upsertPid(na, getPidType(pid, new_Url, null, lid));
+        pidResourceService.upsertPid(na, getPidType(pid, new_Url, null, lid));
         assertNotNull(pidType);
         assertEquals(pidType.getPid(), pid);
         assertEquals(pidType.getLocalIdentifier(), lid);

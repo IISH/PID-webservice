@@ -1,5 +1,3 @@
-<%@ page import="org.aspectj.weaver.patterns.PerFromSuper" %>
-<%@ page import="com.sun.corba.se.spi.orbutil.fsm.FSM" %>
 <%--
   ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
   ~
