@@ -25,21 +25,24 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.security.oauth2.provider.ClientToken;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.security.oauth2.provider.token.RandomValueTokenServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class KeysController {
 
-    @Resource
     private MongoTokenStore mongoTokenStore;
+    private RandomValueTokenServices tokenServices;
 
-    @RequestMapping("/keys")
+    @RequestMapping("/oauth/keys")
     public ModelAndView list(
             @RequestParam(value = "token", required = false) String refresh_token) {
 
@@ -48,13 +51,27 @@ public class KeysController {
         Authentication authentication = context.getAuthentication();
         List<String> nas = NamingAuthority.getNaRole(authentication);
         if (refresh_token != null){
-            //mongoTokenStore.recreateRefreshAccessToken(refresh_token);
+            mongoTokenStore.removeAccessTokenUsingRefreshToken(refresh_token);
+            mongoTokenStore.removeRefreshToken(refresh_token);
         }
         OAuth2AccessToken token = mongoTokenStore.selectKeys(authentication.getName());
-        if (token == null)
-            //token = mongoTokenStore.createToken( authentication);
+        if (token == null){
+            ClientToken clientToken = new ClientToken("pid-webservice-client", UUID.randomUUID().toString(), null);
+            OAuth2Authentication oAuth2Authentication = new OAuth2Authentication(clientToken, authentication);
+            token = tokenServices.createAccessToken(oAuth2Authentication);
+            mongoTokenStore.storeAccessToken(token, oAuth2Authentication);
+        }
         mav.addObject("token", token);
         mav.addObject("nas", nas); // ToDo: when authorities are changed, the ones stored in the oauth table are not updated.
         return mav;
+    }
+
+    public void setMongoTokenStore(MongoTokenStore mongoTokenStore) {
+        this.mongoTokenStore = mongoTokenStore;
+    }
+
+
+    public void setTokenServices(RandomValueTokenServices tokenServices) {
+        this.tokenServices = tokenServices;
     }
 }

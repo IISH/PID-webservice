@@ -2,7 +2,7 @@
 <!--
   ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
   ~
-  ~ Copyright (C) 2010-2011, International Institute of Social History
+  ~ Copyright (C) 2010-2012, International Institute of Social History
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -22,12 +22,13 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
+    <display-name>PID webservice</display-name>
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:/application-context.xml,classpath:/application-context-security.xml</param-value>
     </context-param>
 
-    <display-name>PID webservice</display-name>
     <servlet>
         <servlet-name>pid</servlet-name>
         <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
@@ -46,21 +47,13 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>security</servlet-name>
+        <servlet-name>oauth2</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>security</servlet-name>
-        <url-pattern>/oauth/authorize</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>security</servlet-name>
-        <url-pattern>/oauth/confirm_access</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>security</servlet-name>
-        <url-pattern>/oauth/token</url-pattern>
+        <servlet-name>oauth2</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <filter>
@@ -72,13 +65,13 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>/</welcome-file>
     </welcome-file-list>
 
 </web-app>

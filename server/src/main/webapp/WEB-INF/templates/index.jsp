@@ -62,7 +62,7 @@
     services
     alike.</p>
 
-<p><a href="http://www.handle.net/"><img src="images/hs_logo_bundle2.gif" alt="icon" title=""
+<p><a href="http://www.handle.net/"><img src="../../images/hs_logo_bundle2.gif" alt="icon" title=""
                                          width="64px" height="21px" style="border: 1px solid #000000"/></a></p>
 
 <h2>2. Who operates the <%=service%></h2>

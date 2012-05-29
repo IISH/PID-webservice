@@ -111,7 +111,7 @@
         <spring.version>3.1.1.RELEASE</spring.version>
         <spring.security.version>3.1.0.RELEASE</spring.security.version>
         <spring.ws.version>2.0.5.RELEASE</spring.ws.version>
-        <oauth.version>1.0.0.M6</oauth.version>
+        <oauth.version>1.0.0.M5</oauth.version>
     </properties>
 
 </project>

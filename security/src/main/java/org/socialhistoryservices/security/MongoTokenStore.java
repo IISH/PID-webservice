@@ -24,8 +24,6 @@ import org.springframework.security.oauth2.common.ExpiringOAuth2RefreshToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.util.SerializationUtils;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
-import org.springframework.security.oauth2.provider.token.AuthenticationKeyGenerator;
-import org.springframework.security.oauth2.provider.token.DefaultAuthenticationKeyGenerator;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
 import java.util.Date;
@@ -45,7 +43,6 @@ final public class MongoTokenStore implements TokenStore {
     private long sliderExpiration = 30000; // Thirty seconds
     private String database;
     private Mongo mongo;
-    private AuthenticationKeyGenerator authenticationKeyGenerator = new DefaultAuthenticationKeyGenerator();
 
     /**
      * selectKeys
@@ -74,7 +71,7 @@ final public class MongoTokenStore implements TokenStore {
         final BasicDBObject document = new BasicDBObject();
         document.put("token_id", token.getValue());
         document.put("token", SerializationUtils.serialize(token));
-        document.put("authentication_id", authenticationKeyGenerator.extractKey(authentication));
+        document.put("authentication_id", null);
         document.put("authentication", SerializationUtils.serialize(authentication));
         document.put("refresh_token", refreshToken);
         document.put("name", authentication.getPrincipal().toString());
@@ -189,22 +186,6 @@ final public class MongoTokenStore implements TokenStore {
         collection.remove(query);
     }
 
-    @Override
-    public OAuth2AccessToken getAccessToken(OAuth2Authentication authentication) {
-        // select token_id, token from oauth_access_token where authentication_id = ?;
-
-        final String authentication_id = authenticationKeyGenerator.extractKey(authentication);
-        final BasicDBObject query = new BasicDBObject("authentication_id", authentication_id);
-        final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
-        DBObject document = collection.findOne(query);
-        OAuth2AccessToken accessToken = null;
-        if (document == null) {
-        } else {
-            accessToken = SerializationUtils.deserialize((byte[]) document.get("token"));
-        }
-        return accessToken;
-    }
-
     private void expiration(String tokenValue) {
         this.expirationTokenStore.put(tokenValue, new Date().getTime() + sliderExpiration);
     }
@@ -256,51 +237,5 @@ final public class MongoTokenStore implements TokenStore {
         final DBCollection c = getCollection(OAUTH_ACCESS_TOKEN);
         c.ensureIndex("token_id");
         c.ensureIndex("token_id");
-    }
-
-    /*private static byte[] serialize(Object state) {
-        ObjectOutputStream oos = null;
-        try {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream(512);
-            oos = new ObjectOutputStream(bos);
-            oos.writeObject(state);
-            oos.flush();
-            return bos.toByteArray();
-        } catch (IOException e) {
-            throw new IllegalArgumentException(e);
-        } finally {
-            if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException e) {
-                    // eat it
-                }
-            }
-        }
-    }
-
-    private static <T> T deserialize(byte[] byteArray) {
-        ObjectInputStream oip = null;
-        try {
-            oip = new ObjectInputStream(new ByteArrayInputStream(byteArray));
-            return (T) oip.readObject();
-        } catch (IOException e) {
-            throw new IllegalArgumentException(e);
-        } catch (ClassNotFoundException e) {
-            throw new IllegalArgumentException(e);
-        } finally {
-            if (oip != null) {
-                try {
-                    oip.close();
-                } catch (IOException e) {
-                    // eat it
-                }
-            }
-        }
-    }*/
-
-
-    public void setAuthenticationKeyGenerator(AuthenticationKeyGenerator authenticationKeyGenerator) {
-        this.authenticationKeyGenerator = authenticationKeyGenerator;
     }
 }
