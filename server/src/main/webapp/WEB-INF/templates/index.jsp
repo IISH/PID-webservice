@@ -22,6 +22,7 @@
     final String requestURI = request.getRequestURI();
     final String baseUrl = requestURL.substring(0, requestURL.length() - requestURI.length()) + "/";
     final String service = "PID webservice";
+    final String bearer = org.springframework.security.oauth2.common.OAuth2AccessToken.BEARER_TYPE;
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -41,10 +42,10 @@
 </h1>
 
 <p style="text-align:right">
-    <a href="oauth/keys">Manage your keys
+    <a href="admin/keys">Manage your keys
     </a>
     |
-    <a href="logout.do">logout</a>
+    <a href="admin/logout.do">logout</a>
 </p>
 
 <h2>1. What is the <%=service%></h2>
@@ -62,24 +63,10 @@
     services
     alike.</p>
 
-<p><a href="http://www.handle.net/"><img src="../../images/hs_logo_bundle2.gif" alt="icon" title=""
+<p><a href="http://www.handle.net/"><img src="images/hs_logo_bundle2.gif" alt="icon" title=""
                                          width="64px" height="21px" style="border: 1px solid #000000"/></a></p>
 
-<h2>2. Who operates the <%=service%></h2>
-
-<p>It is a shared service run by the [your detalis here]. Hence as a
-    member you
-    you can use the <%=service%>.
-</p>
-
-<p>If you
-    already obtained a naming authority from Handle System naming authority, then don't forget to add that
-    prefix that
-    came with the submission form. If not,
-    our friendly <%=service%> will emancipate you with a naming authority.
-</p>
-
-<h2>3. Webservice keys</h2>
+<h2>2. Webservice keys</h2>
 
 <p>Access to the webservice is HTTP over SSL. A <a href="oauth/keys">private webservice key</a> is needed to be able to
     create and update
@@ -99,24 +86,24 @@
         "socialhistoryservices.org".
     </li>
     <li>An elegant administration page at
-        <a href="/oauth/keys"><%=baseUrl%>oauth/keys</a>
+        <a href="admin/keys"><%=baseUrl%>oauth/keys</a>
         to produce keys .
     </li>
 </ul>
 <p>Place the key in a HTTP header request as expressed in this pseude code:</p>
 
 <p>
-    HTTP-header(headerName, headerValue) = { "Authorization", "oauth [key]" }
+    HTTP-header(headerName, headerValue) = { "Authorization", "<%=bearer%> [key]" }
     <br/>
     Whereby [key] is the webservice key. For example, if the key is 12345, the header is:
     <br/>
-    HTTP-header("Authorization", "oauth 12345")
+    HTTP-header("Authorization", "<%=bearer%> 12345")
 </p>
 
 <iframe width="425" height="349" src="http://www.youtube.com/embed/BC1noSxy59c" frameborder="0"
         allowfullscreen></iframe>
 
-<h2>4. Discover the webservice</h2>
+<h2>3. Discover the webservice</h2>
 
 <p>The Pid webservice offers seven operations:</p>
 <ol>
@@ -141,14 +128,11 @@
     <li>and the webservice endpoint is located at
         <a href="secure/"><%=baseUrl%>secure/</a>
     </li>
-    <li>Also see the
-        <a href="javadoc/">Java docs of the API methods</a>
-    </li>
 </ul>
 
-<h2>5. Examples</h2>
+<h2>4. Examples</h2>
 
-<h3>5.1. Create a Pid with a resolve Url</h3>
+<h3>4.1. Create a Pid with a resolve Url</h3>
 <iframe width="425" height="349" src="http://www.youtube.com/embed/ETj3GbBCCwY" frameborder="0"
         allowfullscreen></iframe>
 
@@ -183,7 +167,7 @@
 <p>You can also create the PIDs yourself as demonstrated in this movie:</p>
 <iframe width="425" height="349" src="http://www.youtube.com/embed/8kOtNau-VdM" frameborder="0"
         allowfullscreen></iframe>
-<h3>5.1.2 Create a custom pid with multiple urls</h3>
+<h3>4.1.2 Create a custom pid with multiple urls</h3>
 This example demonstrates a custom pid that is bound to three resolve urls. This will make possible three ways of
 resolving with one pid:
 <ol>
@@ -236,7 +220,7 @@ resolving with one pid:
 <iframe width="425" height="349" src="http://www.youtube.com/embed/_lTPPlbwQ00" frameborder="0"
         allowfullscreen></iframe>
 
-<h3>5.2 Update a Pid with a new resolve Url</h3>
+<h3>4.2 Update a Pid with a new resolve Url</h3>
 
 <p>To change a resolve url, use the update method</p>
 
@@ -267,7 +251,7 @@ resolving with one pid:
     </SOAP-ENV:Envelope>
 </textarea></form>
 
-<h3>5.3.1 Lookup bound attributes of a known pid</h3>
+<h3>4.3.1 Lookup bound attributes of a known pid</h3>
 <iframe width="425" height="349" src="http://www.youtube.com/embed/ACHhmHoMFMk" frameborder="0"
         allowfullscreen></iframe>
 
@@ -298,7 +282,7 @@ resolving with one pid:
     </SOAP-ENV:Envelope></textarea></form>
 
 
-<h3>5.3.2 Lookup a pid from its know resolve urls</h3>
+<h3>4.3.2 Lookup a pid from its know resolve urls</h3>
 <iframe width="425" height="349" src="http://www.youtube.com/embed/mXRnp94TnVw" frameborder="0"
         allowfullscreen></iframe>
 <p>It is possible to find a pid through it's bound attributes such as resolve urls. In this example we look for pids
@@ -358,7 +342,7 @@ resolving with one pid:
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope></textarea></form>
 
-<h3>5.3.3 Lookup a pid from its know local identifiers</h3>
+<h3>4.3.3 Lookup a pid from its know local identifiers</h3>
 
 <p>It is possible to bind other attributes to a pid, such as a local identifier or any other tag for that matter. In
     this
@@ -420,7 +404,7 @@ resolving with one pid:
     </SOAP-ENV:Envelope>
 </textarea></form>
 
-<h2>5.4 Quick pid method</h2>
+<h2>4.4 Quick pid method</h2>
 
 <p>Unless you are an service provider whose clients cannot supply anything else but local identifiers, this method would
     not be useful to an organization delivering pids. The GetQuickPid method utilizes the earlier mentioned methods.
@@ -437,14 +421,14 @@ resolving with one pid:
     </li>
 </ol>
 
-<h2>5.5 UpsertPid method</h2>
+<h2>4.5 UpsertPid method</h2>
 
 <p>The upsert method does exactly the same as the createPid and updatePid combined; and is more efficient. It will
     create new pids; and
     update a pid if it already exists. Use this method if you do not need to check explicitly for PIDs that do not
     exist whilst updating... or already exist while creating them.</p>
 
-<h2>5.6 DeletePid method</h2>
+<h2>4.6 DeletePid method</h2>
 
 <p>This method will delete a pid and all it's bound attributes.</p>
 

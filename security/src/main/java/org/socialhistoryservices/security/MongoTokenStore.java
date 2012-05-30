@@ -68,13 +68,14 @@ final public class MongoTokenStore implements TokenStore {
         if (token.getRefreshToken() != null) {
             refreshToken = token.getRefreshToken().getValue();
         }
+        final String name = ( authentication.getUserAuthentication() == null ) ? null : authentication.getUserAuthentication().getName();
         final BasicDBObject document = new BasicDBObject();
         document.put("token_id", token.getValue());
         document.put("token", SerializationUtils.serialize(token));
         document.put("authentication_id", null);
         document.put("authentication", SerializationUtils.serialize(authentication));
         document.put("refresh_token", refreshToken);
-        document.put("name", authentication.getPrincipal().toString());
+        document.put("name", name);
         final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
         collection.insert(document);
 

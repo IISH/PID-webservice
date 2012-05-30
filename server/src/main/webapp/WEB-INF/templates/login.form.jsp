@@ -18,7 +18,7 @@
   ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
   --%>
 
-<form id='loginForm' name='loginForm' action='<c:url value="login.do"/>' method='POST'>
+<form id='loginForm' name='loginForm' action='<c:url value="admin/login.do"/>' method='POST'>
     <p>Login with</p>
     <p><label>Username: <input type='text' name='j_username' value=''></label></p>
 
@@ -27,7 +27,7 @@
     <p><input name='login' value='Login' type='submit'></p>
 </form>
 <hr/>
-<form id="loginLink" name="loginLink" action="oauth/keys" method="post">
+<form id="loginLink" name="loginLink" action="keys" method="post">
     <label>Or use a webservice key: <input type="password" id="access_token" name="access_token" value="" size="50"></label>
 
     <p><input name='login' value='Login' type='submit'></p>

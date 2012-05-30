@@ -2,6 +2,10 @@
 <%@ taglib prefix="c2" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<%
+    final String bearer = org.springframework.security.oauth2.common.OAuth2AccessToken.BEARER_TYPE;
+%>
+
 <%--
   ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
   ~
@@ -36,7 +40,8 @@
 
 <body><h1>Webservice keys</h1>
 
-<p style="text-align:right"><a href="../index.jsp">home</a></p>
+<p style="text-align:right"><a href="/">home</a>|
+    <a href="admin/logout.do">logout</a></p>
 <table>
     <tr>
         <th style="width:100px;">your naming authorities</th>
@@ -50,7 +55,7 @@
                 ${na}<br/>
             </c2:forEach>
         </td>
-        <td><input type="text" size="50" value="${token.value}" onfocus="javascript:this.select();"/></td>
+        <td><input type="text" size="50" value="${token.value}" onfocus="this.select();"/></td>
         <td><fmt:formatDate value="${token.expiration}" pattern="yyyy-MM-dd"/></td>
         <td><a href="?token=${token.refreshToken}">change this key</a></td>
     </tr>
@@ -59,9 +64,9 @@
     you.</p>
 <hr/>
 <p>Place the key in a HTTP header request as expressed in this pseude code:<br/>
-    HTTP-header("Authorization", "oauth ${token.value}")</p>
+    HTTP-header("Authorization", "<%=bearer%> ${token.value}")</p>
 
-<form action="<c:url value="/logout.do"/>"><input type="submit" value="Logout"></form>
+<form action="<c:url value="admin/logout.do"/>"><input type="submit" value="Logout"></form>
 </body>
 
 </html>

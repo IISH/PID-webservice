@@ -26,7 +26,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/application-context.xml,classpath:/application-context-security.xml</param-value>
+        <param-value>classpath:/application-context.xml</param-value>
     </context-param>
 
     <servlet>
@@ -59,12 +59,15 @@
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>contextAttribute</param-name>
+            <param-value>org.springframework.web.servlet.FrameworkServlet.CONTEXT.oauth2</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

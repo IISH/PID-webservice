@@ -1,71 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a1192a9-b02a-48d7-a2b4-56e08c5c4f91" name="Default" comment="Move to Spring 3.1">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/resources/commons-logging.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/resources/simplelog.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\java\org\socialhistoryservices\pid\security\UserApprovalHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\WEB-INF\security-servlet.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\allclasses-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\allclasses-noframe.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\constant-values.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\deprecated-list.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\help-doc.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-1.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-10.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-11.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-12.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-13.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-14.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-15.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-2.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-3.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-4.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-5.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-6.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-7.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-8.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index-files\index-9.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\CreatePidRequestType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\CreatePidResponseType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\DeletePidsRequestType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\DeletePidsResponseType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\GetPidByAttributeRequestType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\GetPidByAttributeResponseType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\GetPidRequestType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\GetPidResponseType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\GetQuickPidRequestType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\GetQuickPidResponseType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\LocAttType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\LocationType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\ObjectFactory.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\PidType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\UpdatePidRequestType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\UpdatePidResponseType.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\org\socialhistoryservices\pid\schema\package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\overview-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\package-list" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\resources\inherit.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\javadoc\stylesheet.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\request_token_authorized.jsp" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\index.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp" />
-      <change type="MOVED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\login.form.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp" />
-      <change type="MOVED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\webapp\login.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pid.ipr" afterPath="$PROJECT_DIR$/pid.ipr" />
+    <list default="true" id="6a1192a9-b02a-48d7-a2b4-56e08c5c4f91" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/org/springframework/security/oauth2/provider/filter/OAuth2ProtectedResourceFilter.java" />
+      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\resources\application-context-security.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\resources\commons-logging.properties" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\resources\log4j.properties" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\resources\simplelog.properties" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log4j.xml" afterPath="$PROJECT_DIR$/log4j.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pid.iws" afterPath="$PROJECT_DIR$/pid.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/security.iml" afterPath="$PROJECT_DIR$/security/security.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/log4j.xml" afterPath="$PROJECT_DIR$/server/log4j.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.iml" afterPath="$PROJECT_DIR$/server/server.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/AccessConfirmationController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/AccessConfirmationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/resources/application-context-security.xml" afterPath="$PROJECT_DIR$/server/src/main/resources/application-context-security.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" />
     </list>
     <ignored path="pid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -229,205 +180,8 @@
     <groupTables value="false" />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/mongodb-handlestorage/src/main/java/net/handle/server/MongoDBHandleStorage.java" line="107" class="net.handle.server.MongoDBHandleStorage" package="net.handle.server">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" line="116" class="org.socialhistoryservices.pid.ws.PidServiceEndPoint" package="org.socialhistoryservices.pid.ws">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" line="130" class="org.socialhistoryservices.pid.database.dao.HandleDaoImpl" package="org.socialhistoryservices.pid.database.dao">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth/1.0.0.M2/spring-security-oauth-1.0.0.M2-sources.jar!/org/springframework/security/oauth2/provider/DefaultOAuth2GrantManager.java" line="36" class="org.springframework.security.oauth2.provider.DefaultOAuth2GrantManager" package="org.springframework.security.oauth2.provider">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth/1.0.0.M2/spring-security-oauth-1.0.0.M2-sources.jar!/org/springframework/security/oauth2/provider/DefaultOAuth2GrantManager.java" line="75" class="org.springframework.security.oauth2.provider.DefaultOAuth2GrantManager" package="org.springframework.security.oauth2.provider">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" line="104" class="org.socialhistoryservices.pid.service.StubPidResourceServiceTest" package="org.socialhistoryservices.pid.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M6/spring-security-oauth2-1.0.0.M6-sources.jar!/org/springframework/security/oauth2/provider/BaseClientDetails.java" line="80" class="org.springframework.security.oauth2.provider.BaseClientDetails" package="org.springframework.security.oauth2.provider">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/AccessConfirmationController.java" line="45" class="org.socialhistoryservices.pid.controllers.AccessConfirmationController" package="org.socialhistoryservices.pid.controllers">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/endpoint/TokenEndpoint.java" line="50" class="org.springframework.security.oauth2.provider.endpoint.TokenEndpoint" package="org.springframework.security.oauth2.provider.endpoint">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.1.RELEASE/spring-webmvc-3.1.1.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/UrlFilenameViewController.java" line="126" class="org.springframework.web.servlet.mvc.UrlFilenameViewController" package="org.springframework.web.servlet.mvc">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.1.RELEASE/spring-webmvc-3.1.1.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/UrlFilenameViewController.java" line="100" class="org.springframework.web.servlet.mvc.UrlFilenameViewController" package="org.springframework.web.servlet.mvc">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.1.RELEASE/spring-webmvc-3.1.1.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/UrlFilenameViewController.java" line="99" class="org.springframework.web.servlet.mvc.UrlFilenameViewController" package="org.springframework.web.servlet.mvc">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" line="83" class="org.socialhistoryservices.pid.ws.PidServiceEndPoint" package="org.socialhistoryservices.pid.ws">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" line="58" class="org.socialhistoryservices.pid.controllers.KeysController" package="org.socialhistoryservices.pid.controllers">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/security/NAAuthentication.java" line="43" class="org.socialhistoryservices.pid.security.NAAuthentication" package="org.socialhistoryservices.pid.security">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <method_breakpoints>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar!/org/springframework/security/authentication/ProviderManager.class" line="68" class="org.springframework.security.authentication.ProviderManager.NullEventPublisher" package="org.springframework.security.authentication">
+      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar!/org/springframework/security/authentication/ProviderManager.class" line="68" class="org.springframework.security.authentication.ProviderManager.NullEventPublisher" package="">
         <option name="WATCH_ENTRY" value="true" />
         <option name="WATCH_EXIT" value="true" />
         <option name="ENABLED" value="true" />
@@ -439,8 +193,8 @@
         <option name="CONDITION_ENABLED" value="false" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </method_breakpoints>
     <breakpoint_any>
@@ -456,8 +210,8 @@
         <option name="CONDITION_ENABLED" value="false" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -471,124 +225,35 @@
         <option name="CONDITION_ENABLED" value="false" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
     <breakpoint_rules />
-    <ui_properties />
+    <ui_properties>
+      <property name="line_breakpoints_groupByMethods" value="false" />
+      <property name="line_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_flattenPackages" value="true" />
+      <property name="method_breakpoints_flattenPackages" value="true" />
+      <property name="field_breakpoints_flattenPackages" value="true" />
+      <property name="exception_breakpoints_groupByMethods" value="false" />
+      <property name="line_breakpoints_groupByClasses" value="true" />
+      <property name="method_breakpoints_viewId" value="TABLE" />
+      <property name="field_breakpoints_groupByMethods" value="false" />
+      <property name="line_breakpoints_flattenPackages" value="true" />
+      <property name="field_breakpoints_groupByClasses" value="true" />
+      <property name="method_breakpoints_groupByClasses" value="true" />
+      <property name="exception_breakpoints_viewId" value="TABLE" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="method_breakpoints_groupByMethods" value="false" />
+    </ui_properties>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="pid" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="OAuth2ProtectedResourceFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/filter/OAuth2ProtectedResourceFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="0" selection-start="2681" selection-end="2681" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompositeFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/filter/CompositeFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="0" selection-start="2377" selection-end="2377" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProviderManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/ProviderManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="13" selection-start="4329" selection-end="4329" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractSecurityInterceptor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/access/intercept/AbstractSecurityInterceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="22" selection-start="5350" selection-end="5350" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProviderManager.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar!/org/springframework/security/authentication/ProviderManager.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="3695" selection-end="3695" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractSecurityInterceptor.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar!/org/springframework/security/access/intercept/AbstractSecurityInterceptor.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="0" selection-start="4337" selection-end="4337" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FilterSecurityInterceptor.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.1.0.RELEASE/spring-security-web-3.1.0.RELEASE.jar!/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="1964" selection-end="1964" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oauth2-servlet.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application-context-security.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/main/resources/application-context-security.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="12" selection-start="3784" selection-end="3784" vertical-scroll-proportion="1.3421053">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml">
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-            <state />
-          </provider>
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-            <state />
-          </provider>
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="0" selection-start="2299" selection-end="2299" vertical-scroll-proportion="-12.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -601,22 +266,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/security/src/main/java/org/springframework/security/oauth2/provider/token/DefaultAuthenticationKeyGenerator.java" />
-        <option value="$PROJECT_DIR$/security/src/main/java/org/springframework/security/oauth2/provider/token/AuthenticationKeyGenerator.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/s.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/security-servlet.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/security/UserApprovalHandler.java" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/JspController.java" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
         <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/AccessConfirmationController.java" />
         <option value="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
-        <option value="$PROJECT_DIR$/server/log4j.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/springframework/security/oauth2/provider/filter/OAuth2ProtectedResourceFilter.java" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.jsp" />
         <option value="$PROJECT_DIR$/server/src/main/resources/application-context-security.xml" />
+        <option value="$PROJECT_DIR$/server/log4j.xml" />
         <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp" />
+        <option value="$PROJECT_DIR$/log4j.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" />
+        <option value="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" />
       </list>
     </option>
   </component>
@@ -674,22 +339,22 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="pid" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -709,218 +374,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ws" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PID-webservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -946,9 +399,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -971,7 +424,7 @@
       <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]">
+  <component name="RunManager" selected="JUnit.PidGeneratorTest">
     <configuration default="false" name="server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -1234,7 +687,13 @@
       </option>
       <envs />
       <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -1279,7 +738,11 @@
       <created>1338036832294</created>
       <updated>1338036832294</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implementing oauth2">
+      <created>1338296834387</created>
+      <updated>1338296834387</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1307,22 +770,23 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5540541" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7432432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5364865" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13079897" sideWeight="0.41486487" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13079897" sideWeight="0.44594595" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32796392" sideWeight="0.67027026" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1746134" sideWeight="0.44594595" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53243244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1330,7 +794,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32837838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.6002252" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1373,7 +836,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move to Spring 3.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move to Spring 3.1.1-RELEASE and oauth2-M5" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1389,6 +852,8 @@
     <MESSAGE value="Deleting a pid is enabled." />
     <MESSAGE value="Added the upsert method." />
     <MESSAGE value="Move to Spring 3.1" />
+    <MESSAGE value="Implementing oauth2" />
+    <MESSAGE value="Move to Spring 3.1.1-RELEASE and oauth2-M5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1398,108 +863,119 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.1.0.RELEASE/spring-security-web-3.1.0.RELEASE.jar!/org/springframework/security/web/context/SecurityContextPersistenceFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="729" selection-end="729" vertical-scroll-proportion="0.30357143" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.1.0.RELEASE/spring-security-web-3.1.0.RELEASE.jar!/org/springframework/security/web/FilterChainProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="16" selection-start="990" selection-end="990" vertical-scroll-proportion="-2.72" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.0.6.RELEASE/spring-web-3.0.6.RELEASE.jar!/org/springframework/web/filter/DelegatingFilterProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="16" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.2990196" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/log4j.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="30" selection-start="1359" selection-end="1359" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="12.75" />
-      </provider>
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5.jar!/org/springframework/security/oauth/spring-security-oauth2-1.0.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="289" column="4" selection-start="9658" selection-end="9658" vertical-scroll-proportion="-0.107913665" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/filter/OAuth2ProtectedResourceFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="2681" selection-end="2681" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/filter/CompositeFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="2377" selection-end="2377" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/ProviderManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="13" selection-start="4329" selection-end="4329" vertical-scroll-proportion="0.0" />
+        <state line="301" column="0" selection-start="13609" selection-end="13609" vertical-scroll-proportion="0.55131966">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/ClientToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="0" selection-start="1891" selection-end="1891" vertical-scroll-proportion="0.33231708">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/AbstractAuthenticationToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="0" selection-start="3275" selection-end="3275" vertical-scroll-proportion="0.3313783">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/OAuth2Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="0" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/access/intercept/AbstractSecurityInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="22" selection-start="5350" selection-end="5350" vertical-scroll-proportion="0.0" />
+        <state line="296" column="0" selection-start="14862" selection-end="14862" vertical-scroll-proportion="0.3313783">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar!/org/springframework/security/authentication/ProviderManager.class">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="3695" selection-end="3695" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar!/org/springframework/security/access/intercept/AbstractSecurityInterceptor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="4337" selection-end="4337" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.1.0.RELEASE/spring-security-web-3.1.0.RELEASE.jar!/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1964" selection-end="1964" vertical-scroll-proportion="0.0">
+        <state line="41" column="0" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml">
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="2299" selection-end="2299" vertical-scroll-proportion="-12.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/resources/application-context-security.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="12" selection-start="3784" selection-end="3784" vertical-scroll-proportion="1.3421053">
+        <state line="79" column="4" selection-start="4435" selection-end="4435" vertical-scroll-proportion="2.6">
           <folding />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/common/OAuth2AccessToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="50" selection-start="8" selection-end="50" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/request_token_authorized.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6508474">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="48" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.45423728">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.3510637">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/util/PidGeneratorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="0" selection-start="3357" selection-end="3357" vertical-scroll-proportion="0.572327">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/springframework/security/oauth2/provider/filter/OAuth2ProtectedResourceFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="64" selection-start="3678" selection-end="3678" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="61" selection-start="3189" selection-end="3189" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="18" selection-start="8725" selection-end="8725" vertical-scroll-proportion="0.33258426">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="87" selection-start="2124" selection-end="2124" vertical-scroll-proportion="0.33258426">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

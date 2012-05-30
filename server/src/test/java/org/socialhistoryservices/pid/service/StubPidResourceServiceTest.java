@@ -33,7 +33,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.provider.AuthorizationRequest;
+import org.springframework.security.oauth2.provider.ClientToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -41,6 +41,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import static junit.framework.Assert.*;
 
@@ -92,9 +93,9 @@ public class StubPidResourceServiceTest {
         authorities.add(new Grant("ROLE_NA_00000.1"));
         authorities.add(new Grant("ROLE_NA_" + na));
         authorities.add(new Grant("ROLE_NA_00000.2"));
-        AuthorizationRequest clientAuthentication = new AuthorizationRequest("socialhistoryservices.org", null, null, null);
+        ClientToken clientToken = new ClientToken("test-client", UUID.randomUUID().toString(), null);
         UsernamePasswordAuthenticationToken usernamePasswordAuthentication = new UsernamePasswordAuthenticationToken(null, null, authorities);
-        OAuth2Authentication auth2Authentication = new OAuth2Authentication(clientAuthentication, usernamePasswordAuthentication);
+        OAuth2Authentication auth2Authentication = new OAuth2Authentication(clientToken, usernamePasswordAuthentication);
         final SecurityContext context = SecurityContextHolder.getContext();
         context.setAuthentication(auth2Authentication);
     }
@@ -340,6 +341,7 @@ public class StubPidResourceServiceTest {
         }
         assertNull(newPidType);
     }
+
     @Test
     public void testUpsertPidCreateNoPid() throws HandleException {
 
