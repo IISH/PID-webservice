@@ -49,17 +49,16 @@ final public class MongoTokenStore implements TokenStore {
      * <p/>
      * returns all keys that belong to a principal
      *
-     * @param username
-     * @return
+     * @param username The identifier of the principal
+     * @return The OAuth2AccessToken associated with this principal
      */
     public OAuth2AccessToken selectKeys(String username) {
         final BasicDBObject query = new BasicDBObject("name", username);
         final DBCollection collection = getCollection(OAUTH_ACCESS_TOKEN);
         DBObject document = collection.findOne(query);
-        OAuth2AccessToken token = (document == null)
+        return (document == null)
                 ? null
                 : (OAuth2AccessToken) SerializationUtils.deserialize((byte[]) document.get("token"));
-        return token;
     }
 
     public void storeAccessToken(OAuth2AccessToken token, OAuth2Authentication authentication) {
@@ -192,10 +191,12 @@ final public class MongoTokenStore implements TokenStore {
     }
 
     /**
+     * isFresh
+     * 
      * Determines if we can use the cache...
      *
-     * @param tokenValue
-     * @return
+     * @param tokenValue the token to look for
+     * @return Fresh when the token is requested within the sliding expiration span
      */
     private boolean isFresh(String tokenValue) {
 

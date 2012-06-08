@@ -338,7 +338,8 @@ public class MongoDBHandleStorage
         final Iterator<Object> iterator = results.iterator();
         while (iterator.hasNext()) {
 
-            HandleValue value = getHandleValue((BasicDBObject) iterator.next());
+            HandleValue value = null;
+            value = getHandleValue((BasicDBObject) iterator.next());
             if (allValues) {
             } else if (!Util.isParentTypeInArray(typeList, value.getType()) &&
                     !Util.isInArray(indexList, value.getIndex())) // ignore non-requested types
@@ -386,10 +387,19 @@ public class MongoDBHandleStorage
         return h;
     }
 
-    public HandleValue getHandleValue(BasicDBObject o) {
+    public HandleValue getHandleValue(BasicDBObject o) throws HandleException {
 
         HandleValue value = new HandleValue();
-        value.setIndex((Integer) o.get("index"));
+        try {
+            value.setIndex((Integer) o.get("index"));
+            value.setTTLType(Byte.parseByte(String.valueOf(o.get("ttl_type"))));
+            value.setTTL((Integer) o.get("ttl"));
+            value.setTimestamp((Integer) o.get("timestamp"));
+        } catch (Exception e) {
+            throw new HandleException(HandleException.INVALID_VALUE
+                    , e.getMessage() + " for document " + o.toString());
+        }
+
         value.setType(Util.encodeString((String) o.get("type")));
         final Object data = o.get("data");
         if (data instanceof String) {
@@ -397,12 +407,9 @@ public class MongoDBHandleStorage
         } else {
             value.setData((byte[]) data);
         }
-        value.setTTLType(Byte.parseByte(String.valueOf(o.get("ttl_type"))));
-        value.setTTL((Integer) o.get("ttl"));
-        value.setTimestamp((Integer) o.get("timestamp"));
-        String referencesStr = (String) o.get("refs");
 
         // parse references...
+        String referencesStr = (String) o.get("refs");
         String references[] = StringUtils.split(referencesStr, '\t');
         if (references != null && referencesStr.length() > 0 && references.length > 0) {
             ValueReference valReferences[] = new ValueReference[references.length];
@@ -433,7 +440,7 @@ public class MongoDBHandleStorage
      * @return
      * @throws HandleException
      */
-    public List<HandleValue> getHandleValues(String handle) {
+    public List<HandleValue> getHandleValues(String handle) throws HandleException {
 
         final BasicDBObject query = new BasicDBObject("handle", handle);
         final DBCollection collection = getCollection(Util.encodeString(handle));
