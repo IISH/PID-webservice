@@ -128,12 +128,7 @@ public class HandleDaoImpl implements HandleDao {
         final Iterator<Object> iterator = results.iterator();
         final List<Handle> handles = new ArrayList<Handle>();
         while (iterator.hasNext()) {
-            HandleValue value = null;
-            try {
-                value = handleStorage.getHandleValue((BasicDBObject) iterator.next());
-            } catch (HandleException e) {
-                e.printStackTrace();
-            }
+            HandleValue value = handleStorage.getHandleValue((BasicDBObject) iterator.next());
             handles.add(Handle.cast((String) handle.get("handle"), value));
         }
         return handles;

@@ -22,7 +22,6 @@ package org.socialhistoryservices.pid.ws;
 import net.handle.hdllib.HandleException;
 import org.socialhistoryservices.pid.schema.*;
 import org.socialhistoryservices.pid.service.PidResourceService;
-import org.springframework.util.Assert;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -91,7 +90,7 @@ public class PidServiceEndPoint {
     @ResponsePayload
     public JAXBElement<GetPidByAttributeResponseType> getPidByAttribute(@RequestPayload JAXBElement<GetPidByAttributeRequestType> requestElement) throws IOException {
         final String na = normalize(requestElement.getValue().getNa(), true);
-        final String attribute = normalize(requestElement.getValue().getAttribute(), false);
+        final String attribute = normalize(requestElement.getValue().getAttribute(), true);
         final GetPidByAttributeResponseType response = objectFactory.createGetPidByAttributeResponseType();
         pidResourceService.getPidByAttribute(response.getHandle(), na, attribute);
         return objectFactory.createGetPidByAttributeResponse(response);
