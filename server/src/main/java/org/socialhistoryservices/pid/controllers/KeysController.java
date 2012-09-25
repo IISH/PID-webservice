@@ -66,7 +66,7 @@ public class KeysController {
                     clientDetails.getAuthorities());
             final OAuth2Authentication oAuth2Authentication = new OAuth2Authentication(clientToken, authentication);
             token = tokenServices.createAccessToken(oAuth2Authentication);
-            mongoTokenStore.storeAccessToken(token, oAuth2Authentication);
+            //mongoTokenStore.storeAccessToken(token, oAuth2Authentication);
         }
         mav.addObject("token", token);
         mav.addObject("nas", nas);
