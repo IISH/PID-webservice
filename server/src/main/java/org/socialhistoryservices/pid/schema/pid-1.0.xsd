@@ -44,19 +44,19 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element type="xs:anyURI" name="resolveUrl">
+            <xs:element type="xs:anyURI" name="resolveUrl" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         resolveUrl : the resolve URL that directs a web client to a webresource.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element type="tns:locAttType" name="locAtt">
+            <xs:element type="tns:locAttType" name="locAtt" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>locAtt : see locAttType</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element type="xs:string" name="localIdentifier">
+            <xs:element type="xs:string" name="localIdentifier" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>localIdentifier : a locality or local system identifier.
                         See GetPidByAttributeRequestType for its usage.

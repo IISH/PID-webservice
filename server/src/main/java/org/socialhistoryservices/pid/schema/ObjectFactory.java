@@ -1,23 +1,4 @@
 
-/*
- * The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
- *
- * Copyright (C) 2010-2011, International Institute of Social History
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
 package org.socialhistoryservices.pid.schema;
 
 import javax.xml.bind.JAXBElement;
@@ -68,83 +49,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetPidByAttributeRequestType }
+     * Create an instance of {@link DeletePidRequestType }
      * 
      */
-    public GetPidByAttributeRequestType createGetPidByAttributeRequestType() {
-        return new GetPidByAttributeRequestType();
-    }
-
-    /**
-     * Create an instance of {@link DeletePidsResponseType }
-     * 
-     */
-    public DeletePidsResponseType createDeletePidsResponseType() {
-        return new DeletePidsResponseType();
-    }
-
-    /**
-     * Create an instance of {@link GetPidRequestType }
-     * 
-     */
-    public GetPidRequestType createGetPidRequestType() {
-        return new GetPidRequestType();
-    }
-
-    /**
-     * Create an instance of {@link LocationType }
-     * 
-     */
-    public LocationType createLocationType() {
-        return new LocationType();
-    }
-
-    /**
-     * Create an instance of {@link UpsertPidRequestType }
-     * 
-     */
-    public UpsertPidRequestType createUpsertPidRequestType() {
-        return new UpsertPidRequestType();
-    }
-
-    /**
-     * Create an instance of {@link PidType }
-     * 
-     */
-    public PidType createPidType() {
-        return new PidType();
-    }
-
-    /**
-     * Create an instance of {@link GetPidByAttributeResponseType }
-     * 
-     */
-    public GetPidByAttributeResponseType createGetPidByAttributeResponseType() {
-        return new GetPidByAttributeResponseType();
-    }
-
-    /**
-     * Create an instance of {@link CreatePidRequestType }
-     * 
-     */
-    public CreatePidRequestType createCreatePidRequestType() {
-        return new CreatePidRequestType();
-    }
-
-    /**
-     * Create an instance of {@link UpdatePidRequestType }
-     * 
-     */
-    public UpdatePidRequestType createUpdatePidRequestType() {
-        return new UpdatePidRequestType();
-    }
-
-    /**
-     * Create an instance of {@link GetQuickPidRequestType }
-     * 
-     */
-    public GetQuickPidRequestType createGetQuickPidRequestType() {
-        return new GetQuickPidRequestType();
+    public DeletePidRequestType createDeletePidRequestType() {
+        return new DeletePidRequestType();
     }
 
     /**
@@ -156,19 +65,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DeletePidRequestType }
+     * Create an instance of {@link GetQuickPidResponseType }
      * 
      */
-    public DeletePidRequestType createDeletePidRequestType() {
-        return new DeletePidRequestType();
+    public GetQuickPidResponseType createGetQuickPidResponseType() {
+        return new GetQuickPidResponseType();
     }
 
     /**
-     * Create an instance of {@link CreatePidResponseType }
+     * Create an instance of {@link GetPidByAttributeResponseType }
      * 
      */
-    public CreatePidResponseType createCreatePidResponseType() {
-        return new CreatePidResponseType();
+    public GetPidByAttributeResponseType createGetPidByAttributeResponseType() {
+        return new GetPidByAttributeResponseType();
+    }
+
+    /**
+     * Create an instance of {@link PidType }
+     * 
+     */
+    public PidType createPidType() {
+        return new PidType();
+    }
+
+    /**
+     * Create an instance of {@link UpdatePidRequestType }
+     * 
+     */
+    public UpdatePidRequestType createUpdatePidRequestType() {
+        return new UpdatePidRequestType();
+    }
+
+    /**
+     * Create an instance of {@link GetPidRequestType }
+     * 
+     */
+    public GetPidRequestType createGetPidRequestType() {
+        return new GetPidRequestType();
+    }
+
+    /**
+     * Create an instance of {@link GetQuickPidRequestType }
+     * 
+     */
+    public GetQuickPidRequestType createGetQuickPidRequestType() {
+        return new GetQuickPidRequestType();
+    }
+
+    /**
+     * Create an instance of {@link DeletePidsResponseType }
+     * 
+     */
+    public DeletePidsResponseType createDeletePidsResponseType() {
+        return new DeletePidsResponseType();
     }
 
     /**
@@ -188,11 +137,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetQuickPidResponseType }
+     * Create an instance of {@link LocationType }
      * 
      */
-    public GetQuickPidResponseType createGetQuickPidResponseType() {
-        return new GetQuickPidResponseType();
+    public LocationType createLocationType() {
+        return new LocationType();
+    }
+
+    /**
+     * Create an instance of {@link GetPidByAttributeRequestType }
+     * 
+     */
+    public GetPidByAttributeRequestType createGetPidByAttributeRequestType() {
+        return new GetPidByAttributeRequestType();
     }
 
     /**
@@ -201,6 +158,30 @@ public class ObjectFactory {
      */
     public UpdatePidResponseType createUpdatePidResponseType() {
         return new UpdatePidResponseType();
+    }
+
+    /**
+     * Create an instance of {@link CreatePidResponseType }
+     * 
+     */
+    public CreatePidResponseType createCreatePidResponseType() {
+        return new CreatePidResponseType();
+    }
+
+    /**
+     * Create an instance of {@link UpsertPidRequestType }
+     * 
+     */
+    public UpsertPidRequestType createUpsertPidRequestType() {
+        return new UpsertPidRequestType();
+    }
+
+    /**
+     * Create an instance of {@link CreatePidRequestType }
+     * 
+     */
+    public CreatePidRequestType createCreatePidRequestType() {
+        return new CreatePidRequestType();
     }
 
     /**

@@ -2,7 +2,7 @@
 <!--
   ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
   ~
-  ~ Copyright (C) 2010-2011, International Institute of Social History
+  ~ Copyright (C) 2010-2012, International Institute of Social History
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -20,9 +20,8 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
            xmlns:tns="http://pid.socialhistoryservices.org/"
            targetNamespace="http://pid.socialhistoryservices.org/"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://pid.socialhistoryservices.org/ http://pid.socialhistoryservices.org/1.0/pid.xsd"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
     <xs:annotation>
         <xs:documentation>
             These methods together form the SOAP interface. They drive the Handle System local resolver database.
@@ -45,19 +44,19 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element type="xs:anyURI" name="resolveUrl">
+            <xs:element type="xs:anyURI" name="resolveUrl" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         resolveUrl : the resolve URL that directs a web client to a webresource.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element type="tns:locAttType" name="locAtt">
+            <xs:element type="tns:locAttType" name="locAtt" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>locAtt : see locAttType</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element type="xs:string" name="localIdentifier">
+            <xs:element type="xs:string" name="localIdentifier" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>localIdentifier : a locality or local system identifier.
                         See GetPidByAttributeRequestType for its usage.
@@ -98,6 +97,8 @@
     </xs:complexType>
 
     <!-- Methods -->
+    <xs:element name="UpsertPidRequest" type="tns:UpsertPidRequestType"/>
+    <xs:element name="UpsertPidResponse" type="tns:UpsertPidResponseType"/>
     <xs:element name="CreatePidRequest" type="tns:CreatePidRequestType"/>
     <xs:element name="CreatePidResponse" type="tns:CreatePidResponseType"/>
     <xs:element name="UpdatePidRequest" type="tns:UpdatePidRequestType"/>
@@ -108,8 +109,33 @@
     <xs:element name="GetPidByAttributeResponse" type="tns:GetPidByAttributeResponseType"/>
     <xs:element name="GetQuickPidRequest" type="tns:GetQuickPidRequestType"/>
     <xs:element name="GetQuickPidResponse" type="tns:GetQuickPidResponseType"/>
+    <xs:element name="DeletePidRequest" type="tns:DeletePidRequestType"/>
+    <xs:element name="DeletePidResponse" type="tns:DeletePidResponseType"/>
     <xs:element name="DeletePidsRequest" type="tns:DeletePidsRequestType"/>
     <xs:element name="DeletePidsResponse" type="tns:DeletePidsResponseType"/>
+
+    <xs:complexType name="UpsertPidRequestType">
+        <xs:annotation>
+            <xs:documentation>
+                UpsertPidRequestType (method UpsertPidRequest): inserts a Pid and binds it to the supplied resolve
+                attributes as defined in the pidType IF it does not exist. If the pid or lid
+                already persist in the database, the method will update the pid data.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:string" name="na">
+                <xs:annotation>
+                    <xs:documentation>na : the naming authority</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="tns:pidType" name="handle"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="UpsertPidResponseType">
+        <xs:sequence>
+            <xs:element type="tns:pidType" name="handle" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:complexType name="CreatePidRequestType">
         <xs:annotation>
@@ -147,7 +173,7 @@
     </xs:complexType>
     <xs:complexType name="UpdatePidResponseType">
         <xs:sequence>
-            <xs:element type="tns:pidType" name="handle"/>
+            <xs:element type="tns:pidType" name="handle" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -218,10 +244,29 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="DeletePidRequestType">
+        <xs:annotation>
+            <xs:documentation>
+                DeletePidRequestType (method DeletePidRequest): deletes a Pid.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:string" name="pid"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DeletePidResponseType">
+        <xs:annotation>
+            <xs:documentation>deleted :true ( gone ) or not so true ( unsuccessfull; or no such pid ).</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:boolean" name="deleted"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="DeletePidsRequestType">
         <xs:annotation>
             <xs:documentation>na : the naming authority used for testing. This method will only accept naming authority
-                prefixes used for testing.
+                prefixes used for testing. This method will remove all PIDs bound to the NA.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
@@ -236,4 +281,7 @@
             <xs:element type="xs:long" name="count"/>
         </xs:sequence>
     </xs:complexType>
+
+
+
 </xs:schema>
