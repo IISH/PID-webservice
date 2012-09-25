@@ -67,7 +67,6 @@ public class UserTest {
         Assert.assertNull(u);
     }
 
-    @Test
     public void update() throws UnknownHostException {
 
         createUser();
@@ -95,7 +94,7 @@ public class UserTest {
                 "-d", database,
                 "-u", "test1",
                 "-p", "test2",
-                "-a", "USER,NA_10622"
+                "-a", "USER,NA_12345"
         };
 
         User.main(args);
@@ -110,7 +109,6 @@ public class UserTest {
      *
      * @throws UnknownHostException
      */
-    @Test
     public void main() throws UnknownHostException {
 
         final String username = "12345";
