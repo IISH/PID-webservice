@@ -44,7 +44,7 @@ public class KeysController {
     private MongoTokenStore mongoTokenStore;
     private RandomValueTokenServices tokenServices;
     private ClientDetailsService clientDetailsService;
-    private static String clientId = "pid-webservice-client"; // Should be in the Spring ClientProvider
+    private static String clientId = "pid-webservice-client"; // Should be the same as in the Spring ClientProvider
 
     @RequestMapping("/admin/keys")
     public ModelAndView list(
@@ -69,7 +69,7 @@ public class KeysController {
             mongoTokenStore.storeAccessToken(token, oAuth2Authentication);
         }
         mav.addObject("token", token);
-        mav.addObject("nas", nas); // ToDo: when authorities are changed, the ones stored in the oauth table are not updated.
+        mav.addObject("nas", nas);
         return mav;
     }
 

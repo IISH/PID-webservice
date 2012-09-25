@@ -99,8 +99,35 @@ public class UserTest {
         };
 
         User.main(args);
-         // Proof the  addition
+        // Proof the  addition
         final UserDetails userDetails = service.loadUserByUsername("test1");
+        Assert.assertNotNull(userDetails);
+        Assert.assertEquals(2, userDetails.getAuthorities().size());
+    }
+
+    /**
+     * Creates a test account.
+     *
+     * @throws UnknownHostException
+     */
+    @Test
+    public void main() throws UnknownHostException {
+
+        final String username = "12345";
+        final String db = "security";
+        final String[] args = new String[]{
+                "-action", "upsert",
+                "-h", host,
+                "-d", db,
+                "-u", username,
+                "-p", username,
+                "-a", "USER,NA_12345"
+        };
+
+        User.main(args);
+        // Proof the  addition
+        service.setDatabase(db);
+        final UserDetails userDetails = service.loadUserByUsername(username);
         Assert.assertNotNull(userDetails);
         Assert.assertEquals(2, userDetails.getAuthorities().size());
     }

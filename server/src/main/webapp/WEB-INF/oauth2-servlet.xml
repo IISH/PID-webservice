@@ -38,7 +38,7 @@
 
     <bean id="tokenStore" class="org.socialhistoryservices.security.MongoTokenStore">
         <property name="mongo" ref="mongo"/>
-        <property name="database" value="security"/>
+        <property name="database" value="handlesystem"/>
     </bean>
     <bean id="tokenServices" class="org.springframework.security.oauth2.provider.token.RandomValueTokenServices">
         <property name="tokenStore" ref="tokenStore"/>
