@@ -38,6 +38,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
+import javax.xml.namespace.QName;
 import java.util.List;
 
 import static junit.framework.Assert.*;
@@ -178,13 +179,22 @@ public class HandleDaoImplTest {
         locationType2.setHref(resolveUrl + PidGenerator.getPid());
         locationType2.setId("21");
         locationType2.setCountry("nl");
+        locationType2.getOtherAttributes().put(new QName("a"), "b") ;
         locAttType.getLocation().add(locationType2);
 
         final List<Handle> insertedHandles = handleDao.createNewHandle(na, getPidType(pid, resolveUrl, locAttType, null));
         assertNotNull(insertedHandles);
 
+        LocAttType locAtt = null;
         StubPidResourceService s = (StubPidResourceService) pidResourceService;
-        final LocAttType locAtt = s.getLocations(insertedHandles.get(0));
+        while ( insertedHandles.iterator().hasNext() ){
+            Handle h = insertedHandles.iterator().next();
+            if ( h.getIndex() == 1000 ) {
+                locAtt = s.getLocations(h);
+                break;
+            }
+        }
+        assertNotNull("Expected to see locations", locAtt);
         List<LocationType> locations = locAtt.getLocation();
         assertEquals("When a URL is added plus two locations, we must have three locations returned. The third location is the URL", 3, locations.size());
         boolean hasUrl = false;

@@ -20,8 +20,6 @@
 package org.socialhistoryservices.pid.service;
 
 import net.handle.hdllib.HandleException;
-import net.handle.hdllib.Util;
-import org.apache.taglibs.standard.lang.jstl.NullLiteral;
 import org.socialhistoryservices.pid.database.dao.HandleDao;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
 import org.socialhistoryservices.pid.database.domain.Handle;
@@ -35,8 +33,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 import javax.xml.bind.JAXBElement;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -59,7 +61,17 @@ public class StubPidResourceService implements PidResourceService {
     Jaxb2Marshaller marshaller;
 
     final private static byte[] bURL = HandleDaoImpl.URL.getBytes();
-    final private static String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><locations xmlns=\"http://pid.socialhistoryservices.org/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"locAttType\">";
+
+    private Transformer transformer;
+
+    public StubPidResourceService() {
+        try {
+            final InputStream resourceAsStream = this.getClass().getResourceAsStream("/locations.xsl");
+            transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(resourceAsStream));
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public PidType upsertPid(String na, PidType pidType) throws HandleException {
@@ -234,8 +246,15 @@ public class StubPidResourceService implements PidResourceService {
 
     public LocAttType getLocations(Handle handle) {
 
-        final String dataAsString = xml + handle.getDataAsString().substring(11);
-        ByteArrayInputStream is = new ByteArrayInputStream(Util.encodeString(dataAsString));
+        final StreamSource xmlSource = new StreamSource(new ByteArrayInputStream(handle.getData()));
+        final ByteArrayOutputStream os = new ByteArrayOutputStream();
+        Result result = new StreamResult(os);
+        try {
+            transformer.transform(xmlSource, result);
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+        ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
         StreamSource source = new StreamSource(is);
         JAXBElement element = (JAXBElement) marshaller.unmarshal(source);
         return (LocAttType) element.getValue();

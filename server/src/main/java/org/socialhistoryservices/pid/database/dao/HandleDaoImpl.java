@@ -33,10 +33,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import javax.xml.transform.stream.StreamResult;
-import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -138,9 +138,9 @@ public class HandleDaoImpl implements HandleDao {
     public boolean deletePid(String pid) {
 
         boolean ok = false;
-        try{
+        try {
             ok = handleStorage.deleteHandle(Util.encodeString(pid));
-        } catch (HandleException e){
+        } catch (HandleException e) {
         }
         return ok;
     }
@@ -224,13 +224,13 @@ public class HandleDaoImpl implements HandleDao {
 
         // add non-PID webservice handles ( other than those managed here like URL, LID and the 10320/loc )
         preserveHandles(na, pid, currentValues, handles);
-        final int timestamp = (int)(System.currentTimeMillis()/1000);
+        final int timestamp = (int) (System.currentTimeMillis() / 1000);
         final BasicDBList _lookup = new BasicDBList();
         final BasicDBList list = new BasicDBList();
         for (Handle handle : handles) {
             handle.setTimestamp(timestamp);
-            handle.setTTLType(HandleValue.TTL_TYPE_RELATIVE);     
-            handle.setTTL(86400);     
+            handle.setTTLType(HandleValue.TTL_TYPE_RELATIVE);
+            handle.setTTL(86400);
             final BasicDBObject hv = handleStorage.setHandleValue(handle);
             list.add(hv);
             _lookup.addAll(handle.getLocations());
@@ -288,15 +288,36 @@ public class HandleDaoImpl implements HandleDao {
      */
     private void setLocations(Handle handle, LocAttType locations) {
 
-        final JAXBElement element = new JAXBElement(qname, PidType.class, LocAttType.class, locations);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        StreamResult result = new StreamResult(baos);
-        marshaller.marshal(element, result);
-        final String s = Util.decodeString(baos.toByteArray());
-        final int i = s.indexOf("<location ");
-        if (i == -1)
-            return;
-        handle.setData("<locations>" + s.substring(i));
+        // Todo: use an xslt to remove the namespaces.
+        final StringWriter writer = new StringWriter();
+        writer.write("<locations>");
+        final Iterator<LocationType> iterator = locations.getLocation().iterator();
+        while (iterator.hasNext()) {
+            writer.write("<location");
+            final LocationType l = iterator.next();
+            writeAttribute("href", l.getHref(), writer);
+            writeAttribute("id", l.getId(), writer);
+            writeAttribute("weight", l.getWeight(), writer);
+            writeAttribute("view", l.getView(), writer);
+            final Iterator<QName> iterator2 = l.getOtherAttributes().keySet().iterator();
+            while (iterator2.hasNext()) {
+                final QName qname = iterator2.next();
+                writeAttribute(qname.getLocalPart(), l.getOtherAttributes().get(qname), writer);
+            }
+            writer.write(" />");
+        }
+        writer.write("</locations>");
+        writer.flush();
+        handle.setData(writer.toString());
+    }
+
+    private void writeAttribute(String name, String value, Writer writer) {
+        if (value == null || value.trim().isEmpty()) return;
+        try {
+            writer.write(" " + name + "=\"" + value + "\"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setHandleStorage(MongoDBHandleStorage handleStorage) {

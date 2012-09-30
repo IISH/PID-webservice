@@ -28,6 +28,7 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.util.List;
 
@@ -129,6 +130,15 @@ public class PidServiceEndPoint {
         return objectFactory.createDeletePidsResponse(response);
     }
 
+    /**
+     * normalize
+     * <p/>
+     * Empty values will be replaced by null values.
+     * otherAttributes that have the same key values as 'href' will set set. This is a legacy issue.
+     *
+     * @param pidType
+     * @return
+     */
     private PidType normalize(PidType pidType) {
 
         final PidType handle = new PidType();
@@ -137,8 +147,15 @@ public class PidServiceEndPoint {
             if (!locations.isEmpty()) {
                 for (int i = locations.size() - 1; i != -1; i--) {
                     LocationType location = locations.get(i);
-                    if (location.getHref() == null)
-                        locations.remove(i);
+                    if (location.getHref() == null) {
+                        final QName qName = new QName("href");
+                        String href = location.getOtherAttributes().get(qName);
+                        if (href == null || href.isEmpty()) {
+                            locations.remove(i);
+                        } else
+                            location.getOtherAttributes().remove(qName);
+                            location.setHref(href);
+                    }
                 }
                 if (!locations.isEmpty())
                     handle.setLocAtt(pidType.getLocAtt());

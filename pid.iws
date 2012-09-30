@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a1192a9-b02a-48d7-a2b4-56e08c5c4f91" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/org/springframework/security/oauth2/provider/filter/OAuth2ProtectedResourceFilter.java" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\resources\application-context-security.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\resources\commons-logging.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\resources\log4j.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\resources\simplelog.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log4j.xml" afterPath="$PROJECT_DIR$/log4j.xml" />
+    <list default="true" id="6a1192a9-b02a-48d7-a2b4-56e08c5c4f91" name="Default" comment="Made the pid schema allow for the absence of localIdentifier and resolveUrl elements.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/resources/locations.xsl" />
+      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\java\org\socialhistoryservices\pid\schema\pid-1.0.xsd" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pid.ipr" afterPath="$PROJECT_DIR$/pid.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pid.iws" afterPath="$PROJECT_DIR$/pid.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java" afterPath="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/security.iml" afterPath="$PROJECT_DIR$/security/security.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.iml" afterPath="$PROJECT_DIR$/server/server.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/ObjectFactory.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/ObjectFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" />
     </list>
     <ignored path="pid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -180,10 +176,8 @@
     <groupTables value="false" />
   </component>
   <component name="DebuggerManager">
-    <method_breakpoints>
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar!/org/springframework/security/authentication/ProviderManager.class" line="68" class="org.springframework.security.authentication.ProviderManager.NullEventPublisher" package="">
-        <option name="WATCH_ENTRY" value="true" />
-        <option name="WATCH_EXIT" value="true" />
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java" line="170" class="org.socialhistoryservices.security.MongoTokenStore" package="org.socialhistoryservices.security">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -193,10 +187,10 @@
         <option name="CONDITION_ENABLED" value="false" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="&#13;&#13;JAVA" />
-        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-    </method_breakpoints>
+    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -244,8 +238,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -262,30 +256,40 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="attns" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/AccessConfirmationController.java" />
-        <option value="$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/springframework/security/oauth2/provider/filter/OAuth2ProtectedResourceFilter.java" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.jsp" />
-        <option value="$PROJECT_DIR$/server/src/main/resources/application-context-security.xml" />
-        <option value="$PROJECT_DIR$/server/log4j.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp" />
-        <option value="$PROJECT_DIR$/log4j.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp" />
+        <option value="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/net/handle/server/MongoDBHandleStorage.java" />
         <option value="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
+        <option value="$PROJECT_DIR$/security/src/test/java/org/socialhistoryservices/security/UserTest.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/1.0/pid.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/1.0/pid-1.0.xsd" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/1.0/pid.xsd" />
+        <option value="$PROJECT_DIR$/server/src/main/resources/rns.xsl" />
+        <option value="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/server/src/main/resources/locations.xsl" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" />
+        <option value="$PROJECT_DIR$/server/src/main/resources/pid-1.0.xsd" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/pid-1.0.xsd" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="workOffline" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -307,6 +311,7 @@
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -349,16 +354,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -379,28 +374,54 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_directory_selection" value="$PROJECT_DIR$/security/src/main/java/org/springframework/security/oauth2/provider/token" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="212" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="212" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="212" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="212" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="887" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="886" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="212" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="211" />
     <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/security/src/main/java/org/springframework/security/oauth2/provider/token" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -413,6 +434,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\1.0" />
       <recent name="C:\Users\lwo\PID-webservice\server\src\main\resources" />
       <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\WEB-INF\templates" />
       <recent name="C:\Users\lwo\PID-webservice\security\src\main\java\org\socialhistoryservices\security" />
@@ -424,7 +446,134 @@
       <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PidGeneratorTest">
+  <component name="RunManager" selected="Maven.server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]">
+    <configuration default="false" name="UserTest.main" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.socialhistoryservices.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="security" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="org.socialhistoryservices.security" />
+      <option name="MAIN_CLASS_NAME" value="org.socialhistoryservices.security.UserTest" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="UserTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.socialhistoryservices.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="security" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="org.socialhistoryservices.security" />
+      <option name="MAIN_CLASS_NAME" value="org.socialhistoryservices.security.UserTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="server [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="workingDirPath" value="$PROJECT_DIR$/server" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HandleDaoImplTest.testCreateNewHandleAllParams" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.socialhistoryservices.pid.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="server" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="org.socialhistoryservices.pid.dao" />
+      <option name="MAIN_CLASS_NAME" value="org.socialhistoryservices.pid.dao.HandleDaoImplTest" />
+      <option name="METHOD_NAME" value="testCreateNewHandleAllParams" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
     <configuration default="false" name="server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -451,9 +600,7 @@
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
@@ -538,6 +685,27 @@
         <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
         <option name="PhingTarget" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -631,7 +799,13 @@
       </option>
       <envs />
       <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -697,11 +871,129 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Maven.server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.HandleDaoImplTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.StubPidResourceServiceTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.PidGeneratorTest" />
+    <configuration default="false" name="MongoDBHandleStorageTest.parseHandle" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="net.handle.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="mongodb-handlestorage" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="net.handle.server" />
+      <option name="MAIN_CLASS_NAME" value="net.handle.server.MongoDBHandleStorageTest" />
+      <option name="METHOD_NAME" value="parseHandle" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MongoDBHandleStorageTest" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="net.handle.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="mongodb-handlestorage" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="net.handle.server" />
+      <option name="MAIN_CLASS_NAME" value="net.handle.server.MongoDBHandleStorageTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="rns.xsl" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" value="" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" value="" />
+      <option name="myWorkingDirectory" value="" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <XsltFile url="file://$PROJECT_DIR$/server/src/main/resources/rns.xsl" />
+      <XmlFile url="file://$USER_HOME$/Desktop/a.xml" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <RunnerSettings RunnerId="Run" />
+      <RunnerSettings RunnerId="XsltDebuggerRunner" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="XsltDebuggerRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="locations.xsl" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" value="" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" value="" />
+      <option name="myWorkingDirectory" value="" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <XsltFile url="file://$PROJECT_DIR$/server/src/main/resources/locations.xsl" />
+      <XmlFile url="file://$USER_HOME$/Desktop/a.xml" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <RunnerSettings RunnerId="Run" />
+      <RunnerSettings RunnerId="XsltDebuggerRunner" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="XsltDebuggerRunner" />
+      <method />
+    </configuration>
+    <list size="12">
+      <item index="0" class="java.lang.String" itemvalue="JUnit.UserTest.main" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.UserTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.HandleDaoImplTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StubPidResourceServiceTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.PidGeneratorTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.MongoDBHandleStorageTest.parseHandle" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.MongoDBHandleStorageTest" />
+      <item index="7" class="java.lang.String" itemvalue="Maven.server [test]" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.HandleDaoImplTest.testCreateNewHandleAllParams" />
+      <item index="9" class="java.lang.String" itemvalue="XSLT.rns.xsl" />
+      <item index="10" class="java.lang.String" itemvalue="XSLT.locations.xsl" />
+      <item index="11" class="java.lang.String" itemvalue="Maven.server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -724,6 +1016,7 @@
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
     <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
     <configuration useDefault="true">C:\Users\lwo\AppData\Roaming\Subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
@@ -742,7 +1035,51 @@
       <created>1338296834387</created>
       <updated>1338296834387</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Move to Spring 3.1.1-RELEASE and oauth2-M5">
+      <created>1338400425585</created>
+      <updated>1338400425585</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Increase some logging">
+      <created>1339186850769</created>
+      <updated>1339186850769</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Remove unused exception handling.">
+      <created>1346693078844</created>
+      <updated>1346693078844</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add test user account and made sure account details are entered into the handlesystem collection.">
+      <created>1348563516687</created>
+      <updated>1348563516687</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Removed mistaken @Test tagged method.">
+      <created>1348565091102</created>
+      <updated>1348565091102</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Bug: was duplicating access token documents by calling the method twice.">
+      <created>1348569225681</created>
+      <updated>1348569225681</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Made the pid schema allow for the absence of localIdentifier and resolveUrl elements.">
+      <created>1348606889910</created>
+      <updated>1348606889910</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Made the pid schema allow for the absence of localIdentifier and resolveUrl elements.">
+      <created>1349001937358</created>
+      <updated>1349001937358</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Use namespace for attributes&#10;">
+      <created>1349022771895</created>
+      <updated>1349022771895</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Made the pid schema allow for the absence of localIdentifier and resolveUrl elements.">
+      <created>1349027167389</created>
+      <updated>1349027167389</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Namespace for attributes">
+      <created>1349029056385</created>
+      <updated>1349029056385</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -770,30 +1107,30 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5540541" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4527027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5364865" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5837838" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32702702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13079897" sideWeight="0.44594595" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12951031" sideWeight="0.5472973" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1746134" sideWeight="0.44594595" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53243244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26546392" sideWeight="0.5472973" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32027027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="soapUI Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32837838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32702702" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.6002252" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -836,7 +1173,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move to Spring 3.1.1-RELEASE and oauth2-M5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Namespace for attributes" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -854,6 +1191,15 @@
     <MESSAGE value="Move to Spring 3.1" />
     <MESSAGE value="Implementing oauth2" />
     <MESSAGE value="Move to Spring 3.1.1-RELEASE and oauth2-M5" />
+    <MESSAGE value="Increase some logging" />
+    <MESSAGE value="Remove certain exception handling." />
+    <MESSAGE value="Remove unused exception handling." />
+    <MESSAGE value="Add test user account and made sure account details are entered into the handlesystem collection." />
+    <MESSAGE value="Removed mistaken @Test tagged method." />
+    <MESSAGE value="Bug: was duplicating access token documents by calling the method twice." />
+    <MESSAGE value="Use namespace for attributes&#10;" />
+    <MESSAGE value="Made the pid schema allow for the absence of localIdentifier and resolveUrl elements." />
+    <MESSAGE value="Namespace for attributes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -863,117 +1209,106 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/ProviderManager.java">
+    <entry file="jar://C:/java/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="301" column="0" selection-start="13609" selection-end="13609" vertical-scroll-proportion="0.55131966">
-          <folding />
-        </state>
+        <state line="304" column="18" selection-start="14798" selection-end="14798" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/ClientToken.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/net/handle/handle/7.0/handle-7.0.jar!/net/handle/hdllib/HandleValue.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="1891" selection-end="1891" vertical-scroll-proportion="0.33231708">
-          <folding />
-        </state>
+        <state line="59" column="22" selection-start="2201" selection-end="2201" vertical-scroll-proportion="0.3455099" />
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/AbstractAuthenticationToken.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/domain/Handle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="0" selection-start="3275" selection-end="3275" vertical-scroll-proportion="0.3313783">
-          <folding />
-        </state>
+        <state line="53" column="19" selection-start="1585" selection-end="1592" vertical-scroll-proportion="0.49784172" />
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/provider/OAuth2Authentication.java">
+    <entry file="file://$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/access/intercept/AbstractSecurityInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="296" column="0" selection-start="14862" selection-end="14862" vertical-scroll-proportion="0.3313783">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="4" selection-start="4435" selection-end="4435" vertical-scroll-proportion="2.6">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/1.0.0.M5/spring-security-oauth2-1.0.0.M5-sources.jar!/org/springframework/security/oauth2/common/OAuth2AccessToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="50" selection-start="8" selection-end="50" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/request_token_authorized.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6508474">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.form.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="48" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.45423728">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.3510637">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/util/PidGeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="0" selection-start="3357" selection-end="3357" vertical-scroll-proportion="0.572327">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/springframework/security/oauth2/provider/filter/OAuth2ProtectedResourceFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="64" selection-start="3678" selection-end="3678" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="127" column="0" selection-start="5940" selection-end="5940" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="61" selection-start="3189" selection-end="3189" vertical-scroll-proportion="0.33333334">
+        <state line="144" column="19" selection-start="5538" selection-end="5540" vertical-scroll-proportion="0.2141802">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp">
+    <entry file="file://$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="18" selection-start="8725" selection-end="8725" vertical-scroll-proportion="0.33258426">
+        <state line="198" column="30" selection-start="8215" selection-end="8215" vertical-scroll-proportion="0.42983752">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/keys.jsp">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/PidResourceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="87" selection-start="2124" selection-end="2124" vertical-scroll-proportion="0.33258426">
+        <state line="43" column="0" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.5468531">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="67" selection-start="3041" selection-end="3063" vertical-scroll-proportion="0.45307916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.48920864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="24" selection-start="3521" selection-end="3521" vertical-scroll-proportion="-4.47151">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/LocAttType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="28" selection-start="1881" selection-end="1893" vertical-scroll-proportion="0.65102637">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/LocationType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="13" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.3323741">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="72" selection-start="7993" selection-end="7993" vertical-scroll-proportion="0.3">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/resources/pid-1.0.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="54" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.6109937">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/ObjectFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="819" selection-end="819" vertical-scroll-proportion="0.3326087">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/pid-1.0.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
