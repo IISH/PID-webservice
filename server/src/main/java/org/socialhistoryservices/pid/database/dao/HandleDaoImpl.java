@@ -33,10 +33,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -62,6 +64,17 @@ public class HandleDaoImpl implements HandleDao {
     final public static String URL = "URL";
     final public static String LOC = "10320/loc";
     final private static String HS_ADMIN = "HS_ADMIN";
+
+    private Transformer transformer;
+
+    public HandleDaoImpl() {
+        try {
+            final InputStream resourceAsStream = this.getClass().getResourceAsStream("/locations.remove.ns.xsl");
+            transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(resourceAsStream));
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public List<Handle> upsertHandle(String na, PidType pidType) throws HandleException {
@@ -288,8 +301,21 @@ public class HandleDaoImpl implements HandleDao {
      */
     private void setLocations(Handle handle, LocAttType locations) {
 
-        // Todo: use an xslt to remove the namespaces.
-        final StringWriter writer = new StringWriter();
+        final JAXBElement element = new JAXBElement(qname, PidType.class, LocAttType.class, locations);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        StreamResult result = new StreamResult(baos);
+        marshaller.marshal(element, result);
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        Result result2 = new StreamResult(os);
+        final StreamSource xmlSource = new StreamSource(new ByteArrayInputStream(baos.toByteArray()));
+        try {
+            transformer.transform(xmlSource, result2);
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+        handle.setData(os.toByteArray());
+
+        /* final StringWriter writer = new StringWriter();
         writer.write("<locations>");
         final Iterator<LocationType> iterator = locations.getLocation().iterator();
         while (iterator.hasNext()) {
@@ -308,7 +334,7 @@ public class HandleDaoImpl implements HandleDao {
         }
         writer.write("</locations>");
         writer.flush();
-        handle.setData(writer.toString());
+        handle.setData(writer.toString());*/
     }
 
     private void writeAttribute(String name, String value, Writer writer) {
