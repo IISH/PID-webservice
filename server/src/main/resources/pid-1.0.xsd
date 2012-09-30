@@ -17,7 +17,7 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
   -->
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified"
            xmlns:tns="http://pid.socialhistoryservices.org/"
            targetNamespace="http://pid.socialhistoryservices.org/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -74,7 +74,7 @@
             <xs:element type="tns:locationType" name="location" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="locationType">
+    <xs:complexType name="locationType" >
         <xs:annotation>
             <xs:documentation>locationType : a resolve Url. Just like the pidType.resolveUrl it points to a web
                 resource.
@@ -86,7 +86,7 @@
         </xs:annotation>
         <xs:simpleContent>
             <xs:extension base="xs:string">
-                <xs:attribute type="xs:anyURI" name="href" use="required"/>
+                <xs:attribute type="xs:anyURI" name="href" use="required"  />
                 <xs:attribute type="xs:string" name="id" use="optional"/>
                 <xs:attribute type="xs:string" name="weight" use="optional"/>
                 <xs:attribute type="xs:string" name="view" use="optional"/>
@@ -97,7 +97,7 @@
     </xs:complexType>
 
     <!-- Methods -->
-    <xs:element name="UpsertPidRequest" type="tns:UpsertPidRequestType"/>
+    <xs:element name="UpsertPidRequest" type="tns:UpsertPidRequestType" />
     <xs:element name="UpsertPidResponse" type="tns:UpsertPidResponseType"/>
     <xs:element name="CreatePidRequest" type="tns:CreatePidRequestType"/>
     <xs:element name="CreatePidResponse" type="tns:CreatePidResponseType"/>
