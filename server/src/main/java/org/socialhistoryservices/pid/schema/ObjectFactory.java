@@ -49,43 +49,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DeletePidRequestType }
+     * Create an instance of {@link LocAttType }
      * 
      */
-    public DeletePidRequestType createDeletePidRequestType() {
-        return new DeletePidRequestType();
-    }
-
-    /**
-     * Create an instance of {@link UpdatePidResponseType }
-     * 
-     */
-    public UpdatePidResponseType createUpdatePidResponseType() {
-        return new UpdatePidResponseType();
-    }
-
-    /**
-     * Create an instance of {@link GetPidResponseType }
-     * 
-     */
-    public GetPidResponseType createGetPidResponseType() {
-        return new GetPidResponseType();
-    }
-
-    /**
-     * Create an instance of {@link CreatePidRequestType }
-     * 
-     */
-    public CreatePidRequestType createCreatePidRequestType() {
-        return new CreatePidRequestType();
-    }
-
-    /**
-     * Create an instance of {@link PidType }
-     * 
-     */
-    public PidType createPidType() {
-        return new PidType();
+    public LocAttType createLocAttType() {
+        return new LocAttType();
     }
 
     /**
@@ -97,6 +65,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeletePidRequestType }
+     * 
+     */
+    public DeletePidRequestType createDeletePidRequestType() {
+        return new DeletePidRequestType();
+    }
+
+    /**
      * Create an instance of {@link UpsertPidResponseType }
      * 
      */
@@ -105,19 +81,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpsertPidRequestType }
+     * Create an instance of {@link GetPidResponseType }
      * 
      */
-    public UpsertPidRequestType createUpsertPidRequestType() {
-        return new UpsertPidRequestType();
-    }
-
-    /**
-     * Create an instance of {@link GetQuickPidResponseType }
-     * 
-     */
-    public GetQuickPidResponseType createGetQuickPidResponseType() {
-        return new GetQuickPidResponseType();
+    public GetPidResponseType createGetPidResponseType() {
+        return new GetPidResponseType();
     }
 
     /**
@@ -129,27 +97,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LocAttType }
+     * Create an instance of {@link GetPidByAttributeResponseType }
      * 
      */
-    public LocAttType createLocAttType() {
-        return new LocAttType();
+    public GetPidByAttributeResponseType createGetPidByAttributeResponseType() {
+        return new GetPidByAttributeResponseType();
     }
 
     /**
-     * Create an instance of {@link DeletePidsRequestType }
+     * Create an instance of {@link UpdatePidResponseType }
      * 
      */
-    public DeletePidsRequestType createDeletePidsRequestType() {
-        return new DeletePidsRequestType();
-    }
-
-    /**
-     * Create an instance of {@link CreatePidResponseType }
-     * 
-     */
-    public CreatePidResponseType createCreatePidResponseType() {
-        return new CreatePidResponseType();
+    public UpdatePidResponseType createUpdatePidResponseType() {
+        return new UpdatePidResponseType();
     }
 
     /**
@@ -161,19 +121,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetPidRequestType }
+     * Create an instance of {@link UpsertPidRequestType }
      * 
      */
-    public GetPidRequestType createGetPidRequestType() {
-        return new GetPidRequestType();
+    public UpsertPidRequestType createUpsertPidRequestType() {
+        return new UpsertPidRequestType();
     }
 
     /**
-     * Create an instance of {@link LocationType }
+     * Create an instance of {@link CreatePidRequestType }
      * 
      */
-    public LocationType createLocationType() {
-        return new LocationType();
+    public CreatePidRequestType createCreatePidRequestType() {
+        return new CreatePidRequestType();
+    }
+
+    /**
+     * Create an instance of {@link GetQuickPidResponseType }
+     * 
+     */
+    public GetQuickPidResponseType createGetQuickPidResponseType() {
+        return new GetQuickPidResponseType();
     }
 
     /**
@@ -185,11 +153,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetPidByAttributeResponseType }
+     * Create an instance of {@link CreatePidResponseType }
      * 
      */
-    public GetPidByAttributeResponseType createGetPidByAttributeResponseType() {
-        return new GetPidByAttributeResponseType();
+    public CreatePidResponseType createCreatePidResponseType() {
+        return new CreatePidResponseType();
+    }
+
+    /**
+     * Create an instance of {@link LocationType }
+     * 
+     */
+    public LocationType createLocationType() {
+        return new LocationType();
+    }
+
+    /**
+     * Create an instance of {@link PidType }
+     * 
+     */
+    public PidType createPidType() {
+        return new PidType();
     }
 
     /**
@@ -198,6 +182,22 @@ public class ObjectFactory {
      */
     public DeletePidResponseType createDeletePidResponseType() {
         return new DeletePidResponseType();
+    }
+
+    /**
+     * Create an instance of {@link GetPidRequestType }
+     * 
+     */
+    public GetPidRequestType createGetPidRequestType() {
+        return new GetPidRequestType();
+    }
+
+    /**
+     * Create an instance of {@link DeletePidsRequestType }
+     * 
+     */
+    public DeletePidsRequestType createDeletePidsRequestType() {
+        return new DeletePidsRequestType();
     }
 
     /**

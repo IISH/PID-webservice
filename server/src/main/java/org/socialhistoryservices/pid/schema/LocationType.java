@@ -51,16 +51,16 @@ public class LocationType {
 
     @XmlValue
     protected String value;
-    @XmlAttribute(namespace = "http://pid.socialhistoryservices.org/", required = true)
+    @XmlAttribute(required = true)
     @XmlSchemaType(name = "anyURI")
     protected String href;
-    @XmlAttribute(namespace = "http://pid.socialhistoryservices.org/")
+    @XmlAttribute
     protected String id;
-    @XmlAttribute(namespace = "http://pid.socialhistoryservices.org/")
+    @XmlAttribute
     protected String weight;
-    @XmlAttribute(namespace = "http://pid.socialhistoryservices.org/")
+    @XmlAttribute
     protected String view;
-    @XmlAttribute(namespace = "http://pid.socialhistoryservices.org/")
+    @XmlAttribute
     protected String country;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
