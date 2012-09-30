@@ -17,7 +17,7 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
   -->
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified"
            xmlns:tns="http://pid.socialhistoryservices.org/"
            targetNamespace="http://pid.socialhistoryservices.org/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">

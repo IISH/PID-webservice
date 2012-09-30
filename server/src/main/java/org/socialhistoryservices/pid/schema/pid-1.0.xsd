@@ -2,7 +2,7 @@
 <!--
   ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
   ~
-  ~ Copyright (C) 2010-2012, International Institute of Social History
+  ~ Copyright (C) 2010-2011, International Institute of Social History
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
   -->
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified"
            xmlns:tns="http://pid.socialhistoryservices.org/"
            targetNamespace="http://pid.socialhistoryservices.org/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
