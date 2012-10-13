@@ -163,8 +163,12 @@
             <artifactId>security</artifactId>
             <version>1.0</version>
         </dependency>
+        <!--<dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-ldap</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>-->
     </dependencies>
-
     <organization>
         <name>International Institute for Social History</name>
         <url>http://socialhistoryservices.org/</url>

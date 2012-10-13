@@ -1,0 +1,34 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+project.group = "org.socialhistoryservices"
+project.version = "1.0"
+
+defaultTasks = ['clean', 'test', 'assemble']
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://snapshots.repository.codehaus.org"
+    }
+}
+
+
+dependencies {
+    groovy 'org.codehaus.groovy:groovy:1.8.5'
+    compile('org.codehaus.groovy.modules.http-builder:http-builder:0.5.2-SNAPSHOT')
+    testCompile group: 'junit', name: 'junit', version: '4.8.2'
+}
+
+// Place the jar in the build/libs folder
+jar {
+    from {
+        configurations.runtime.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+

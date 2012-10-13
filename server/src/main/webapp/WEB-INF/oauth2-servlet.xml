@@ -92,6 +92,7 @@
     <mvc:view-controller path="/admin/login" view-name="login"/>
     <mvc:view-controller path="/admin/login.form" view-name="login.form"/>
 
+    <!-- this authenticationManager and mongoUserDetailService can be replaced by any other userdetails service -->
     <bean id="mongoUserDetailService" class="org.socialhistoryservices.security.MongoUserDetailService">
         <property name="mongo" ref="mongo"/>
         <property name="database" value="#{pidProperties['mongo.database']}"/>
@@ -101,6 +102,17 @@
         <authentication-provider user-service-ref="mongoUserDetailService">
             <password-encoder hash="sha-256"/>
         </authentication-provider>
+
+        <!--<sec:ldap-authentication-provider
+                user-search-filter="#{pidProperties['ldap-authentication-provider.user-search-filter']}"
+                user-search-base="#{pidProperties['ldap-authentication-provider.user-search-base']}"
+                group-search-filter="#{pidProperties['ldap-authentication-provider.group-search-filter']}"
+                group-search-base="#{pidProperties['ldap-authentication-provider.group-search-base']}"
+                group-role-attribute="#{pidProperties['ldap-authentication-provider.group-role-attribute']}"
+                role-prefix="#{pidProperties['ldap-authentication-provider.role-prefix']}">
+        </sec:ldap-authentication-provider>-->
     </authentication-manager>
+  <!--  <sec:ldap-server url="#{pidProperties['ldap-server.url']}" manager-dn="#{pidProperties['ldap-server.manager-dn']}"
+                     manager-password="#{pidProperties['ldap-server.manager-password']}"/>-->
 
 </beans>
