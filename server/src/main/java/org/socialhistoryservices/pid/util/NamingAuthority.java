@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class NamingAuthority {
 
-    private static final String role_prefix = "ROLE_NA_";
+    private static final String role_prefix = "ROLE_PID-WEBSERVICE-USER_";
     private static final String role_anonymous = "IS_AUTHENTICATED_ANONYMOUSLY";
 
     public static List<String> getNaRole(Authentication userAuthentication) {
@@ -41,7 +41,7 @@ public class NamingAuthority {
         final Collection<? extends GrantedAuthority> authorities = userAuthentication.getAuthorities();
         final List<String> nas = new ArrayList(authorities.size());
         for (GrantedAuthority authority : authorities) {
-            String role = authority.getAuthority().replace("\n",""); // ToDo: find out why there sometimes is a \n in the role ?
+            String role = authority.getAuthority().replace("\n",""); // ToDo: find out if there still is a \n in the role.
             if (role.startsWith(role_prefix)) {
                 nas.add(role.substring(role_prefix.length()));
             }

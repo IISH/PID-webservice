@@ -89,10 +89,10 @@ public class StubPidResourceServiceTest {
             }
         }
         final Collection<GrantedAuthority> authorities = new ArrayList(4);
-        authorities.add(new Grant("ROLE_USER"));
-        authorities.add(new Grant("ROLE_NA_00000.1"));
-        authorities.add(new Grant("ROLE_NA_" + na));
-        authorities.add(new Grant("ROLE_NA_00000.2"));
+        authorities.add(new Grant("ROLE_PID-WEBSERVICE-USER"));
+        authorities.add(new Grant("ROLE_PID-WEBSERVICE-USER_00000.1"));
+        authorities.add(new Grant("ROLE_PID-WEBSERVICE-USER_" + na));
+        authorities.add(new Grant("ROLE_PID-WEBSERVICE-USER_00000.2"));
         ClientToken clientToken = new ClientToken("test-client", UUID.randomUUID().toString(), null);
         UsernamePasswordAuthenticationToken usernamePasswordAuthentication = new UsernamePasswordAuthenticationToken(null, null, authorities);
         OAuth2Authentication auth2Authentication = new OAuth2Authentication(clientToken, usernamePasswordAuthentication);

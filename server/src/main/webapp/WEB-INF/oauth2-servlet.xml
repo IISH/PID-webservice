@@ -10,11 +10,11 @@
 
     <http access-denied-page="/admin/login.jsp" access-decision-manager-ref="accessDecisionManager"
           xmlns="http://www.springframework.org/schema/security">
-        <intercept-url pattern="/secure/**" access="ROLE_USER"/>
+        <intercept-url pattern="/secure/**" access="ROLE_PID-WEBSERVICE-USER"/>
         <intercept-url pattern="/oauth/token" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/oauth/authorize" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/oauth/**" access="ROLE_USER"/>
-        <intercept-url pattern="/admin/keys" access="ROLE_USER"/>
+        <intercept-url pattern="/oauth/**" access="ROLE_PID-WEBSERVICE-USER"/>
+        <intercept-url pattern="/admin/keys" access="ROLE_PID-WEBSERVICE-USER"/> <!-- Authenticated yet unauthorized users get a 404 -->
         <intercept-url pattern="/admin/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 
@@ -92,27 +92,37 @@
     <mvc:view-controller path="/admin/login" view-name="login"/>
     <mvc:view-controller path="/admin/login.form" view-name="login.form"/>
 
-    <!-- this authenticationManager and mongoUserDetailService can be replaced by any other userdetails service -->
+    <!-- This authenticationManager and mongoUserDetailService can be replaced by or accompanied by any other userdetails service -->
     <bean id="mongoUserDetailService" class="org.socialhistoryservices.security.MongoUserDetailService">
         <property name="mongo" ref="mongo"/>
         <property name="database" value="#{pidProperties['mongo.database']}"/>
     </bean>
 
     <authentication-manager alias="authenticationManager" xmlns="http://www.springframework.org/schema/security">
+
+        <!-- <sec:ldap-authentication-provider
+               user-search-filter="#{pidProperties['ldap-authentication-provider-1.user-search-filter']}"
+               user-search-base="#{pidProperties['ldap-authentication-provider-1.user-search-base']}"
+               group-search-filter="#{pidProperties['ldap-authentication-provider-1.group-search-filter']}"
+               group-search-base="#{pidProperties['ldap-authentication-provider-1.group-search-base']}"
+               group-role-attribute="#{pidProperties['ldap-authentication-provider-1.group-role-attribute']}"
+               role-prefix="#{pidProperties['ldap-authentication-provider-1.role-prefix']}">
+       </sec:ldap-authentication-provider>
+
+       <sec:ldap-authentication-provider
+               user-search-filter="#{pidProperties['ldap-authentication-provider-2.user-search-filter']}"
+               user-search-base="#{pidProperties['ldap-authentication-provider-2.user-search-base']}"
+               group-search-filter="#{pidProperties['ldap-authentication-provider-2.group-search-filter']}"
+               group-search-base="#{pidProperties['ldap-authentication-provider-2.group-search-base']}"
+               group-role-attribute="#{pidProperties['ldap-authentication-provider-2.group-role-attribute']}"
+               role-prefix="#{pidProperties['ldap-authentication-provider-2.role-prefix']}">
+       </sec:ldap-authentication-provider> -->
+
         <authentication-provider user-service-ref="mongoUserDetailService">
             <password-encoder hash="sha-256"/>
         </authentication-provider>
-
-        <!--<sec:ldap-authentication-provider
-                user-search-filter="#{pidProperties['ldap-authentication-provider.user-search-filter']}"
-                user-search-base="#{pidProperties['ldap-authentication-provider.user-search-base']}"
-                group-search-filter="#{pidProperties['ldap-authentication-provider.group-search-filter']}"
-                group-search-base="#{pidProperties['ldap-authentication-provider.group-search-base']}"
-                group-role-attribute="#{pidProperties['ldap-authentication-provider.group-role-attribute']}"
-                role-prefix="#{pidProperties['ldap-authentication-provider.role-prefix']}">
-        </sec:ldap-authentication-provider>-->
     </authentication-manager>
-  <!--  <sec:ldap-server url="#{pidProperties['ldap-server.url']}" manager-dn="#{pidProperties['ldap-server.manager-dn']}"
+    <!--<sec:ldap-server url="#{pidProperties['ldap-server.url']}" manager-dn="#{pidProperties['ldap-server.manager-dn']}"
                      manager-password="#{pidProperties['ldap-server.manager-password']}"/>-->
 
 </beans>

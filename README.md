@@ -90,7 +90,13 @@ webservice keys:
 To call the webserver, place the key in a HTTP header request as expressed in this pseude code:
 <code>HTTP-header(headerName, headerValue) = { "Authorization", "oauth [key]" } 
 Whereby [key] is the webservice key. For example, if the key is 12345, the header is: 
-HTTP-header("Authorization", "oauth 12345")</code> 
+HTTP-header("Authorization", "oauth 12345")</code>
+
+## LDAP and local user providers
+Besides the optional local database embedded provided user provider, you can declare any authentication providers in the
+authentication manager in oauth2-servlet.xml servlet. If you use LDAP you need to assign membership to at least two groups:
+1. ROLE_PID-WEBSERVICE-USER
+2. ROLE_PID-WEBSERVICE-USER_[your naming authority]
 
 ##Discover the webservice
 The Pid webservice offers a high level API for seven operations:
