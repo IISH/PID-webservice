@@ -62,7 +62,7 @@ public class QRController {
             try {
                 url = qrService.decode(file.getInputStream());
             } catch (Exception e) {
-                // Dont do anything
+                // Do not do a thing
             }
         }
         if (url == null) {
