@@ -97,7 +97,7 @@ public class HandleDaoImpl implements HandleDao {
     }
 
     @Override
-    public List<Handle> fetchHandleByPID(String na, String pid) throws HandleException {
+    public List<Handle> fetchHandleByPID(String pid) throws HandleException {
 
         final List<HandleValue> handleValues = handleStorage.getHandleValues(pid);
         final Iterator<HandleValue> iterator = handleValues.iterator();

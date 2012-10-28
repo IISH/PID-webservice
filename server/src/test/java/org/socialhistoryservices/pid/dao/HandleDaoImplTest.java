@@ -107,7 +107,7 @@ public class HandleDaoImplTest {
             // create a it:
             // Lookup... we should have three documents:
             for (String pid : pids) {
-                final List<Handle> retrieven_handles = handleDao.fetchHandleByPID(na, pid);
+                final List<Handle> retrieven_handles = handleDao.fetchHandleByPID(pid);
                 assertNotNull(retrieven_handles);
                 assertEquals(2, retrieven_handles.size());
                 assertEquals(pid, retrieven_handles.get(0).getHandle());
@@ -119,7 +119,7 @@ public class HandleDaoImplTest {
                 final List<Handle> insertedHandles = handleDao.upsertHandle(na, getPidType(pid, url, null, null));
                 assertNotNull(insertedHandles);
                 assertEquals(2, insertedHandles.size());
-                List<Handle> retrieve_handles = handleDao.fetchHandleByPID(na, insertedHandles.get(0).getHandle());
+                List<Handle> retrieve_handles = handleDao.fetchHandleByPID(insertedHandles.get(0).getHandle());
                 assertEquals(url, retrieve_handles.get(0).getDataAsString());
             }
         }
@@ -213,10 +213,10 @@ public class HandleDaoImplTest {
         String knownPid = PidGenerator.getPid(PidGenerator.getPid(na));
         final List<Handle> insertedHandles = handleDao.createNewHandle(na, getPidType(knownPid, resolveUrl, null, null));
         assertNotNull(insertedHandles);
-        final List<Handle> retrieven_handles = handleDao.fetchHandleByPID(na, knownPid);
+        final List<Handle> retrieven_handles = handleDao.fetchHandleByPID(knownPid);
         assertEquals("HandlePid should be the same", knownPid, retrieven_handles.get(0).getHandle());
         final String unknownPid = PidGenerator.getPid();
-        final List<Handle> handleList = handleDao.fetchHandleByPID(na, unknownPid);
+        final List<Handle> handleList = handleDao.fetchHandleByPID(unknownPid);
         assertEquals("HandlePid ought to be empty when supplied an unknown pid.", 0, handleList.size());
     }
 
@@ -380,7 +380,7 @@ public class HandleDaoImplTest {
         boolean deleted = handleDao.deletePid(pid);
         Assert.isTrue(deleted);
 
-        final List<Handle> retrieven_handles = handleDao.fetchHandleByPID(na, pid);
+        final List<Handle> retrieven_handles = handleDao.fetchHandleByPID(pid);
         assertEquals(0, retrieven_handles.size());
 
         handleDao.createNewHandle(na, getPidType(pid, resolveUrl, null, null));

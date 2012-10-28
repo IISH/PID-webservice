@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a1192a9-b02a-48d7-a2b4-56e08c5c4f91" name="Default" comment="Made the pid schema allow for the absence of localIdentifier and resolveUrl elements.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/resources/locations.xsl" />
-      <change type="DELETED" beforePath="C:\Users\lwo\PID-webservice\server\src\main\java\org\socialhistoryservices\pid\schema\pid-1.0.xsd" afterPath="" />
+    <list default="true" id="6a1192a9-b02a-48d7-a2b4-56e08c5c4f91" name="Default" comment="Added LDAP support">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/resources/qr404.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/QRController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/QRService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/QRServiceImp.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/fnf400.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pid.iml" afterPath="$PROJECT_DIR$/pid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pid.ipr" afterPath="$PROJECT_DIR$/pid.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pid.iws" afterPath="$PROJECT_DIR$/pid.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/security/security.iml" afterPath="$PROJECT_DIR$/security/security.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pom.xml" afterPath="$PROJECT_DIR$/server/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.iml" afterPath="$PROJECT_DIR$/server/server.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/ObjectFactory.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/ObjectFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" afterPath="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" />
     </list>
     <ignored path="pid.iws" />
@@ -190,6 +195,32 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/2.7.3/mongo-java-driver-2.7.3-sources.jar!/org/bson/io/BasicOutputBuffer.java" line="84" class="org.bson.io.BasicOutputBuffer" package="org.bson.io">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/QRServiceImp.java" line="104" class="org.socialhistoryservices.pid.service.QRServiceImp" package="org.socialhistoryservices.pid.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -265,22 +296,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/mongodb-handlestorage/src/main/java/net/handle/server/MongoDBHandleStorage.java" />
-        <option value="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
-        <option value="$PROJECT_DIR$/security/src/test/java/org/socialhistoryservices/security/UserTest.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/1.0/pid.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/1.0/pid-1.0.xsd" />
-        <option value="$PROJECT_DIR$/server/src/main/webapp/1.0/pid.xsd" />
-        <option value="$PROJECT_DIR$/server/src/main/resources/rns.xsl" />
-        <option value="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" />
-        <option value="$PROJECT_DIR$/server/src/main/resources/locations.xsl" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/NamingAuthority.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/Conversions.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/util/Normalization.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java" />
-        <option value="$PROJECT_DIR$/server/src/main/resources/pid-1.0.xsd" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/pid-1.0.xsd" />
+        <option value="$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/application-context-qr.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/resources/application-context-qr.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/resources/application-context.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/QRService.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/QRServiceImp.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/QRController.java" />
+        <option value="$PROJECT_DIR$/server/pom.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml" />
+        <option value="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/fnf400.jsp" />
       </list>
     </option>
   </component>
@@ -307,6 +338,9 @@
       </PATH>
     </treeState>
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
@@ -317,6 +351,25 @@
     <option name="y" value="-8" />
     <option name="width" value="1616" />
     <option name="height" value="876" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Web Services Inspections</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -331,6 +384,12 @@
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
+  <component name="ProjectStructureProblems">
+    <ignored-problems>
+      <problem id="library-missing-from-artifact(artifact:server:war exploded,WEB-INF/classes/module-output)" />
+      <problem id="library-missing-from-artifact(artifact:server:war,WEB-INF/classes/module-output)" />
+    </ignored-problems>
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -344,16 +403,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -374,6 +423,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -388,7 +447,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="212" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="212" />
     <property name="OverrideImplement.combined" value="true" />
@@ -418,7 +477,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="reference.settings.ide.settings.webservices" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -433,17 +492,20 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.socialhistoryservices.pid.controllers" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\1.0" />
+      <recent name="C:\Users\lwo\PID-webservice\server\src\main\java\org\socialhistoryservices\pid\schemans" />
       <recent name="C:\Users\lwo\PID-webservice\server\src\main\resources" />
+      <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\1.0" />
       <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\WEB-INF\templates" />
       <recent name="C:\Users\lwo\PID-webservice\security\src\main\java\org\socialhistoryservices\security" />
-      <recent name="C:\Users\lwo\PID-webservice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\WEB-INF\templates" />
       <recent name="C:\Users\lwo\PID-webservice\server\src\main\resources" />
       <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\lwo\PID-webservice\server\src\main\webapp\WEB-INF\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Maven.server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]">
@@ -600,8 +662,24 @@
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="C:\Users\lwo\PID-webservice" />
+      <setting name="debug" value="false" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
     </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -981,19 +1059,48 @@
       <ConfigurationWrapper RunnerId="XsltDebuggerRunner" />
       <method />
     </configuration>
-    <list size="12">
+    <configuration default="false" name="Bson" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.socialhistoryservices.pid.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.socialhistoryservices.pid.util.Bson" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="server" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="13">
       <item index="0" class="java.lang.String" itemvalue="JUnit.UserTest.main" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.UserTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.HandleDaoImplTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.StubPidResourceServiceTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.PidGeneratorTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.MongoDBHandleStorageTest.parseHandle" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.MongoDBHandleStorageTest" />
-      <item index="7" class="java.lang.String" itemvalue="Maven.server [test]" />
-      <item index="8" class="java.lang.String" itemvalue="JUnit.HandleDaoImplTest.testCreateNewHandleAllParams" />
-      <item index="9" class="java.lang.String" itemvalue="XSLT.rns.xsl" />
-      <item index="10" class="java.lang.String" itemvalue="XSLT.locations.xsl" />
-      <item index="11" class="java.lang.String" itemvalue="Maven.server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" />
+      <item index="2" class="java.lang.String" itemvalue="Maven.server [test]" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.HandleDaoImplTest.testCreateNewHandleAllParams" />
+      <item index="4" class="java.lang.String" itemvalue="Maven.server [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.HandleDaoImplTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.StubPidResourceServiceTest" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.PidGeneratorTest" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.MongoDBHandleStorageTest.parseHandle" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.MongoDBHandleStorageTest" />
+      <item index="10" class="java.lang.String" itemvalue="XSLT.rns.xsl" />
+      <item index="11" class="java.lang.String" itemvalue="XSLT.locations.xsl" />
+      <item index="12" class="java.lang.String" itemvalue="Application.Bson" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1079,10 +1186,42 @@
       <created>1349029056385</created>
       <updated>1349029056385</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Merge from branch: namespace added for attributes.">
+      <created>1349029444025</created>
+      <updated>1349029444025</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Forgot the schema">
+      <created>1349029545242</created>
+      <updated>1349029545242</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Set the schema to use qualifiers for attributes.">
+      <created>1349030530656</created>
+      <updated>1349030530656</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Set the schema to use qualifiers for attributes.">
+      <created>1349035605923</created>
+      <updated>1349035605923</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Made sure xml declaration is not added.">
+      <created>1349036062335</created>
+      <updated>1349036062335</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Prepare LDAP configuration and example for a simple PID bind">
+      <created>1350166532119</created>
+      <updated>1350166532119</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Prepare LDAP configuration and example for a simple PID bind">
+      <created>1350215646608</created>
+      <updated>1350215646608</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added LDAP support">
+      <created>1350246631960</created>
+      <updated>1350246631960</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
+  <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
       <are-packages-shown value="false" />
       <are-modules-shown value="false" />
@@ -1107,30 +1246,30 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4527027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.57567567" sideWeight="0.49484536" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5837838" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46891892" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4527027" sideWeight="0.5006443" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32702702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12951031" sideWeight="0.5472973" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13079897" sideWeight="0.42432433" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26546392" sideWeight="0.5472973" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32027027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26675257" sideWeight="0.42432433" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33513513" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="soapUI Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32702702" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32702702" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.6002252" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1173,7 +1312,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Namespace for attributes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added LDAP support" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1200,6 +1339,12 @@
     <MESSAGE value="Use namespace for attributes&#10;" />
     <MESSAGE value="Made the pid schema allow for the absence of localIdentifier and resolveUrl elements." />
     <MESSAGE value="Namespace for attributes" />
+    <MESSAGE value="Merge from branch: namespace added for attributes." />
+    <MESSAGE value="Forgot the schema" />
+    <MESSAGE value="Set the schema to use qualifiers for attributes." />
+    <MESSAGE value="Made sure xml declaration is not added." />
+    <MESSAGE value="Prepare LDAP configuration and example for a simple PID bind" />
+    <MESSAGE value="Added LDAP support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1209,106 +1354,110 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/java/src.zip!/java/util/Map.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/net/handle/handle/7.0/handle-7.0.jar!/net/handle/hdllib/Util.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="18" selection-start="14798" selection-end="14798" vertical-scroll-proportion="0.33333334" />
+        <state line="129" column="32" selection-start="6413" selection-end="6413" vertical-scroll-proportion="-4.12" />
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/handle/handle/7.0/handle-7.0.jar!/net/handle/hdllib/HandleValue.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.1.1.RELEASE/spring-web-3.1.1.RELEASE.jar!/org/springframework/web/bind/annotation/RequestParam.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="22" selection-start="2201" selection-end="2201" vertical-scroll-proportion="0.3455099" />
+        <state line="8" column="18" selection-start="368" selection-end="368" vertical-scroll-proportion="0.36842105" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/domain/Handle.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mortbay/jetty/servlet-api-2.5/6.1.9/servlet-api-2.5-6.1.9-sources.jar!/javax/servlet/ServletResponseWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="19" selection-start="1585" selection-end="1592" vertical-scroll-proportion="0.49784172" />
+        <state line="139" column="0" selection-start="3733" selection-end="3733" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/security/src/main/java/org/socialhistoryservices/security/MongoTokenStore.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/KeysController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="0" selection-start="5940" selection-end="5940" vertical-scroll-proportion="0.0" />
+        <state line="50" column="12" selection-start="2289" selection-end="2359" vertical-scroll-proportion="-1.1494253" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/service/StubPidResourceServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/resources/application-context.xml">
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="19" selection-start="5538" selection-end="5540" vertical-scroll-proportion="0.2141802">
+        <state line="31" column="44" selection-start="1392" selection-end="1392" vertical-scroll-proportion="0.6954023" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/resources/qr404.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/QRService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/test/java/org/socialhistoryservices/pid/dao/HandleDaoImplTest.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/QRServiceImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="30" selection-start="8215" selection-end="8215" vertical-scroll-proportion="0.42983752">
+        <state line="124" column="27" selection-start="4573" selection-end="4619" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/PidResourceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.5468531">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/server/src/main/resources/application-context-logging.xml">
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/service/StubPidResourceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="67" selection-start="3041" selection-end="3063" vertical-scroll-proportion="0.45307916">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.48920864">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/database/dao/HandleDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="24" selection-start="3521" selection-end="3521" vertical-scroll-proportion="-4.47151">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/LocAttType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="28" selection-start="1881" selection-end="1893" vertical-scroll-proportion="0.65102637">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/LocationType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="13" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.3323741">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/ws/PidServiceEndPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="72" selection-start="7993" selection-end="7993" vertical-scroll-proportion="0.3">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/resources/pid-1.0.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="54" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.6109937">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/ObjectFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="13" selection-start="819" selection-end="819" vertical-scroll-proportion="0.3326087">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/schema/pid-1.0.xsd">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.1.1.RELEASE/spring-web-3.1.1.RELEASE.jar!/org/springframework/web/multipart/commons/CommonsMultipartResolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="179" selection-end="179" vertical-scroll-proportion="0.21935484" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="180" column="12" selection-start="6974" selection-end="7158" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/pid-servlet.xml">
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/oauth2-servlet.xml">
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="7" selection-start="8048" selection-end="8237" vertical-scroll-proportion="-6.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/socialhistoryservices/pid/controllers/QRController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="26" selection-start="2875" selection-end="2881" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/fnf400.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="7" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.9005848">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/webapp/WEB-INF/templates/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1213" selection-end="1616" vertical-scroll-proportion="0.8011696">
           <folding />
         </state>
       </provider>
@@ -1344,7 +1493,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Android</last-edited>
+          <last-edited>OSGi</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1356,7 +1505,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>grails-1.3.7</last-edited>
+          <last-edited>grails-2.1.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

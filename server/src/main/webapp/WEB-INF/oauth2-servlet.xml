@@ -14,9 +14,11 @@
         <intercept-url pattern="/oauth/token" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/oauth/authorize" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/oauth/**" access="ROLE_PID-WEBSERVICE-USER"/>
-        <intercept-url pattern="/admin/keys" access="ROLE_PID-WEBSERVICE-USER"/> <!-- Authenticated yet unauthorized users get a 404 -->
+        <intercept-url pattern="/admin/keys" access="ROLE_PID-WEBSERVICE-USER"/>
+        <!-- Authenticated yet unauthorized users get a 404 -->
         <intercept-url pattern="/admin/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/qr/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 
         <form-login authentication-failure-url="/admin/login" default-target-url="/admin/keys" login-page="/admin/login"
                     login-processing-url="/admin/login.do"/>
@@ -124,5 +126,20 @@
     </authentication-manager>
     <!--<sec:ldap-server url="#{pidProperties['ldap-server.url']}" manager-dn="#{pidProperties['ldap-server.manager-dn']}"
                      manager-password="#{pidProperties['ldap-server.manager-password']}"/>-->
+
+    <bean class="org.socialhistoryservices.pid.controllers.QRController">
+        <property name="qrService">
+            <bean class="org.socialhistoryservices.pid.service.QRServiceImp">
+                <property name="width" value="200"/>
+                <property name="height" value="200"/>
+                <property name="handleDao" ref="handleDao"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="50000"/>
+    </bean>-->
 
 </beans>

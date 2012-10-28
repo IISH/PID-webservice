@@ -168,6 +168,21 @@
             <artifactId>spring-security-ldap</artifactId>
             <version>3.0.5.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.2</version>
+        </dependency>-->
     </dependencies>
     <organization>
         <name>International Institute for Social History</name>

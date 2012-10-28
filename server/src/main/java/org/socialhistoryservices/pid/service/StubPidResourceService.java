@@ -152,7 +152,7 @@ public class StubPidResourceService implements PidResourceService {
             normalisedPidId = pidId.replaceFirst(handleBaseUrl, "");
         }
         String na = NAAuthentication.authorize(normalisedPidId);
-        return convertHandleToPidType(handleDao.fetchHandleByPID(na, normalisedPidId));
+        return convertHandleToPidType(handleDao.fetchHandleByPID(normalisedPidId));
     }
 
     @Override

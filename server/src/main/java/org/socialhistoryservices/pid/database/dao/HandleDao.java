@@ -37,7 +37,7 @@ public interface HandleDao {
 
     List<Handle> updateHandle(String na, PidType pidType) throws HandleException;
 
-    List<Handle> fetchHandleByPID(String na, String pid) throws HandleException;
+    List<Handle> fetchHandleByPID(String pid) throws HandleException;
 
     List<Handle> fetchHandleByAttribute(String na, String href, String type);
 
