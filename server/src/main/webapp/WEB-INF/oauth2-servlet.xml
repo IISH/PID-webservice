@@ -10,11 +10,11 @@
 
     <http access-denied-page="/admin/login.jsp" access-decision-manager-ref="accessDecisionManager"
           xmlns="http://www.springframework.org/schema/security">
-        <intercept-url pattern="/secure/**" access="ROLE_PID-WEBSERVICE-USER"/>
+        <intercept-url pattern="/secure/**" access="ROLE_USER,ROLE_PID-WEBSERVICE-USER"/>
         <intercept-url pattern="/oauth/token" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/oauth/authorize" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/oauth/**" access="ROLE_PID-WEBSERVICE-USER"/>
-        <intercept-url pattern="/admin/keys" access="ROLE_PID-WEBSERVICE-USER"/>
+        <intercept-url pattern="/oauth/**" access="ROLE_USER,ROLE_PID-WEBSERVICE-USER"/>
+        <intercept-url pattern="/admin/keys" access="ROLE_USER,ROLE_PID-WEBSERVICE-USER"/>
         <!-- Authenticated yet unauthorized users get a 404 -->
         <intercept-url pattern="/admin/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
