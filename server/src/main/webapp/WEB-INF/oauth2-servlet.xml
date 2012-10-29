@@ -8,17 +8,17 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
-    <http access-denied-page="/admin/login.jsp" access-decision-manager-ref="accessDecisionManager"
+    <http access-denied-page="/admin/login.jsp"  access-decision-manager-ref="accessDecisionManager" use-expressions="true"
           xmlns="http://www.springframework.org/schema/security">
-        <intercept-url pattern="/secure/**" access="ROLE_USER,ROLE_PID-WEBSERVICE-USER"/>
-        <intercept-url pattern="/oauth/token" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/oauth/authorize" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/oauth/**" access="ROLE_USER,ROLE_PID-WEBSERVICE-USER"/>
-        <intercept-url pattern="/admin/keys" access="ROLE_USER,ROLE_PID-WEBSERVICE-USER"/>
+        <intercept-url pattern="/secure/**" access="hasAnyRole('ROLE_USER','ROLE_PID-WEBSERVICE-USER')"/>
+        <intercept-url pattern="/oauth/token" access="isAnonymous()"/>
+        <intercept-url pattern="/oauth/authorize" access="isAnonymous()"/>
+        <intercept-url pattern="/oauth/**" access="hasAnyRole('ROLE_USER','ROLE_PID-WEBSERVICE-USER')"/>
+        <intercept-url pattern="/admin/keys" access="hasAnyRole('ROLE_USER','ROLE_PID-WEBSERVICE-USER')"/>
         <!-- Authenticated yet unauthorized users get a 404 -->
-        <intercept-url pattern="/admin/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/qr/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/admin/**" access="isAnonymous()"/>
+        <intercept-url pattern="/" access="isAnonymous()"/>
+        <intercept-url pattern="/qr/" access="isAnonymous()"/>
 
         <form-login authentication-failure-url="/admin/login" default-target-url="/admin/keys" login-page="/admin/login"
                     login-processing-url="/admin/login.do"/>
@@ -34,6 +34,7 @@
                 <bean class="org.springframework.security.oauth2.provider.vote.ScopeVoter"/>
                 <bean class="org.springframework.security.access.vote.RoleVoter"/>
                 <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+                <bean class="org.springframework.security.web.access.expression.WebExpressionVoter"/>
             </list>
         </constructor-arg>
     </bean>
