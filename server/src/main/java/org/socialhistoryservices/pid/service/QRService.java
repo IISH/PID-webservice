@@ -19,6 +19,9 @@
 
 package org.socialhistoryservices.pid.service;
 
+import net.handle.hdllib.HandleException;
+import org.socialhistoryservices.pid.schema.PidType;
+
 import java.io.InputStream;
 
 /**
@@ -26,8 +29,8 @@ import java.io.InputStream;
  */
 public interface QRService {
 
-    public byte[] encode(String handleResolverBaseUrl, String pid) throws Exception;
-    public byte[] encode(String handleResolverBaseUrl, String pid, String locatt) throws Exception;
+    public PidType getPid(String pid) throws HandleException;
+    public byte[] encode(String handleResolverBaseUrl, String pid, String locatt, int width, int height) throws Exception;
     public byte[] qr404image() throws Exception;
     public String decode(InputStream stream) throws Exception;
 }

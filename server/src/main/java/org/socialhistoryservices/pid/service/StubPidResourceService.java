@@ -24,22 +24,12 @@ import org.socialhistoryservices.pid.database.dao.HandleDao;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
 import org.socialhistoryservices.pid.database.domain.Handle;
 import org.socialhistoryservices.pid.exceptions.PidException;
-import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.PidType;
 import org.socialhistoryservices.pid.security.NAAuthentication;
 import org.socialhistoryservices.pid.util.PidGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.transform.*;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -55,23 +45,12 @@ public class StubPidResourceService implements PidResourceService {
     @Autowired
     private HandleDao handleDao;
 
+    @Autowired
+    private MappingsService mappingsService;
+
     private NAAuthentication NAAuthentication;
 
-    @Autowired
-    Jaxb2Marshaller marshaller;
-
     final private static byte[] bURL = HandleDaoImpl.URL.getBytes();
-
-    private Transformer transformer;
-
-    public StubPidResourceService() {
-        try {
-            final InputStream resourceAsStream = this.getClass().getResourceAsStream("/locations.xsl");
-            transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(resourceAsStream));
-        } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public PidType upsertPid(String na, PidType pidType) throws HandleException {
@@ -92,7 +71,7 @@ public class StubPidResourceService implements PidResourceService {
             }
         }
         setDefault(na, pidType);
-        return convertHandleToPidType(handleDao.upsertHandle(na, pidType));
+        return mappingsService.convertHandleToPidType(handleDao.upsertHandle(na, pidType));
     }
 
     @Override
@@ -107,7 +86,7 @@ public class StubPidResourceService implements PidResourceService {
                 throw new PidException("Cannot create local identifier " + lidCandidate + " because it already is bound to PID " + handles.get(0).getHandle());
         }
         final List<Handle> handles = handleDao.createNewHandle(na, pidType);
-        return convertHandleToPidType(handles);
+        return mappingsService.convertHandleToPidType(handles);
     }
 
     private void setDefault(String na, PidType pidType) {
@@ -128,7 +107,7 @@ public class StubPidResourceService implements PidResourceService {
         String na = NAAuthentication.authorize(handle.getPid());
         String lidCandidate = handle.getLocalIdentifier();
         checkAvailability(handle.getPid(), na, lidCandidate);
-        return convertHandleToPidType(handleDao.updateHandle(na, handle));
+        return mappingsService.convertHandleToPidType(handleDao.updateHandle(na, handle));
     }
 
     private void checkAvailability(String pid, String na, String lidCandidate) {
@@ -151,15 +130,24 @@ public class StubPidResourceService implements PidResourceService {
         if (pidId.startsWith(handleBaseUrl)) {
             normalisedPidId = pidId.replaceFirst(handleBaseUrl, "");
         }
-        String na = NAAuthentication.authorize(normalisedPidId);
-        return convertHandleToPidType(handleDao.fetchHandleByPID(normalisedPidId));
+        NAAuthentication.authorize(normalisedPidId);
+        return mappingsService.convertHandleToPidType(handleDao.fetchHandleByPID(normalisedPidId));
+    }
+
+    @Override
+    public PidType getAnonymousPid(String pidId) throws HandleException {
+        String normalisedPidId = pidId;
+        if (pidId.startsWith(handleBaseUrl)) {
+            normalisedPidId = pidId.replaceFirst(handleBaseUrl, "");
+        }
+        return mappingsService.convertHandleToPidType(handleDao.fetchHandleByPID(normalisedPidId));
     }
 
     @Override
     public void getPidByAttribute(List<PidType> ht, String na, String attribute) {
 
         final java.util.List fetchHandles = handleDao.fetchHandleByAttribute(NAAuthentication.authorize(na), attribute, null);
-        List<PidType> handles = convertHandlesToPidType(fetchHandles);
+        List<PidType> handles = mappingsService.convertHandlesToPidType(fetchHandles);
         for (PidType handle : handles) {
             ht.add(handle);
         }
@@ -191,7 +179,7 @@ public class StubPidResourceService implements PidResourceService {
                 }
             }
         }
-        return convertHandleToPidType(handles);
+        return mappingsService.convertHandleToPidType(handles);
     }
 
     @Override
@@ -208,68 +196,8 @@ public class StubPidResourceService implements PidResourceService {
         return handleDao.deletePids(NAAuthentication.authorize(na));
     }
 
-    private PidType convertHandleToPidType(List<Handle> handles) {
 
-        return (handles.size() == 0)
-                ? null
-                : convertHandlesToPidType(handles).get(0);
-    }
 
-    /**
-     * A handle in the Handle System logic is a single identifier with a type.
-     * As there can be several types ( URL, LID, 10320/loc ) these are added to the
-     * PidType as one entity.
-     * <p/>
-     * In a reverse lookup, there may be several PidTypes also. Here we group a
-     * PidType by pid.
-     *
-     * @param handles The Pid records from the database
-     * @return The PID type records for the endpoint
-     */
-    private List<PidType> convertHandlesToPidType(List<Handle> handles) {
-
-        final List<PidType> pids = new ArrayList(handles.size());
-        for (Handle handle : handles) {
-
-            PidType pid = getHandle(handle.getHandle(), pids);
-            String type = handle.getTypeAsString();
-            if (type.equals(HandleDaoImpl.URL)) {
-                pid.setResolveUrl(handle.getDataAsString());
-            } else if (type.equals(HandleDaoImpl.LOC)) {
-                pid.setLocAtt(getLocations(handle));
-            } else if (type.equals(HandleDaoImpl.LID))
-                pid.setLocalIdentifier(handle.getDataAsString());
-        }
-
-        return pids;
-    }
-
-    public LocAttType getLocations(Handle handle) {
-
-        final StreamSource xmlSource = new StreamSource(new ByteArrayInputStream(handle.getData()));
-        final ByteArrayOutputStream os = new ByteArrayOutputStream();
-        Result result = new StreamResult(os);
-        try {
-            transformer.transform(xmlSource, result);
-        } catch (TransformerException e) {
-            e.printStackTrace();
-        }
-        ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
-        StreamSource source = new StreamSource(is);
-        JAXBElement element = (JAXBElement) marshaller.unmarshal(source);
-        return (LocAttType) element.getValue();
-    }
-
-    private PidType getHandle(String pid, List<PidType> handles) {
-        for (PidType pidType : handles) {
-            if (pidType.getPid().equals(pid))
-                return pidType;
-        }
-        PidType handle = new PidType();
-        handle.setPid(pid);
-        handles.add(handle);
-        return handle;
-    }
 
     public void setNAAuthentication(NAAuthentication NAAuthentication) {
         this.NAAuthentication = NAAuthentication;

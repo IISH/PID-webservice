@@ -29,8 +29,7 @@ import org.socialhistoryservices.pid.database.domain.Handle;
 import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.LocationType;
 import org.socialhistoryservices.pid.schema.PidType;
-import org.socialhistoryservices.pid.service.PidResourceService;
-import org.socialhistoryservices.pid.service.StubPidResourceService;
+import org.socialhistoryservices.pid.service.MappingsService;
 import org.socialhistoryservices.pid.util.PidGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,8 +41,6 @@ import javax.xml.namespace.QName;
 import java.util.List;
 
 import static junit.framework.Assert.*;
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
 
 /**
  * @author Lucien van Wouw <lwo@iisg.nl>
@@ -73,7 +70,7 @@ public class HandleDaoImplTest {
     private HandleDao handleDao;
 
     @Autowired
-    private PidResourceService pidResourceService;
+    private MappingsService pidResourceService;
 
     final String na = "00000.0";
     final String resolveUrl = "http://socialhistoryservices.org/";
@@ -186,11 +183,10 @@ public class HandleDaoImplTest {
         assertNotNull(insertedHandles);
 
         LocAttType locAtt = null;
-        StubPidResourceService s = (StubPidResourceService) pidResourceService;
         while ( insertedHandles.iterator().hasNext() ){
             Handle h = insertedHandles.iterator().next();
             if ( h.getIndex() == 1000 ) {
-                locAtt = s.getLocations(h);
+                locAtt = pidResourceService.getLocations(h);
                 break;
             }
         }

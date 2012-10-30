@@ -19,32 +19,85 @@
 
 package org.socialhistoryservices.pid.controllers;
 
+import net.handle.hdllib.HandleException;
+import org.socialhistoryservices.pid.schema.LocationType;
+import org.socialhistoryservices.pid.schema.PidType;
 import org.socialhistoryservices.pid.service.QRService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class QRController {
 
     private QRService qrService;
 
+    /**
+     * metadata
+     * <p/>
+     * Return a simple model:
+     * type | handle | resolveUrl
+     *
+     * @param na
+     * @param id
+     * @param handleResolverBaseUrl
+     * @param model
+     * @return
+     * @throws HandleException
+     */
+    @RequestMapping("/metadata/{na}/{pid}")
+    public String metadata(@PathVariable("na") String na,
+                           @PathVariable("pid") String id,
+                           @RequestParam(value = "r", required = false, defaultValue = "http://hdl.handle.net/") String handleResolverBaseUrl,
+                           Model model) throws HandleException {
+        final String pid = na + "/" + id;
+        final PidType pidType = qrService.getPid(pid);
+        if (pidType == null) {
+            model.addAttribute("pid", pid);
+            return "metadata404";
+        }
+
+
+        if (!handleResolverBaseUrl.endsWith("/")) handleResolverBaseUrl += "/";
+
+        final List<String[]> handles = new ArrayList();
+        if (pidType.getResolveUrl() == null) {
+            for (LocationType location : pidType.getLocAtt().getLocation()) {
+                handles.add(new String[]{"LOC",
+                        handleResolverBaseUrl + pid + "?locatt=view:" + location.getView(),
+                        location.getHref(),
+                        pid + "?locatt=view:" + location.getView()});
+            }
+        } else {
+            handles.add(new String[]{"URL",
+                    handleResolverBaseUrl + pid,
+                    pidType.getResolveUrl(),
+            pid});
+        }
+
+        model.addAttribute("pid", pid);
+        model.addAttribute("handles", handles);
+        return "metadata";
+    }
+
     @RequestMapping("/qr/{na}/{pid}")
     public void encodeimage(@PathVariable("na") String na,
                             @PathVariable("pid") String id,
                             @RequestParam(value = "locatt", required = false) String locAtt,
                             @RequestParam(value = "r", required = false, defaultValue = "http://hdl.handle.net/") String handleResolverBaseUrl,
+                            @RequestParam(value = "width", required = false, defaultValue = "0") int width,
+                            @RequestParam(value = "height", required = false, defaultValue = "0") int height,
                             HttpServletResponse response) throws Exception {
 
         byte[] image;
         if (!handleResolverBaseUrl.endsWith("/")) handleResolverBaseUrl += "/";
-        image = qrService.encode(handleResolverBaseUrl, na + "/" + id, locAtt);
+        image = qrService.encode(handleResolverBaseUrl, na + "/" + id, locAtt, width, height);
         if (image == null) {
             image = qrService.qr404image();
             response.setStatus(404);
@@ -54,6 +107,7 @@ public class QRController {
         response.getOutputStream().write(image);
     }
 
+/*
     @RequestMapping(value = "/qr", method = RequestMethod.POST)
     public String handleFormUpload(@RequestParam("image") MultipartFile file, HttpServletResponse response) throws IOException {
 
@@ -75,9 +129,11 @@ public class QRController {
             return null;
         }
     }
+*/
 
 
     public void setQrService(QRService qrService) {
         this.qrService = qrService;
     }
+
 }

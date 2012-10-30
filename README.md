@@ -124,12 +124,12 @@ Request:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
-            <pid:CreatePidRequest>
+            <pid:UpsertPidRequest>
                 <pid:na>10622.1</pid:na>
                 <pid:handle>
                     <pid:resolveUrl>http://some.domain.org/</pid:resolveUrl>
                 </pid:handle>
-            </pid:CreatePidRequest>
+            </pid:UpsertPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
 
@@ -137,12 +137,12 @@ Response:
 
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
-            <ns2:CreatePidResponse xmlns:ns2="http://localhost/">
+            <ns2:UpsertResponse xmlns:ns2="http://localhost/">
                 <ns2:handle>
                     <ns2:pid>10622.1/32dc9242-a978-43b0-befd-831fa02af673</ns2:pid>
                     <ns2:resolveUrl>http://some.domain.org/</ns2:resolveUrl>
                 </ns2:handle>
-            </ns2:CreatePidResponse>
+            </ns2:UpsertResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 
@@ -161,7 +161,7 @@ Request:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
-            <pid:CreatePidRequest>
+            <pid:UpsertPidRequest>
                 <pid:na>10622.1</pid:na>
                 <pid:handle>
                     <pid:pid>10622.1/EU:ARCHIVE83:ITEM23:FILE3</pid:pid>
@@ -170,9 +170,8 @@ Request:
                         <pid:location href="http://www.archivalius.org?id=original83.23.3" view="master"/>
                         <pid:location href="http://www.archivalius.org?id=image83.23.3.jpg" view="thumbnail"/>
                     </pid:locAtt>
-                    <pid:localIdentifier>?</pid:localIdentifier>
                 </pid:handle>
-            </pid:CreatePidRequest>
+            </pid:UpsertPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
 
@@ -181,7 +180,7 @@ Response:
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Header/>
         <SOAP-ENV:Body>
-            <ns2:CreatePidResponse xmlns:ns2="http://localhost/">
+            <ns2:UpsertPidResponse xmlns:ns2="http://localhost/">
                 <ns2:handle>
                     <ns2:pid>10622.1/EU:ARCHIVE83:ITEM23:FILE3</ns2:pid>
                     <ns2:locAtt>
@@ -189,9 +188,8 @@ Response:
                         <ns2:location href="http://www.archivalius.org?id=image83.23.3.jpg" view="thumbnail"/>
                         <ns2:location href="http://some.domain.org/" weight="100"/>
                     </ns2:locAtt>
-                    <ns2:localIdentifier>?</ns2:localIdentifier>
                 </ns2:handle>
-            </ns2:CreatePidResponse>
+            </ns2:UpsertPidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 
@@ -206,13 +204,13 @@ Request:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://localhost/">
         <soapenv:Body>
-            <pid:UpdatePidRequest>
+            <pid:UpsertPidRequest>
                 <pid:handle>
                     <pid:pid>10622.1/32dc9242-a978-43b0-befd-831fa02af673</pid:pid>
                     <pid:resolveUrl>http://new-domain/</pid:resolveUrl>
 
                 </pid:handle>
-            </pid:UpdatePidRequest>
+            </pid:UpsertPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
 
@@ -220,12 +218,12 @@ Response:
 
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
-            <ns2:UpdatePidResponse xmlns:ns2="http://localhost/">
+            <ns2:UpsertPidResponse xmlns:ns2="http://localhost/">
                 <ns2:handle>
                     <ns2:pid>10622.1/32dc9242-a978-43b0-befd-831fa02af673</ns2:pid>
                     <ns2:resolveUrl>http://new-domain/</ns2:resolveUrl>
                 </ns2:handle>
-            </ns2:UpdatePidResponse>
+            </ns2:UpsertPidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 
@@ -387,10 +385,11 @@ the resolveUrl and localIdentifier.
 3. Pid update: when the localIdentifier is bound to an existing Pid and the supplied resolveUrl is different to the bound
 resolveUrl, a rebind will be made.
 
-###UpsertPid method
-The upsert method does exactly the same as the createPid and updatePid combined; and is more efficient. It will create
-new pids; and update a pid if it already exists. Use this method if you do not need to check explicitly for PIDs that
-do not exist whilst updating... or already exist while creating them.
+###CreatePid and UpdatePid methods
+The createPid will create a new PID but fail when the PID already was made in an earlier call.
+Likewise the updatePid will fail when the PID does not exist.
+The upsert method does exactly the same as the createPid and updatePid do separately; but throw no error.
+It is thus the most efficient method.
 
 ###DeletePid method
 This method will delete a pid and all it's bound attributes.

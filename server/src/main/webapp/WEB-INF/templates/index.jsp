@@ -28,7 +28,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title><%=service%></title>
+    <title><%=service%>
+    </title>
     <style type="text/css">
         textarea {
             width: 100%;
@@ -48,7 +49,8 @@
     <a href="admin/logout.do">logout</a>
 </p>
 
-<h2>1. What is the <%=service%></h2>
+<h2>1. What is the <%=service%>
+</h2>
 
 <p>The Pid webservice is a driver for
     <a href="http://www.handle.net/">Handle System's</a>
@@ -144,24 +146,24 @@
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://pid.socialhistoryservices.org/">
         <soapenv:Body>
-            <pid:CreatePidRequest>
+            <pid:UpsertPidRequest>
                 <pid:na>10622.1</pid:na>
                 <pid:handle>
                     <pid:resolveUrl>http://socialhistoryservices.org/</pid:resolveUrl>
                 </pid:handle>
-            </pid:CreatePidRequest>
+            </pid:UpsertPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
 
     Response:
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
-            <ns2:CreatePidResponse xmlns:ns2="http://pid.socialhistoryservices.org/">
+            <ns2:UpsertPidResponse xmlns:ns2="http://pid.socialhistoryservices.org/">
                 <ns2:handle>
                     <ns2:pid>10622.1/32dc9242-a978-43b0-befd-831fa02af673</ns2:pid>
                     <ns2:resolveUrl>http://socialhistoryservices.org/</ns2:resolveUrl>
                 </ns2:handle>
-            </ns2:CreatePidResponse>
+            </ns2:UpsertPidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope></textarea></form>
 <p>You can also create the PIDs yourself as demonstrated in this movie:</p>
@@ -171,27 +173,30 @@
 This example demonstrates a custom pid that is bound to three resolve urls. This will make possible three ways of
 resolving with one pid:
 <ol>
-    <li>http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3</li>
-    <li>http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?locatt=view:master</li>
-    <li>http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?locatt=view:thumbnail</li>
+    <li>http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3 to resolve to http://socialhistoryservices.org/</li>
+    <li>http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?locatt=view:master to resolve to http://www.archivalius.org?id=original83.23.3</li>
+    <li>http://hdl.handle.net/10622.1/EU:ARCHIVE83:ITEM23:FILE3?locatt=view:thumbnail to resolve to http://www.archivalius.org?id=image83.23.3.jpg</li>
 </ol>
+
+Note: to set a resolveUrl for a handle without a qualifier (the locatt here) you need to set the weight="1". All
+request for the handle without the qualifier will be directed to the URL with that weight.
 
 <form><textarea>Request:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://pid.socialhistoryservices.org/">
         <soapenv:Body>
-            <pid:CreatePidRequest>
+            <pid:UpsertPidRequest>
                 <pid:na>10622.1</pid:na>
                 <pid:handle>
                     <pid:pid>10622.1/EU:ARCHIVE83:ITEM23:FILE3</pid:pid>
-                    <pid:resolveUrl>http://socialhistoryservices.org/</pid:resolveUrl>
                     <pid:locAtt>
-                        <pid:location href="http://www.archivalius.org?id=original83.23.3" view="master"/>
-                        <pid:location href="http://www.archivalius.org?id=image83.23.3.jpg" view="thumbnail"/>
+                        <pid:location href="http://socialhistoryservices.org/" view="master" weight="1"/>
+                        <pid:location href="http://www.archivalius.org?id=original83.23.3" view="master" weight="0"/>
+                        <pid:location href="http://www.archivalius.org?id=image83.23.3.jpg" view="thumbnail" weight="0"/>
                     </pid:locAtt>
                     <pid:localIdentifier>?</pid:localIdentifier>
                 </pid:handle>
-            </pid:CreatePidRequest>
+            </pid:UpsertPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
 
@@ -199,17 +204,17 @@ resolving with one pid:
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Header/>
         <SOAP-ENV:Body>
-            <ns2:CreatePidResponse xmlns:ns2="http://pid.socialhistoryservices.org/">
+            <ns2:UpsertPidResponse xmlns:ns2="http://pid.socialhistoryservices.org/">
                 <ns2:handle>
                     <ns2:pid>10622.1/EU:ARCHIVE83:ITEM23:FILE3</ns2:pid>
                     <ns2:locAtt>
-                        <ns2:location href="http://www.archivalius.org?id=original83.23.3" view="master"/>
-                        <ns2:location href="http://www.archivalius.org?id=image83.23.3.jpg" view="thumbnail"/>
-                        <ns2:location href="http://socialhistoryservices.org/" weight="100"/>
+                        <ns2:location href="http://www.archivalius.org?id=original83.23.3" view="master" weight="0"/>
+                        <ns2:location href="http://www.archivalius.org?id=image83.23.3.jpg" view="thumbnail" weight="0"/>
+                        <ns2:location href="http://socialhistoryservices.org/" weight="1"/>
                     </ns2:locAtt>
                     <ns2:localIdentifier>?</ns2:localIdentifier>
                 </ns2:handle>
-            </ns2:CreatePidResponse>
+            </ns2:UpsertPidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 </textarea></form>
@@ -222,31 +227,30 @@ resolving with one pid:
 
 <h3>4.2 Update a Pid with a new resolve Url</h3>
 
-<p>To change a resolve url, use the update method</p>
+<p>To change a resolve url, use the UpsertPidRequest again</p>
 
 <form><textarea>Request:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://pid.socialhistoryservices.org/">
         <soapenv:Body>
-            <pid:UpdatePidRequest>
+            <pid:UpsertPidRequest>
                 <pid:handle>
                     <pid:pid>10622.1/32dc9242-a978-43b0-befd-831fa02af673</pid:pid>
                     <pid:resolveUrl>http://new-domain/</pid:resolveUrl>
-
                 </pid:handle>
-            </pid:UpdatePidRequest>
+            </pid:UpsertPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
 
     Response:
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
-            <ns2:UpdatePidResponse xmlns:ns2="http://pid.socialhistoryservices.org/">
+            <ns2:UpsertPidResponse xmlns:ns2="http://pid.socialhistoryservices.org/">
                 <ns2:handle>
                     <ns2:pid>10622.1/32dc9242-a978-43b0-befd-831fa02af673</ns2:pid>
                     <ns2:resolveUrl>http://new-domain/</ns2:resolveUrl>
                 </ns2:handle>
-            </ns2:UpdatePidResponse>
+            </ns2:UpsertPidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 </textarea></form>
@@ -342,7 +346,7 @@ resolving with one pid:
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope></textarea></form>
 
-<h3>4.3.3 Lookup a pid from its know local identifiers</h3>
+<h3>4.3.3 Use a pid with a local identifier</h3>
 
 <p>It is possible to bind other attributes to a pid, such as a local identifier or any other tag for that matter. In
     this
@@ -354,26 +358,26 @@ resolving with one pid:
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                       xmlns:pid="http://pid.socialhistoryservices.org/">
         <soapenv:Body>
-            <pid:CreatePidRequest>
+            <pid:UpsertPidRequest>
                 <pid:na>10622.1</pid:na>
                 <pid:handle>
                     <pid:resolveUrl>http://socialhistoryservices.org/</pid:resolveUrl>
                     <pid:localIdentifier>12345</pid:localIdentifier>
                 </pid:handle>
-            </pid:CreatePidRequest>
+            </pid:UpsertPidRequest>
         </soapenv:Body>
     </soapenv:Envelope>
 
     Response:
     <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
-            <ns2:CreatePidResponse xmlns:ns2="http://pid.socialhistoryservices.org/">
+            <ns2:UpsertPidResponse xmlns:ns2="http://pid.socialhistoryservices.org/">
                 <ns2:handle>
                     <ns2:pid>10622.1/f855fcd2-c503-4dd5-a8f6-d87845b75fb0</ns2:pid>
                     <ns2:resolveUrl>http://socialhistoryservices.org/</ns2:resolveUrl>
                     <ns2:localIdentifier>12345</ns2:localIdentifier>
                 </ns2:handle>
-            </ns2:CreatePidResponse>
+            </ns2:UpsertPidResponse>
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 </textarea></form>
@@ -421,7 +425,14 @@ resolving with one pid:
     </li>
 </ol>
 
-<h2>4.5 UpsertPid method</h2>
+<h2>4.5 CreatePid and UpdatePid methods</h2>
+
+<p>The createPid will create a new PID but fail when the PID already was made in an earlier call.
+    Likewise the updatePid will fail when the PID to be updated does not exist.</p>
+
+<p>
+    The upsert method does exactly the same as the createPid and updatePid do separately; but throw no error.
+    It is thus the most efficient method.</p>
 
 <p>The upsert method does exactly the same as the createPid and updatePid combined; and is more efficient. It will
     create new pids; and

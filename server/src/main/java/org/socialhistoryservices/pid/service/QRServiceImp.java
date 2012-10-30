@@ -28,9 +28,11 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeWriter;
+import net.handle.hdllib.HandleException;
 import org.socialhistoryservices.pid.database.dao.HandleDao;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
 import org.socialhistoryservices.pid.database.domain.Handle;
+import org.socialhistoryservices.pid.schema.PidType;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -52,12 +54,13 @@ import java.util.List;
 public class QRServiceImp implements QRService {
 
     private HandleDao handleDao;
+    private MappingsService mappingsService;
     private int width;
     private int height;
 
     @Override
-    public byte[] encode(String handleResolverBaseUrl, String pid) throws Exception {
-        return encode(handleResolverBaseUrl, pid, null);
+    public PidType getPid(String pid) throws HandleException {
+        return mappingsService.convertHandleToPidType(handleDao.fetchHandleByPID(pid));
     }
 
     /**
@@ -71,17 +74,17 @@ public class QRServiceImp implements QRService {
      * @throws Exception
      */
     @Override
-    public byte[] encode(String handleResolverBaseUrl, String pid, String locatt) throws Exception {
+    public byte[] encode(String handleResolverBaseUrl, String pid, String locatt, int width, int height) throws Exception {
 
         String[] split = (locatt == null) ? new String[]{""} : locatt.split(":", 2);
         String pair = (split.length == 2) ? split[0] + "=\"" + split[1] + "\"" : null;
 
         final List<Handle> handles = handleDao.fetchHandleByPID(pid);
         for (Handle handle : handles) {
-            if (pair == null) return matriximage(handleResolverBaseUrl + pid);
+            if (pair == null) return matriximage(handleResolverBaseUrl + pid, width, height);
             if (handle.getTypeAsString().equalsIgnoreCase(HandleDaoImpl.LOC)) {
                 if (handle.getDataAsString().contains(pair)) {
-                    return matriximage(handleResolverBaseUrl + pid + "?locatt=" + locatt);
+                    return matriximage(handleResolverBaseUrl + pid + "?locatt=" + locatt, width, height);
                 }
             }
         }
@@ -100,7 +103,11 @@ public class QRServiceImp implements QRService {
         return baos.toByteArray();
     }
 
-    private byte[] matriximage(String url) throws Exception {
+    private byte[] matriximage(String url, int width, int height) throws Exception {
+
+        if (width < 1 || width > this.width) width = this.width;
+        if (height < 1 || height > this.height) height = this.height;
+
         Charset charset = Charset.forName("ISO-8859-1");
         CharsetEncoder encoder = charset.newEncoder();
         // Convert a string to ISO-8859-1 bytes in a ByteBuffer
@@ -139,5 +146,9 @@ public class QRServiceImp implements QRService {
 
     public void setHandleDao(HandleDao handleDao) {
         this.handleDao = handleDao;
+    }
+
+    public void setMappingsService(MappingsService mappingsService) {
+        this.mappingsService = mappingsService;
     }
 }

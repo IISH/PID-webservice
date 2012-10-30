@@ -37,6 +37,8 @@ public interface PidResourceService {
 
     public PidType getPid(String pidId) throws HandleException;
 
+    public PidType getAnonymousPid(String pidId) throws HandleException;
+
     public void getPidByAttribute(List<PidType> handles, String na, String href);
 
     public PidType createHopePid(String na, String lid, String resolveUrl) throws HandleException;

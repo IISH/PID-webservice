@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
-    <http access-denied-page="/admin/login.jsp"  access-decision-manager-ref="accessDecisionManager" use-expressions="true"
+    <http access-denied-page="/admin/login.jsp"   access-decision-manager-ref="accessDecisionManager" use-expressions="true"
           xmlns="http://www.springframework.org/schema/security">
         <intercept-url pattern="/secure/**" access="hasAnyRole('ROLE_USER','ROLE_PID-WEBSERVICE-USER')"/>
         <intercept-url pattern="/oauth/token" access="isAnonymous()"/>
@@ -18,6 +18,7 @@
         <!-- Authenticated yet unauthorized users get a 404 -->
         <intercept-url pattern="/admin/**" access="isAnonymous()"/>
         <intercept-url pattern="/" access="isAnonymous()"/>
+        <intercept-url pattern="/metadata/" access="isAnonymous()"/>
         <intercept-url pattern="/qr/" access="isAnonymous()"/>
 
         <form-login authentication-failure-url="/admin/login" default-target-url="/admin/keys" login-page="/admin/login"
@@ -131,16 +132,17 @@
     <bean class="org.socialhistoryservices.pid.controllers.QRController">
         <property name="qrService">
             <bean class="org.socialhistoryservices.pid.service.QRServiceImp">
-                <property name="width" value="200"/>
-                <property name="height" value="200"/>
+                <property name="width" value="400"/>
+                <property name="height" value="400"/>
                 <property name="handleDao" ref="handleDao"/>
+                <property name="mappingsService" ref="mappingsService"/>
             </bean>
         </property>
     </bean>
 
-    <bean id="multipartResolver"
+    <!--<bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="50000"/>
-    </bean>
+    </bean>-->
 
 </beans>
