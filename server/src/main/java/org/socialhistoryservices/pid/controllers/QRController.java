@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.namespace.QName;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,16 +70,25 @@ public class QRController {
         final List<String[]> handles = new ArrayList();
         if (pidType.getResolveUrl() == null) {
             for (LocationType location : pidType.getLocAtt().getLocation()) {
-                handles.add(new String[]{"LOC",
-                        handleResolverBaseUrl + pid + "?locatt=view:" + location.getView(),
-                        location.getHref(),
-                        pid + "?locatt=view:" + location.getView()});
+                if (!location.getOtherAttributes().isEmpty()) {
+                    for (QName key : location.getOtherAttributes().keySet()) {
+                        handles.add(new String[]{"LOC",
+                                handleResolverBaseUrl + pid + "?locatt=" + key.getLocalPart() + ":" + location.getOtherAttributes().get(key),
+                                location.getHref(),
+                                pid + "?locatt=" + key.getLocalPart() + ":" + location.getOtherAttributes().get(key)});
+                    }
+                }
+                if (location.getView() != null)
+                    handles.add(new String[]{"LOC",
+                            handleResolverBaseUrl + pid + "?locatt=view:" + location.getView(),
+                            location.getHref(),
+                            pid + "?locatt=view:" + location.getView()});
             }
         } else {
             handles.add(new String[]{"URL",
                     handleResolverBaseUrl + pid,
                     pidType.getResolveUrl(),
-            pid});
+                    pid});
         }
 
         model.addAttribute("pid", pid);
