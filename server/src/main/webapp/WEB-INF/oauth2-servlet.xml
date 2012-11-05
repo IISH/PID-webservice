@@ -11,15 +11,8 @@
     <http access-denied-page="/admin/login.jsp"   access-decision-manager-ref="accessDecisionManager" use-expressions="true"
           xmlns="http://www.springframework.org/schema/security">
         <intercept-url pattern="/secure/**" access="hasAnyRole('ROLE_USER','ROLE_PID-WEBSERVICE-USER')"/>
-        <intercept-url pattern="/oauth/token" access="isAnonymous()"/>
-        <intercept-url pattern="/oauth/authorize" access="isAnonymous()"/>
         <intercept-url pattern="/oauth/**" access="hasAnyRole('ROLE_USER','ROLE_PID-WEBSERVICE-USER')"/>
         <intercept-url pattern="/admin/keys" access="hasAnyRole('ROLE_USER','ROLE_PID-WEBSERVICE-USER')"/>
-        <!-- Authenticated yet unauthorized users get a 404 -->
-        <intercept-url pattern="/admin/**" access="isAnonymous()"/>
-        <intercept-url pattern="/" access="isAnonymous()"/>
-        <intercept-url pattern="/metadata/" access="isAnonymous()"/>
-        <intercept-url pattern="/qr/" access="isAnonymous()"/>
 
         <form-login authentication-failure-url="/admin/login" default-target-url="/admin/keys" login-page="/admin/login"
                     login-processing-url="/admin/login.do"/>
@@ -140,9 +133,9 @@
         </property>
     </bean>
 
-    <!--<bean id="multipartResolver"
+    <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="50000"/>
-    </bean>-->
+    </bean>
 
 </beans>
