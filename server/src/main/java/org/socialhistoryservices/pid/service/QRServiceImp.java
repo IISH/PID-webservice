@@ -23,8 +23,6 @@ import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
 import com.google.zxing.Result;
-import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeWriter;
@@ -120,7 +118,7 @@ public class QRServiceImp implements QRService {
         BitMatrix matrix = writer.encode(data, com.google.zxing.BarcodeFormat.QR_CODE, width, height);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        MatrixToImageWriter.writeToStream(matrix, "PNG", baos);
+        com.google.zxing.client.j2se.MatrixToImageWriter.writeToStream(matrix, "PNG", baos);
         return baos.toByteArray();
     }
 
@@ -130,7 +128,7 @@ public class QRServiceImp implements QRService {
 
         BufferedImage image = ImageIO.read(stream);
         if (image == null) throw new Exception("Could not decode image");
-        LuminanceSource source = new BufferedImageLuminanceSource(image);
+        LuminanceSource source = new com.google.zxing.client.j2se.BufferedImageLuminanceSource(image);
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
         Result result = new MultiFormatReader().decode(bitmap);
         return String.valueOf(result.getText());

@@ -154,7 +154,7 @@ public class PidServiceEndPoint {
                             locations.remove(i);
                         } else
                             location.getOtherAttributes().remove(qName);
-                            location.setHref(href);
+                        location.setHref(href);
                     }
                 }
                 if (!locations.isEmpty())
@@ -181,8 +181,8 @@ public class PidServiceEndPoint {
         if (text == null || text.trim().isEmpty())
             return null;
         return (ignoreCase)
-                ? text.toUpperCase()
-                : text;
+                ? text.trim().toUpperCase()
+                : text.trim();
     }
 
     public void setObjectFactory(ObjectFactory objectFactory) {
