@@ -19,30 +19,18 @@
 
 package org.socialhistoryservices.pid.ws;
 
-import org.springframework.util.StringUtils;
 import org.springframework.ws.transport.http.WsdlDefinitionHandlerAdapter;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: lwo
- * Date: 23-4-11
- * Time: 11:13
- * To change this template use File | Settings | File Templates.
- */
 public class WsdlAdapter extends WsdlDefinitionHandlerAdapter {
 
     /**
      * We override this method because we need to be able to return absolute URLs.
      *
-     * @param location
-     * @param request
-     * @return
+     * @param location Location of the wsdl
+     * @param request Http request
+     * @return The absolute url
      */
     @Override
     protected String transformLocation(String location, HttpServletRequest request) {

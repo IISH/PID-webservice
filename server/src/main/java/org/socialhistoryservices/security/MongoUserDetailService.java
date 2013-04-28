@@ -22,14 +22,12 @@ package org.socialhistoryservices.security;
 import com.mongodb.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.socialhistoryservices.util.HashPassword;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -108,7 +106,7 @@ public class MongoUserDetailService implements UserDetailsService {
             if (user.getAuthorities().size() == 0) {
                 BasicDBList authorities = (BasicDBList) tmp.get("authorities");
                 for (Object authority : authorities) {
-                    user.getAuthorities().add(new MongoAuthority((String) authority));
+                    user.getAuthorities().add(new org.socialhistoryservices.security.MongoAuthority((String) authority));
                 }
             }
         }
@@ -155,9 +153,8 @@ public class MongoUserDetailService implements UserDetailsService {
         if (o != null) {
             BasicDBList authorities = (BasicDBList) o;
             List<GrantedAuthority> grants = new ArrayList<GrantedAuthority>(authorities.size());
-            Iterator<Object> iterator = authorities.iterator();
-            while (iterator.hasNext()) {
-                MongoAuthority grant = new MongoAuthority(ROLE_PREFIX + iterator.next());
+            for (Object authority : authorities) {
+                MongoAuthority grant = new MongoAuthority(ROLE_PREFIX + authority);
                 grants.add(grant);
             }
             userDetails.setAuthorities(grants);

@@ -19,6 +19,7 @@
 
 package org.socialhistoryservices.pid.service;
 
+import org.apache.log4j.Logger;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
 import org.socialhistoryservices.pid.database.domain.Handle;
 import org.socialhistoryservices.pid.schema.LocAttType;
@@ -40,6 +41,8 @@ public class MappingsService {
     Jaxb2Marshaller marshaller;
 
     private Transformer transformer;
+
+    private final Logger log = Logger.getLogger(getClass());
 
     public MappingsService() {
         try {
@@ -95,7 +98,8 @@ public class MappingsService {
         try {
             transformer.transform(xmlSource, result);
         } catch (TransformerException e) {
-            e.printStackTrace();
+            log.error(e);
+            return new LocAttType();
         }
         ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
         StreamSource source = new StreamSource(is);
@@ -115,6 +119,6 @@ public class MappingsService {
     }
 
     public void setMarshaller(Jaxb2Marshaller marshaller) {
-       this.marshaller = marshaller;
+        this.marshaller = marshaller;
     }
 }

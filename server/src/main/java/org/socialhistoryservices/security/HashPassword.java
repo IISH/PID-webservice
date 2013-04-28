@@ -17,7 +17,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.socialhistoryservices.util;
+package org.socialhistoryservices.security;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -25,11 +25,12 @@ import java.security.NoSuchAlgorithmException;
 public class HashPassword {
 
     public static String encrypt(String hash, String password) {
-        MessageDigest md = null;
+        final MessageDigest md;
         try {
             md = MessageDigest.getInstance(hash);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
+            return null;
         }
         md.update(password.getBytes());
 
@@ -43,9 +44,9 @@ public class HashPassword {
         System.out.println("Hex format : " + sb.toString());*/
 
         //convert the byte to hex format method 2
-        StringBuffer hexString = new StringBuffer();
-        for (int i = 0; i < byteData.length; i++) {
-            String hex = Integer.toHexString(0xff & byteData[i]);
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : byteData) {
+            String hex = Integer.toHexString(0xff & b);
             if (hex.length() == 1) hexString.append('0');
             hexString.append(hex);
         }

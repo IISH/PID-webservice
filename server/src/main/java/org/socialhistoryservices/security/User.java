@@ -20,6 +20,7 @@
 package org.socialhistoryservices.security;
 
 import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
 
 import java.net.UnknownHostException;
 import java.util.HashMap;
@@ -65,7 +66,7 @@ public class User {
         }
 
         final MongoUserDetailService service = new MongoUserDetailService();
-        service.setMongo(new Mongo(map.get(Expect.h.name())));
+        service.setMongo(new MongoClient(map.get(Expect.h.name())));
         service.setDatabase(map.get(Expect.d.name()));
 
         String action = map.get(Expect.action.name());

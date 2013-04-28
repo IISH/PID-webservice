@@ -1,4 +1,3 @@
-<%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%--
   ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.

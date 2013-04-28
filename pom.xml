@@ -48,7 +48,6 @@
     <modules>
         <module>server</module>
         <module>mongodb-handlestorage</module>
-        <module>security</module>
     </modules>
 
     <dependencies>
@@ -83,21 +82,23 @@
 
     <repositories>
         <repository>
-            <id>spring-milestone</id>
-            <name>Spring Framework Milestone Repository</name>
-            <url>http://s3.amazonaws.com/maven.springframework.org/milestone</url>
-        </repository>
-        <repository>
             <id>spring-release</id>
             <name>Spring Framework Release Repository</name>
             <url>http://maven.springframework.org/release</url>
         </repository>
         <repository>
-            <!-- necessary for Spring Security 3.1.0.CI-SNAPSHOT dependency -->
+            <id>spring-milestone</id>
+            <name>Spring Framework Milestone Repository</name>
+            <url>http://s3.amazonaws.com/maven.springframework.org/milestone</url>
+        </repository>
+<!--
+        <repository>
+            &lt;!&ndash; necessary for Spring Security 3.1.0.CI-SNAPSHOT dependency &ndash;&gt;
             <id>repository.springframework.maven.snapshot</id>
             <name>Spring Framework Maven Release Repository</name>
             <url>http://maven.springframework.org/snapshot</url>
         </repository>
+-->
         <repository>
             <id>oauth.googlecode.net</id>
             <url>http://oauth.googlecode.com/svn/code/maven/</url>
@@ -108,10 +109,11 @@
         <jdkLevel>1.6</jdkLevel>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring.version>3.1.3.RELEASE</spring.version>
-        <spring.security.version>3.1.3.RELEASE</spring.security.version>
-        <spring.ws.version>2.1.1.RELEASE</spring.ws.version>
+        <spring.version>3.2.2.RELEASE</spring.version>
+        <spring.security.version>3.1.0.RC3</spring.security.version>
+        <spring.ws.version>2.1.3.RELEASE</spring.ws.version>
         <oauth.version>1.0.0.M5</oauth.version>
+        <mongodb.version>2.11.1</mongodb.version>
     </properties>
 
 </project>
