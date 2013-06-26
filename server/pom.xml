@@ -124,11 +124,10 @@
             <version>${oauth.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-ldap</artifactId>
-            <version>1.1.2</version>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-ldap</artifactId>
+            <version>${spring.security.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.mortbay.jetty</groupId>
             <artifactId>servlet-api-2.5</artifactId>

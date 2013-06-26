@@ -99,7 +99,7 @@ public class MappingsService {
             transformer.transform(xmlSource, result);
         } catch (TransformerException e) {
             log.error(e);
-            return new LocAttType();
+            return null;
         }
         ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
         StreamSource source = new StreamSource(is);

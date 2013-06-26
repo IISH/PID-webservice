@@ -48,6 +48,9 @@ public class QRController {
      * Return a simple model:
      * type | handle | resolveUrl
      *
+     * Dots are gobbled out... see
+     * https://jira.springsource.org/browse/SPR-7632
+     *
      * @param na
      * @param id
      * @param handleResolverBaseUrl

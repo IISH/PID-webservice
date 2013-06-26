@@ -155,6 +155,8 @@ public class PidServiceEndPoint {
                         } else
                             location.getOtherAttributes().remove(qName);
                         location.setHref(href);
+                    } else {
+                        if (location.getHref().isEmpty()) locations.remove(i);
                     }
                 }
                 if (!locations.isEmpty())
