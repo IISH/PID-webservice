@@ -45,6 +45,8 @@ public class QRController {
     /**
      * metadata
      * <p/>
+     * Show the PID and it's local URLs
+     * <p/>
      * Return model:
      * type | handle | resolveUrl
      *
@@ -55,15 +57,16 @@ public class QRController {
      * @return
      * @throws HandleException
      */
-    @RequestMapping("/metadata/{na}/{pid:.*}")
+    @RequestMapping("/metadata/{na}/{id:.*}")
     public String metadata(@PathVariable("na") String na,
-                           @PathVariable("pid") String id,
+                           @PathVariable("id") String id,
                            @RequestParam(value = "r", required = false, defaultValue = "http://hdl.handle.net/") String handleResolverBaseUrl,
-                           Model model) throws HandleException {
+                           Model model, HttpServletResponse response) throws HandleException {
         final String pid = na + "/" + id;
         final PidType pidType = qrService.getPid(pid);
         if (pidType == null) {
             model.addAttribute("pid", pid);
+            response.setStatus(404);
             return "metadata404";
         }
 
@@ -99,9 +102,21 @@ public class QRController {
         return "metadata";
     }
 
-    @RequestMapping("/qr/{na}/{pid}")
+    /**
+     * Create a QR image for the PID
+     *
+     * @param na
+     * @param id
+     * @param locAtt
+     * @param handleResolverBaseUrl
+     * @param width
+     * @param height
+     * @param response
+     * @throws Exception
+     */
+    @RequestMapping("/qr/{na}/{id:.*}")
     public void encodeimage(@PathVariable("na") String na,
-                            @PathVariable("pid") String id,
+                            @PathVariable("id") String id,
                             @RequestParam(value = "locatt", required = false) String locAtt,
                             @RequestParam(value = "r", required = false, defaultValue = "http://hdl.handle.net/") String handleResolverBaseUrl,
                             @RequestParam(value = "width", required = false, defaultValue = "0") int width,
