@@ -45,11 +45,8 @@ public class QRController {
     /**
      * metadata
      * <p/>
-     * Return a simple model:
+     * Return model:
      * type | handle | resolveUrl
-     *
-     * Dots are gobbled out... see
-     * https://jira.springsource.org/browse/SPR-7632
      *
      * @param na
      * @param id
@@ -58,7 +55,7 @@ public class QRController {
      * @return
      * @throws HandleException
      */
-    @RequestMapping("/metadata/{na}/{pid}")
+    @RequestMapping("/metadata/{na}/{pid:.*}")
     public String metadata(@PathVariable("na") String na,
                            @PathVariable("pid") String id,
                            @RequestParam(value = "r", required = false, defaultValue = "http://hdl.handle.net/") String handleResolverBaseUrl,
