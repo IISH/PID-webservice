@@ -35,6 +35,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -70,25 +71,29 @@ public class QRController {
             return "metadata404";
         }
 
-
         if (!handleResolverBaseUrl.endsWith("/")) handleResolverBaseUrl += "/";
 
-        final List<String[]> handles = new ArrayList();
+        final List<String[]> handles = new ArrayList<String[]>();
         if (pidType.getResolveUrl() == null) {
             for (LocationType location : pidType.getLocAtt().getLocation()) {
-                if (!location.getOtherAttributes().isEmpty()) {
+                if (location.getOtherAttributes().isEmpty()) {
+                    if (location.getView() == null)
+                        handles.add(new String[]{"LOC",
+                                handleResolverBaseUrl + pid,
+                                location.getHref(),
+                                pid});
+                    else
+                        handles.add(new String[]{"LOC",
+                                handleResolverBaseUrl + pid + "?locatt=view:" + location.getView(),
+                                location.getHref(),
+                                pid + "?locatt=view:" + location.getView()});
+                } else
                     for (QName key : location.getOtherAttributes().keySet()) {
                         handles.add(new String[]{"LOC",
-                                handleResolverBaseUrl + pid + "?locatt=" + key.getLocalPart() + ":" + location.getOtherAttributes().get(key),
+                                handleResolverBaseUrl + pid + "?locatt=" + key.getLocalPart() + ":" + location.getOtherAttributes(),
                                 location.getHref(),
-                                pid + "?locatt=" + key.getLocalPart() + ":" + location.getOtherAttributes().get(key)});
+                                pid + "?locatt=" + key.getLocalPart() + ":" + location.getOtherAttributes()});
                     }
-                }
-                if (location.getView() != null)
-                    handles.add(new String[]{"LOC",
-                            handleResolverBaseUrl + pid + "?locatt=view:" + location.getView(),
-                            location.getHref(),
-                            pid + "?locatt=view:" + location.getView()});
             }
         } else {
             handles.add(new String[]{"URL",

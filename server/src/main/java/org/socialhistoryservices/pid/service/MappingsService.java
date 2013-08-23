@@ -98,6 +98,7 @@ public class MappingsService {
         try {
             transformer.transform(xmlSource, result);
         } catch (TransformerException e) {
+            log.error("Handle: "+ handle.getHandle());
             log.error(e);
             return null;
         }
