@@ -32,7 +32,6 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,16 +39,18 @@ public class MappingsService {
 
     Jaxb2Marshaller marshaller;
 
-    private Transformer transformer;
+    private Templates templates;
 
     private final Logger log = Logger.getLogger(getClass());
 
     public MappingsService() {
         try {
-            final InputStream resourceAsStream = MappingsService.class.getResourceAsStream("/locations.xsl");
-            transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(resourceAsStream));
+            templates = TransformerFactory.newInstance().newTemplates(
+                    new StreamSource(MappingsService.class.getResourceAsStream("/locations.xsl"))
+            );
         } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
+            log.fatal(e);
+            System.exit(-1);
         }
     }
 
@@ -94,17 +95,18 @@ public class MappingsService {
 
         final StreamSource xmlSource = new StreamSource(new ByteArrayInputStream(handle.getData()));
         final ByteArrayOutputStream os = new ByteArrayOutputStream();
-        Result result = new StreamResult(os);
+        final Result result = new StreamResult(os);
+
         try {
-            transformer.transform(xmlSource, result);
+            templates.newTransformer().transform(xmlSource, result);
         } catch (TransformerException e) {
-            log.error("Handle: "+ handle.getHandle());
+            log.error("Handle: " + handle.getHandle());
             log.error(e);
             return null;
         }
-        ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
-        StreamSource source = new StreamSource(is);
-        JAXBElement element = (JAXBElement) marshaller.unmarshal(source);
+
+        final StreamSource source = new StreamSource(new ByteArrayInputStream(os.toByteArray()));
+        final JAXBElement element = (JAXBElement) marshaller.unmarshal(source);
         return (LocAttType) element.getValue();
     }
 
