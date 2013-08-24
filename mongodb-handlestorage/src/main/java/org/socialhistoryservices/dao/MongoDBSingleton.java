@@ -19,10 +19,7 @@
 
 package org.socialhistoryservices.dao;
 
-import com.mongodb.Mongo;
-import com.mongodb.MongoOptions;
-import com.mongodb.ServerAddress;
-
+import com.mongodb.*;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,25 +31,21 @@ public class MongoDBSingleton {
 
     private Mongo mongo = null;
 
-    public MongoDBSingleton() {
+    public MongoDBSingleton(String[] hosts, MongoClientOptions options) {
+        setMongo(hosts, options);
     }
 
     public MongoDBSingleton(String[] hosts, int connectionsPerHost, int writeConcern) {
-        MongoOptions options = new MongoOptions();
-        options.w = writeConcern;
-        options.connectionsPerHost = connectionsPerHost;
-        setMongo(hosts, options);
+        final MongoClientOptions.Builder builder = new MongoClientOptions.Builder()
+                .connectionsPerHost(connectionsPerHost)
+                .writeConcern(new WriteConcern(writeConcern));
+        setMongo(hosts, builder.build());
     }
 
-    public MongoDBSingleton(String[] hosts, MongoOptions options) {
-        setMongo(hosts, options);
-    }
-
-    private synchronized Mongo setMongo(String[] serverAddresses, MongoOptions options) {
+    private synchronized Mongo setMongo(String[] serverAddresses, MongoClientOptions options) {
 
         if (mongo == null) {
-
-            List<ServerAddress> replSet = new ArrayList<ServerAddress>(serverAddresses.length);
+            final List<ServerAddress> replSet = new ArrayList<ServerAddress>(serverAddresses.length);
             for (String url : serverAddresses) {
                 String[] split = url.split(":", 2);
                 try {
@@ -65,7 +58,7 @@ public class MongoDBSingleton {
                     e.printStackTrace(System.err);
                 }
             }
-            mongo = new Mongo(replSet, options);
+            mongo = new MongoClient(replSet, options);
         }
         return mongo;
     }

@@ -84,7 +84,8 @@ public class MongoDBHandleStorage
      */
     public void init(StreamTable config)
             throws Exception {
-        // load the MongoDB driver, if configured...
+
+        // load the MongoDB driver, if configured. Otherwise this will throw a class not found exception.
         if (config.containsKey(DRIVER_CLASS)) {
             Class.forName(String.valueOf(config.get(DRIVER_CLASS)));
         }
@@ -103,15 +104,16 @@ public class MongoDBHandleStorage
         this.collection_nas = (String) config.get(COLLECTION_NAS);
         final String c_s = ((String) config.get(CASE_SENSITIVE, "no")).toLowerCase();
         this.case_sensitive = (c_s.equalsIgnoreCase("yes"));
-        // is this back-end operating in read-only mode
         this.readOnly = config.getBoolean(READ_ONLY, false);
         if (mongo == null) {
-            final MongoOptions options = new MongoOptions();
-            options.description = "Handle System driver " + getClass();
-            options.w = config.getInt(WRITECONCERN, 1); // default is SAFE
-            options.connectionsPerHost = config.getInt(CONNECTIONS_PER_HOST, 11);
-            MongoDBSingleton s = new MongoDBSingleton((String[]) databaseURL.toArray(new String[]{}), options);
-            this.mongo = s.getInstance();
+            final MongoClientOptions.Builder builder = new MongoClientOptions.Builder()
+                    .description("Handle System driver " + getClass())
+                    .writeConcern(new WriteConcern(config.getInt(WRITECONCERN, 1)))
+                    .connectionsPerHost(config.getInt(CONNECTIONS_PER_HOST, 11))
+                    .readPreference(ReadPreference.nearest()) ;
+
+            this.mongo = new MongoDBSingleton((String[]) databaseURL.toArray(new String[databaseURL.size()]),
+                    builder.build()).getInstance();
             if (username != null && passwd != null) {
                 final boolean authenticate = authenticate(database, username, passwd.toCharArray());
                 if (!authenticate) {

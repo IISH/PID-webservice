@@ -65,12 +65,13 @@ public class HandleDaoImpl implements HandleDao {
     final public static String LOC = "10320/loc";
     final private static String HS_ADMIN = "HS_ADMIN";
 
-    private Transformer transformer;
+    private Templates templates;
 
     public HandleDaoImpl() {
         try {
-            final InputStream resourceAsStream = this.getClass().getResourceAsStream("/locations.remove.ns.xsl");
-            transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(resourceAsStream));
+            templates = TransformerFactory.newInstance().newTemplates(
+                    new StreamSource(this.getClass().getResourceAsStream("/locations.remove.ns.xsl"))
+            );
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }
@@ -309,32 +310,11 @@ public class HandleDaoImpl implements HandleDao {
         Result result2 = new StreamResult(os);
         final StreamSource xmlSource = new StreamSource(new ByteArrayInputStream(baos.toByteArray()));
         try {
-            transformer.transform(xmlSource, result2);
+            templates.newTransformer().transform(xmlSource, result2);
         } catch (TransformerException e) {
             e.printStackTrace();
         }
         handle.setData(os.toByteArray());
-
-        /* final StringWriter writer = new StringWriter();
-        writer.write("<locations>");
-        final Iterator<LocationType> iterator = locations.getLocation().iterator();
-        while (iterator.hasNext()) {
-            writer.write("<location");
-            final LocationType l = iterator.next();
-            writeAttribute("href", l.getHref(), writer);
-            writeAttribute("id", l.getId(), writer);
-            writeAttribute("weight", l.getWeight(), writer);
-            writeAttribute("view", l.getView(), writer);
-            final Iterator<QName> iterator2 = l.getOtherAttributes().keySet().iterator();
-            while (iterator2.hasNext()) {
-                final QName qname = iterator2.next();
-                writeAttribute(qname.getLocalPart(), l.getOtherAttributes().get(qname), writer);
-            }
-            writer.write(" />");
-        }
-        writer.write("</locations>");
-        writer.flush();
-        handle.setData(writer.toString());*/
     }
 
     private void writeAttribute(String name, String value, Writer writer) {
