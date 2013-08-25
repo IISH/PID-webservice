@@ -62,7 +62,7 @@ public class ServletTest {
         final MongoDBHandleStorageTest mongoDBHandleStorageTest = new MongoDBHandleStorageTest();
         mongoDBHandleStorageTest.setHaveNA(Util.encodeString(String.valueOf(na)), true);
 
-        final HandleValue handle1 = new HandleValue(1, Util.encodeString("URL"), Util.encodeString("http://localhost:8000?handle=URL"));
+        final HandleValue handle1 = new HandleValue(1, Util.encodeString("URL"), Util.encodeString("http://localhost?handle=URL"));
         final HandleValue adminValue = mongoDBHandleStorageTest.createAdminValue("0.NA/" + na, 200, 100);
         mongoDBHandleStorageTest.createHandle(Util.encodeString(na + "/URL"), new HandleValue[]{
                 handle1, adminValue
@@ -70,9 +70,9 @@ public class ServletTest {
 
         final HandleValue handle2 = new HandleValue(1000, Util.encodeString("10320/loc"), Util.encodeString(
                 "<locations>\n" +
-                        "<location id=\"0\" href=\"http://localhost:8000?handle=10320/loc&amp;id=0&amp;country=gb&amp;weight=0/\" country=\"gb\" weight=\"0\" />\n" +
-                        "<location id=\"1\" href=\"http://localhost:8000?handle=10320/loc&amp;id=1&amp;weight=1/\" weight=\"1\" />\n" +
-                        "<location id=\"2\" href=\"http://localhost:8000?handle=10320/loc&amp;id=2&amp;weight=1/\" weight=\"1\" />\n" +
+                        "<location id=\"0\" href=\"http://localhost?handle=10320/loc&amp;id=0&amp;country=gb&amp;weight=0/\" country=\"gb\" weight=\"0\" />\n" +
+                        "<location id=\"1\" href=\"http://localhost?handle=10320/loc&amp;id=1&amp;weight=1/\" weight=\"1\" />\n" +
+                        "<location id=\"2\" href=\"http://localhost?handle=10320/loc&amp;id=2&amp;weight=1/\" weight=\"1\" />\n" +
                         "</locations>"));
         mongoDBHandleStorageTest.createHandle(Util.encodeString(na + "/LOC"), new HandleValue[]{
                 handle2, adminValue

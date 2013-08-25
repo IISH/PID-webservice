@@ -51,6 +51,7 @@
       "300:0.NA/00000.0"
     )
 
+    "allow_recursion" = "yes"
     "case_sensitive" = "no"
     "storage_class" = "net.handle.server.MongoDBHandleStorage"
     "storage_type" = "custom"
