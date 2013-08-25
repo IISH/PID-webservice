@@ -1,0 +1,37 @@
+{
+  "version": 0,
+  "protocolVersion": "2.5",
+  "serialNumber": 1,
+  "primarySite": true,
+  "multiPrimary": false,
+  "attributes": [
+    {
+      "name": "desc",
+      "value": "test"
+    }
+  ],
+  "servers": [
+    {
+      "serverId": 1,
+      "address": "127.0.0.1",
+      "publicKey": {
+        "format": "base64",
+        "value": "AAAAC0RTQV9QVUJfS0VZAAAAAAAVAJdgUI8VIwvMspK5gqLrhAvwWBz1AAAAgQD9f1OBHXUSKVLfSpwu7OTn9hG3UjzvRADDHj+AtlEmaUVdQCJR+1k9jVj6v8X1ujD2y5tVbNeBO4AdNG/yZmC3a5lQpaSfn+gEexAiwk+7qdf+t8Yb+DtX58aophUPBPuD9tPFHsMCNVQTWhaRMvZ1864rYdcq7/IiAxmd0UgBxwAAAIEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoAAACAJ6HFQlMil6rKwxddKwN80EcHlmtXrftMy3OntzakBcgzcKcpNJPnxxv1QgKkL2DuhpPFM/p1YUQQnv/EpZfP//dV7elw1otQZLq8g0LGWCRc+cFUWNjzLq/s1lTGooF15kuI5nqsjqzgFQFI6em0OnSvinCXkIqAOWO6xXyqKiA="
+      },
+      "interfaces": [
+        {
+          "query": true,
+          "admin": true,
+          "protocol": "TCP",
+          "port": 2641
+        },
+        {
+          "query": true,
+          "admin": true,
+          "protocol": "HTTP",
+          "port": 8000
+        }
+      ]
+    }
+  ]
+}
