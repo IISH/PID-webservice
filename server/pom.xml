@@ -142,7 +142,7 @@
         <dependency>
             <groupId>net.handle</groupId>
             <artifactId>mongodb-handlestorage</artifactId>
-            <version>7.0</version>
+            <version>${handle.version}</version>
         </dependency>
 
         <dependency>
