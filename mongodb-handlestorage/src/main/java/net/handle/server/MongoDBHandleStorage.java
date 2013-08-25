@@ -206,7 +206,7 @@ public class MongoDBHandleStorage
 
     public static final String encodeString(String str) {
         int len = str.length();
-        StringBuffer sb = new StringBuffer(len + 4);
+        StringBuilder sb = new StringBuilder(len + 4);
         for (int i = 0; i < len; i++) {
             char ch = str.charAt(i);
             if (ch >= 0x7f || ch < 0x20 || ch == '%') {
@@ -280,12 +280,12 @@ public class MongoDBHandleStorage
             throw new HandleException(HandleException.INVALID_VALUE);
 
         BasicDBList handles = new BasicDBList();
-        for (int i = 0; i < values.length; i++) {
+        for (HandleValue value : values) {
             // not the handle,
             // but index, type, data, ttl_type, ttl, timestamp, refs,
             // admin_read, admin_write, pub_read, pub_write
 
-            BasicDBObject hv = setHandleValue(values[i]);
+            BasicDBObject hv = setHandleValue(value);
             handles.add(hv);
         }
 
@@ -337,10 +337,8 @@ public class MongoDBHandleStorage
 
         Vector values = new Vector();
 
-        final Iterator<Object> iterator = results.iterator();
-        while (iterator.hasNext()) {
-
-            HandleValue value = getHandleValue((BasicDBObject) iterator.next());
+        for (Object result : results) {
+            HandleValue value = getHandleValue((BasicDBObject) result);
             if (allValues) {
             } else if (!Util.isParentTypeInArray(typeList, value.getType()) &&
                     !Util.isInArray(indexList, value.getIndex())) // ignore non-requested types
@@ -370,7 +368,7 @@ public class MongoDBHandleStorage
         h.put("ttl_type", val.getTTLType());
         h.put("ttl", val.getTTL());
         h.put("timestamp", val.getTimestamp());
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         ValueReference refs[] = val.getReferences();
         for (int rv = 0; refs != null && rv < refs.length; rv++) {
             if (rv != 0) {
@@ -414,6 +412,7 @@ public class MongoDBHandleStorage
                 try {
                     valReferences[i].index = Integer.parseInt(references[i].substring(0, colIdx));
                 } catch (Exception t) {
+                    System.err.println(t);
                 }
                 valReferences[i].handle =
                         Util.encodeString(StringUtils.decode(references[i].substring(colIdx + 1)));
@@ -446,10 +445,8 @@ public class MongoDBHandleStorage
         }
 
         final BasicDBList results = (BasicDBList) h.get("handles");
-        final Iterator<Object> iterator = results.iterator();
-        while (iterator.hasNext()) {
-
-            HandleValue value = getHandleValue((BasicDBObject) iterator.next());
+        for (Object result : results) {
+            HandleValue value = getHandleValue((BasicDBObject) result);
             handles.add(value);
         }
         return handles;
@@ -494,9 +491,7 @@ public class MongoDBHandleStorage
 
         final DB db = mongo.getDB(database);
         final Set<String> collectionNames = db.getCollectionNames();
-        final Iterator<String> iterator = collectionNames.iterator();
-        while (iterator.hasNext()) {
-            String collectionName = iterator.next();
+        for (String collectionName : collectionNames) {
             if (collectionName.startsWith(COLLECTION_HANDLE_PREFIX)) {
                 final DBCollection collection = getCollection(database, collectionName);
                 final BasicDBObject query = new BasicDBObject(); // Find all records
@@ -568,7 +563,7 @@ public class MongoDBHandleStorage
     /**
      * Removes a collection
      *
-     * @param na
+     * @param na Naming authority
      */
     public long deleteAllRecords(String na) {
 

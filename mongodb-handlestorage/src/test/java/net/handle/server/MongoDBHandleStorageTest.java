@@ -23,21 +23,21 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
 import net.cnri.util.StreamTable;
-import net.handle.hdllib.HandleException;
-import net.handle.hdllib.HandleValue;
-import net.handle.hdllib.ScanCallback;
-import net.handle.hdllib.Util;
+import net.handle.hdllib.*;
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.io.File;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.UUID;
 
 public class MongoDBHandleStorageTest extends MongoDBHandleStorage {
 
     final static String na = "00000.0";
     final static String funnyChar = String.valueOf('\u00C2'); //  LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+    static long count;
 
     /**
      * This test class is instantiated each time we call a test method.
@@ -82,6 +82,31 @@ public class MongoDBHandleStorageTest extends MongoDBHandleStorage {
         createHandle(handle, values);
         boolean result = deleteHandle(handle);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void createAdminHandleTest() throws HandleException {
+
+        final String data = na + "/" + UUID.randomUUID().toString();
+        byte[] handle = Util.encodeString(data);
+        deleteHandle(handle);
+
+        // Make a
+        // handle=0.NA/00000.0; index=200; [create hdl,delete hdl,create NA,delete NA,read val,modify val,del val,add val,modify admin,del admin,add admin,list]
+        final HandleValue adminValue = createAdminValue("0.NA/" + na, 200, 100);
+        createHandle(handle, new HandleValue[]{
+                adminValue
+        });
+
+        final List<HandleValue> vals = getHandleValues(data);
+        Assert.assertTrue(vals.size() == 1);
+
+        final AdminRecord adm1 = new AdminRecord();
+        Encoder.decodeAdminRecord(vals.get(0).getData(), 0, adm1);
+        final AdminRecord adm2 = new AdminRecord();
+        Encoder.decodeAdminRecord(adminValue.getData(), 0, adm2);
+
+        Assert.assertEquals(adm1.toString(), adm2.toString());
     }
 
     private HandleValue[] setHandleValues() {
@@ -142,8 +167,6 @@ public class MongoDBHandleStorageTest extends MongoDBHandleStorage {
         net.handle.hdllib.Encoder.decodeHandleValue(rawHandleValues[0], 0, check0);
         Assert.assertNotSame(check0.getIndex(), index);
     }
-
-    static long count;
 
     @Test
     public void scanHandlesTest() throws HandleException {

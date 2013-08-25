@@ -41,12 +41,12 @@
         <dependency>
             <groupId>net.handle</groupId>
             <artifactId>handle</artifactId>
-            <version>7.0</version>
+            <version>${handle.version}</version>
         </dependency>
         <dependency>
             <groupId>net.cnri</groupId>
             <artifactId>util</artifactId>
-            <version>7.0</version>
+            <version>${handle.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
