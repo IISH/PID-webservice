@@ -1,0 +1,13 @@
+{
+        "username" : "12345",
+        "password" : "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+        "enabled" : true,
+        "accountNonExpired" : true,
+        "accountNonLocked" : true,
+        "credentialsNonExpired" : true,
+        "authorities" : [
+                "USER",
+                "NA_00000.0",
+                "User test account"
+        ]
+}

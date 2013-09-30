@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
 
 public class PidGenerator {
 
-    private static String pattern = "[a-zA-Z0-9-:" + escapeMetacharacters("._()[]{@$}=\\") + "]{1,240}";
+    private static String pattern = "[\\sa-zA-Z0-9-:" + escapeMetacharacters("._()[]{@$}=\\") + "]{1,240}";
 
     public static String getPid() {
         return UUID.randomUUID().toString().toUpperCase();

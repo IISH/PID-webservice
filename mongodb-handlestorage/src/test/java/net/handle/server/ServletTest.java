@@ -28,6 +28,8 @@ import java.net.URL;
 
 /**
  * ServletTest
+ *
+ * The target must be cleaned before running the servlet, so the files will be unlocked.
  * <p/>
  * Use for integration testing
  */

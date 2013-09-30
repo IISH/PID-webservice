@@ -23,6 +23,7 @@ import org.socialhistoryservices.pid.exceptions.PidException;
 import org.socialhistoryservices.pid.util.PidGenerator;
 import org.junit.Test;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 
@@ -36,18 +37,22 @@ public class PidGeneratorTest {
     @Test
     public void goodPids() {
 
-        String pid = null;
+        String pid1 = null, pid2 = PidGenerator.getPid(na);
         try {
-            pid = PidGenerator.validatePid(na, PidGenerator.getPid(na));
+            pid1 = PidGenerator.validatePid(na, pid2);
         } catch (PidException e) {
         }
-        assertNotNull(pid);
+        assertNotNull(pid1);
+        assertEquals(pid1, pid2);
 
+        pid1=null;
+        pid2 = na + "/123$e4-ed3djKaAJkj(ed)ed[ed]ed{eded}eded                 _eded=edede\\ed5";
         try {
-            pid = PidGenerator.validatePid(na, na + "/123$e4-ed3djKaAJkj(ed)ed[ed]ed{eded}eded_eded=edede\\ed5");
+            pid1 = PidGenerator.validatePid(na, pid2);
         } catch (PidException e) {
         }
-        assertNotNull(pid);
+        assertNotNull(pid1);
+        assertEquals(pid1, pid2);
     }
 
     @Test
