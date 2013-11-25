@@ -24,7 +24,7 @@ import net.handle.hdllib.HandleException;
 import net.handle.hdllib.HandleValue;
 import net.handle.hdllib.Util;
 import net.handle.server.MongoDBHandleStorage;
-import org.socialhistoryservices.pid.database.domain.Handle;
+import org.socialhistoryservices.pid.database.dao.domain.Handle;
 import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.LocationType;
 import org.socialhistoryservices.pid.schema.PidType;

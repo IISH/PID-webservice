@@ -22,7 +22,7 @@ package org.socialhistoryservices.pid.service;
 import net.handle.hdllib.HandleException;
 import org.socialhistoryservices.pid.database.dao.HandleDao;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
-import org.socialhistoryservices.pid.database.domain.Handle;
+import org.socialhistoryservices.pid.database.dao.domain.Handle;
 import org.socialhistoryservices.pid.exceptions.PidException;
 import org.socialhistoryservices.pid.schema.PidType;
 import org.socialhistoryservices.pid.security.NAAuthentication;
@@ -46,7 +46,7 @@ public class StubPidResourceService implements PidResourceService {
     private HandleDao handleDao;
 
     @Autowired
-    private MappingsService mappingsService;
+    private MappingsServiceImp mappingsService;
 
     private NAAuthentication NAAuthentication;
 

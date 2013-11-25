@@ -41,7 +41,7 @@
         </property>
     </bean>
 
-    <bean id="mappingsService" class="org.socialhistoryservices.pid.service.MappingsService">
+    <bean id="mappingsService" class="org.socialhistoryservices.pid.service.MappingsServiceImp">
         <property name="marshaller" ref="marshaller"/>
     </bean>
 

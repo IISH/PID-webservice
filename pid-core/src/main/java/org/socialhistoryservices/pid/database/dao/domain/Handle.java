@@ -17,7 +17,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.socialhistoryservices.pid.database.domain;
+package org.socialhistoryservices.pid.database.dao.domain;
 
 import net.handle.hdllib.HandleValue;
 import net.handle.hdllib.Util;

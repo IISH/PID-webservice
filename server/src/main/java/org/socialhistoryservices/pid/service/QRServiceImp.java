@@ -29,7 +29,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import net.handle.hdllib.HandleException;
 import org.socialhistoryservices.pid.database.dao.HandleDao;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
-import org.socialhistoryservices.pid.database.domain.Handle;
+import org.socialhistoryservices.pid.database.dao.domain.Handle;
 import org.socialhistoryservices.pid.schema.PidType;
 
 import javax.imageio.ImageIO;
@@ -52,7 +52,7 @@ import java.util.List;
 public class QRServiceImp implements QRService {
 
     private HandleDao handleDao;
-    private MappingsService mappingsService;
+    private MappingService mappingsService;
     private int width;
     private int height;
 
@@ -146,7 +146,7 @@ public class QRServiceImp implements QRService {
         this.handleDao = handleDao;
     }
 
-    public void setMappingsService(MappingsService mappingsService) {
+    public void setMappingsService(MappingService mappingsService) {
         this.mappingsService = mappingsService;
     }
 }

@@ -25,11 +25,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.socialhistoryservices.pid.database.dao.HandleDao;
-import org.socialhistoryservices.pid.database.domain.Handle;
+import org.socialhistoryservices.pid.database.dao.domain.Handle;
 import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.LocationType;
 import org.socialhistoryservices.pid.schema.PidType;
-import org.socialhistoryservices.pid.service.MappingsService;
+import org.socialhistoryservices.pid.service.MappingsServiceImp;
 import org.socialhistoryservices.pid.util.PidGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -70,7 +70,7 @@ public class HandleDaoImplTest {
     private HandleDao handleDao;
 
     @Autowired
-    private MappingsService pidResourceService;
+    private MappingsServiceImp pidResourceService;
 
     final String na = "00000.0";
     final String resolveUrl = "http://socialhistoryservices.org/";

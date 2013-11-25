@@ -21,7 +21,7 @@ package org.socialhistoryservices.pid.service;
 
 import org.apache.log4j.Logger;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
-import org.socialhistoryservices.pid.database.domain.Handle;
+import org.socialhistoryservices.pid.database.dao.domain.Handle;
 import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.PidType;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -35,7 +35,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MappingsService {
+public class MappingsServiceImp implements MappingService {
 
     Jaxb2Marshaller marshaller;
 
@@ -43,10 +43,10 @@ public class MappingsService {
 
     private final Logger log = Logger.getLogger(getClass());
 
-    public MappingsService() {
+    public MappingsServiceImp() {
         try {
             templates = TransformerFactory.newInstance().newTemplates(
-                    new StreamSource(MappingsService.class.getResourceAsStream("/locations.xsl"))
+                    new StreamSource(MappingsServiceImp.class.getResourceAsStream("/locations.xsl"))
             );
         } catch (TransformerConfigurationException e) {
             log.fatal(e);

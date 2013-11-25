@@ -20,7 +20,7 @@
 package org.socialhistoryservices.pid.database.dao;
 
 import net.handle.hdllib.HandleException;
-import org.socialhistoryservices.pid.database.domain.Handle;
+import org.socialhistoryservices.pid.database.dao.domain.Handle;
 import org.socialhistoryservices.pid.schema.PidType;
 
 import java.util.List;
