@@ -36,6 +36,7 @@
             <param-name>transformWsdlLocations</param-name>
             <param-value>true</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>pid</servlet-name>
@@ -46,10 +47,21 @@
         <url-pattern>/secure/*</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>qr</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>qr</servlet-name>
+        <url-pattern>/qr/*</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>oauth2</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>3</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>oauth2</servlet-name>

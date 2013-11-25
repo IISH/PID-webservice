@@ -122,20 +122,4 @@
     <!--<sec:ldap-server url="#{pidProperties['ldap-server.url']}" manager-dn="#{pidProperties['ldap-server.manager-dn']}"
                      manager-password="#{pidProperties['ldap-server.manager-password']}"/>-->
 
-    <bean class="org.socialhistoryservices.pid.controllers.QRController">
-        <property name="qrService">
-            <bean class="org.socialhistoryservices.pid.service.QRServiceImp">
-                <property name="width" value="400"/>
-                <property name="height" value="400"/>
-                <property name="handleDao" ref="handleDao"/>
-                <property name="mappingsService" ref="mappingsService"/>
-            </bean>
-        </property>
-    </bean>
-
-    <bean id="multipartResolver"
-          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="50000"/>
-    </bean>
-
 </beans>
