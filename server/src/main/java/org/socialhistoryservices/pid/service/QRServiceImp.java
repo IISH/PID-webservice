@@ -27,9 +27,10 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeWriter;
 import net.handle.hdllib.HandleException;
-import org.socialhistoryservices.pid.database.dao.HandleDao;
+import org.socialhistoryservices.pid.rmi.HandleDao;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
 import org.socialhistoryservices.pid.database.dao.domain.Handle;
+import org.socialhistoryservices.pid.rmi.MappingService;
 import org.socialhistoryservices.pid.schema.PidType;
 
 import javax.imageio.ImageIO;

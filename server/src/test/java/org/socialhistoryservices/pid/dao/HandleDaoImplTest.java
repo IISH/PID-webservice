@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.socialhistoryservices.pid.database.dao.HandleDao;
+import org.socialhistoryservices.pid.rmi.HandleDao;
 import org.socialhistoryservices.pid.database.dao.domain.Handle;
 import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.LocationType;

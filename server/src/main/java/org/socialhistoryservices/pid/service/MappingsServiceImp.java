@@ -22,6 +22,7 @@ package org.socialhistoryservices.pid.service;
 import org.apache.log4j.Logger;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
 import org.socialhistoryservices.pid.database.dao.domain.Handle;
+import org.socialhistoryservices.pid.rmi.MappingService;
 import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.PidType;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;

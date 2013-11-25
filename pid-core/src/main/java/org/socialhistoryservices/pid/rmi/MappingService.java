@@ -1,7 +1,7 @@
 /*
  * The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
  *
- * Copyright (C) 2010-2011, International Institute of Social History
+ * Copyright (C) 2010-2013, International Institute of Social History
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,31 +17,19 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.socialhistoryservices.pid.database.dao;
+package org.socialhistoryservices.pid.rmi;
 
-import net.handle.hdllib.HandleException;
 import org.socialhistoryservices.pid.database.dao.domain.Handle;
+import org.socialhistoryservices.pid.schema.LocAttType;
 import org.socialhistoryservices.pid.schema.PidType;
 
 import java.util.List;
 
-/**
- * @author Lucien van Wouw <lwo@iisg.nl>
- * @since 2011-01-01
- */
-public interface HandleDao {
+public interface MappingService {
+    public PidType convertHandleToPidType(List<Handle> handles);
 
-    List<Handle> upsertHandle(String na, PidType pidType) throws HandleException;
+    public List<PidType> convertHandlesToPidType(List<Handle> handles);
 
-    List<Handle> createNewHandle(String na, PidType pidType) throws HandleException;
-
-    List<Handle> updateHandle(String na, PidType pidType) throws HandleException;
-
-    List<Handle> fetchHandleByPID(String pid) throws HandleException;
-
-    List<Handle> fetchHandleByAttribute(String na, String href, String type);
-
-    long deletePids(String authorize);
-
-    boolean deletePid(String pid);
+    public LocAttType getLocations(Handle handle);
 }
+

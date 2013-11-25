@@ -20,7 +20,7 @@
 package org.socialhistoryservices.pid.service;
 
 import net.handle.hdllib.HandleException;
-import org.socialhistoryservices.pid.database.dao.HandleDao;
+import org.socialhistoryservices.pid.rmi.HandleDao;
 import org.socialhistoryservices.pid.database.dao.HandleDaoImpl;
 import org.socialhistoryservices.pid.database.dao.domain.Handle;
 import org.socialhistoryservices.pid.exceptions.PidException;
