@@ -1,4 +1,8 @@
-Version 1
+Version 1.1
+Separate schema and interfaces and placed these into a core artifact.
 
+
+Version 1
 For issues see
 https://jira.socialhistoryservices.org/
+

@@ -118,7 +118,7 @@ public class QRController {
      * @param response
      * @throws Exception
      */
-    @RequestMapping("/qr/{na}/{id:.*}")
+    @RequestMapping("/{na}/{id:.*}")
     public void encodeimage(@PathVariable("na") String na,
                             @PathVariable("id") String id,
                             @RequestParam(value = "locatt", required = false) String locAtt,
