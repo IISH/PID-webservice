@@ -10,11 +10,22 @@ instance.
 * Make daily backups using a mongodump to remote storage
 
 ##Builds
-build the war and jar dependencies using:
-<code>$ mvn clean package</code>
+Seen from the root git folder PID-webservice, build:
+
+<code>$ mvn clean install -f pid-core/pom.xml</code>
+
+<code>$ mvn clean install -f mongodb-handlestorage/pom.xml</code>
+
+<code>$ mvn clean install -f server/pom.xml</code>
 
 Or download the latest stable build from:
 https://bamboo.socialhistoryservices.org/browse/PID
+
+##Test run
+Use the Jetty plugin to run the application from the server module so:
+
+<code>$ mvn org.mortbay.jetty:maven-jetty-plugin:6.1.26:run -f server/pom.xml</code>
+
 
 ##Install
 ###The pid webservice
@@ -393,3 +404,14 @@ It is thus the most efficient method.
 
 ###DeletePid method
 This method will delete a pid and all it's bound attributes.
+
+##QR codes
+Quick response codes are available using this URL:
+
+The metadata:
+
+/qr/metadata/[handle value]
+
+And the QR image:
+
+/qr/[handle value]
