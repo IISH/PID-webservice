@@ -9,34 +9,32 @@ First of all, setup your environment ( Linux or Windows 64 bit). We recommend:
 instance.
 * Make daily backups using a mongodump to remote storage
 
-##Builds
+##Build
 Seen from the root git folder PID-webservice, build:
 
-<code>$ mvn clean install -f pid-core/pom.xml</code>
+<code>$ mvn clean install</code>
 
-<code>$ mvn clean install -f mongodb-handlestorage/pom.xml</code>
-
-<code>$ mvn clean install -f server/pom.xml</code>
-
-Or download the latest stable build from:
-https://bamboo.socialhistoryservices.org/browse/PID
+The build will kick in a unit testing sequence which requires a running mongod instance.
 
 ##Test run
 Use the Jetty plugin to run the application from the server module so:
 
 <code>$ mvn org.mortbay.jetty:maven-jetty-plugin:6.1.26:run -f server/pom.xml</code>
 
+##Download
+Get the latest stable build from:
+https://bamboo.socialhistoryservices.org/browse/PID
 
 ##Install
 ###The pid webservice
-* Place the war file as ROOT.war in your tomcat's webapp folder.
+* Place the war file as ROOT.war in your tomcat's or Jetty's webapp folder.
 * copy the pid.properties file onto a different part of your server. For example to:
-<code>/etc/tomcat6/pid.properties</code>
+<code>/etc/pid-webservice/pid.properties</code>
 * Change it's properties according to your custom setup of the MongoDB replicaset and proxy URL
-* Declare the pid.properties file in the setup.sh. For example :
+* Declare the pid.properties file in the setup.sh of Tomcat or the VM argument declarations in Jetty. For example :
 <code>JAVA_OPTS="$JAVA_OPTS -Dpid.properties=/etc/tomcat6/pid.properties"</code>
 
-The tomcat instance does not have special memory requirements. You may want to start at -Xmx256M
+The application does not have special memory requirements. You may want to start at -Xmx256M
 
 ###Handle System resolvers
 To setup a primary and secondary Handle System resolver visit http://hdl.handle.net/ for instructions
