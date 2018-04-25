@@ -47,7 +47,7 @@
 
     <modules>
         <module>pid-core</module>
-        <module>server</module>
+        <module>pid-server</module>
         <module>mongodb-handlestorage</module>
     </modules>
 
@@ -85,21 +85,10 @@
             <id>oauth.googlecode.net</id>
             <url>http://oauth.googlecode.com/svn/code/maven/</url>
         </repository>
-        <repository>
-            <id>project-repro</id>
-            <name>lib-maven-repository</name>
-            <url>file://${basedir}/repo</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </repository>
     </repositories>
 
     <properties>
+        <pid.version>1.1.1</pid.version>
         <jdkLevel>1.8</jdkLevel>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

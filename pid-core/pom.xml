@@ -30,7 +30,7 @@
     </parent>
 
     <artifactId>pid-core</artifactId>
-    <version>1.0</version>
+    <version>${pid.version}</version>
 
     <dependencies>
         <dependency>

@@ -26,10 +26,10 @@
         <artifactId>pid</artifactId>
         <version>1.1.1</version>
     </parent>
-    <artifactId>server</artifactId>
+    <artifactId>pid-server</artifactId>
     <packaging>war</packaging>
-    <version>2.0</version>
-    <name>server</name>
+    <name>pid-server</name>
+    <version>${pid.version}</version>
     <url>http://socialhistoryservices.org/</url>
 
     <developers>
@@ -42,7 +42,6 @@
         </developer>
     </developers>
     <build>
-        <finalName>pid</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -95,7 +94,7 @@
         <dependency>
             <groupId>org.socialhistoryservices</groupId>
             <artifactId>pid-core</artifactId>
-            <version>1.0</version>
+            <version>${pid.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.ws</groupId>
