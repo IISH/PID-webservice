@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>net.cnri</groupId>
-  <artifactId>util</artifactId>
+  <artifactId>handle</artifactId>
   <versioning>
     <release>8.1.4</release>
     <versions>
       <version>8.1.4</version>
     </versions>
-    <lastUpdated>20180425061813</lastUpdated>
+    <lastUpdated>20180425061810</lastUpdated>
   </versioning>
 </metadata>

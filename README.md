@@ -9,6 +9,10 @@ First of all, setup your environment ( Linux or Windows 64 bit). We recommend:
 instance.
 * Make daily backups using a mongodump to remote storage
 
+JVM from 1.6 to 1.8
+
+MongoDB 2.x
+
 ##Build
 Seen from the root git folder PID-webservice, build:
 

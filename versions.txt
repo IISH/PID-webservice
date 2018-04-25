@@ -1,4 +1,8 @@
-Version 1.1
+Version 1.1.1
+Port to Java 1.8
+Port to Handle 8.1.4
+
+Version 1.1.0
 Separate schema and interfaces and placed these into a core artifact.
 
 

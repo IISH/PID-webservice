@@ -612,8 +612,7 @@ public class MongoDBHandleStorage
         private byte[] prefix;
         DBCursor dbCursor = null;
 
-        ListHdlsEnum(byte prefix[])
-                throws HandleException {
+        ListHdlsEnum(byte prefix[]) {
             this.prefix = prefix;
             final DBCollection collection = getCollection(prefix);
             final BasicDBObject query = new BasicDBObject(); // Find all records
@@ -671,7 +670,8 @@ public class MongoDBHandleStorage
      */
     public DBCollection getCollection(byte[] handle) {
 
-        final byte[] prefixPart = Util.getPrefixPart(handle);
+        int slashIndex = Util.indexOf(handle, (byte)47);
+        byte[] prefixPart = slashIndex < 0 ? handle : Util.substring(handle, 0, slashIndex);
         return getCollection(database, COLLECTION_HANDLE_PREFIX + Util.decodeString(prefixPart).replace(".", "_"));
     }
 

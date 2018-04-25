@@ -9,7 +9,7 @@
 <%--
   ~ The PID webservice offers SOAP methods to manage the Handle System(r) resolution technology.
   ~
-  ~ Copyright (C) 2010-2011, International Institute of Social History
+  ~ Copyright (C) 2010-2018, International Institute of Social History
   ~                                        Pid webservice
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
