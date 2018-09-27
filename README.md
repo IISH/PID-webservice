@@ -1,6 +1,6 @@
-#Pid webservice
+# Pid webservice
 
-##Setup
+## Setup
 
 First of all, setup your environment ( Linux or Windows 64 bit). We recommend:
 
@@ -9,24 +9,24 @@ First of all, setup your environment ( Linux or Windows 64 bit). We recommend:
 instance.
 * Make daily backups using a mongodump to remote storage
 
-##Build
+## Build
 Seen from the root git folder PID-webservice, build:
 
 <code>$ mvn clean install</code>
 
 The build will kick in a unit testing sequence which requires a running mongod instance.
 
-##Test run
+## Test run
 Use the Jetty plugin to run the application from the server module so:
 
 <code>$ mvn org.mortbay.jetty:maven-jetty-plugin:6.1.26:run -f server/pom.xml</code>
 
-##Download
+## Download
 Get the latest stable build from:
 https://bamboo.socialhistoryservices.org/browse/PID
 
-##Install
-###The pid webservice
+## Install
+### The pid webservice
 * Place the war file as ROOT.war in your tomcat's or Jetty's webapp folder.
 * copy the pid.properties file onto a different part of your server. For example to:
 <code>/etc/pid-webservice/pid.properties</code>
@@ -36,7 +36,7 @@ https://bamboo.socialhistoryservices.org/browse/PID
 
 The application does not have special memory requirements. You may want to start at -Xmx256M
 
-###Handle System resolvers
+### Handle System resolvers
 To setup a primary and secondary Handle System resolver visit http://hdl.handle.net/ for instructions
 
 Note that replication is now left to MongoDB's replica set. Hence the synchronization by the Handle System
@@ -50,8 +50,8 @@ For example your installation of Handle System's resolver <code>/lib</code> fold
 
 The config.cfg needs to register the custom drivers and its settings. Example:
 
+```
   "server_config" = {
-
 	"case_sensitive" = "no"
 	"storage_class" = "net.handle.server.MongoDBHandleStorage"
 	"storage_type" = "custom"
@@ -70,23 +70,22 @@ The config.cfg needs to register the custom drivers and its settings. Example:
 		repplicaset1.host
 		repplicaset1.host
 		repplicaset1.host
-
 	)
-
 ... other settings
 }
+```
 
 
-##Usage
+## Usage
 
-##What is the Pid webservice
+## What is the Pid webservice
 The Pid webservice is a driver for Handle System's resolver technology. It eases the creation of persistent identifiers
 and their bindings to attributes such as web locations with the use of a Soap protocol. This means it is system
 agnostic: an external application offering web methods that can be integrated into your catalog and archival system
 solutions. All with the purpose to offer a consistent delivery via pids of your web resources to yourself, your users
 and external discovery services alike.
 
-##Webservice keys
+## Webservice keys
 Access to the webservice is HTTP over SSL. A private webservice key is needed to be able to create and update your pids.
 This single key can be changed at any time you want, should it be compromised. You can manage pids from different naming
 authorities ( for example a naming authority for production pids, and another for testing). There are two ways to obtain
@@ -94,11 +93,12 @@ webservice keys:
 
 * The pid webservice offers an Oauth 2 protocol with which to distribute and refresh access tokens. The Oauth entry
  point is at http://localhost/oauth/. The Oauth consumer client id must be set in the properties file
-* An elegant administration page at http://localhost/oauth/keys to produce keys . 
+* An elegant administration page at http://localhost/oauth/keys to produce keys .
 
 To call the webserver, place the key in a HTTP header request as expressed in this pseude code:
-<code>HTTP-header(headerName, headerValue) = { "Authorization", "oauth [key]" } 
-Whereby [key] is the webservice key. For example, if the key is 12345, the header is: 
+
+<code>HTTP-header(headerName, headerValue) = { "Authorization", "oauth [key]" }
+Whereby [key] is the webservice key. For example, if the key is 12345, the header is:
 HTTP-header("Authorization", "oauth 12345")</code>
 
 ## LDAP and local user providers
@@ -107,7 +107,7 @@ authentication manager in oauth2-servlet.xml servlet. If you use LDAP you need t
 1. ROLE_PID-WEBSERVICE-USER
 2. ROLE_PID-WEBSERVICE-USER_[your naming authority]
 
-##Discover the webservice
+## Discover the webservice
 The Pid webservice offers a high level API for seven operations:
 
 1. Creation and update of pids using an Upsert method
@@ -122,9 +122,9 @@ identifier.
 Use Soap to operate the webservice API:
 * WSDL document is at http://localhost/pid.wsdl
 * and the webservice endpoint is located at http://localhost/secure/
- 
-##Examples
-###Create a Pid with a resolve Url
+
+## Examples
+### Create a Pid with a resolve Url
 The following example will create a pid 10622.1/32dc9242-a978-43b0-befd-831fa02af673 Once created, the url handle:
 http://hdl.handle.net/10622.1/32dc9242-a978-43b0-befd-831fa02af673 would resolve to the url http://some.domain.org/
 
@@ -157,7 +157,7 @@ Response:
 
 You can also create the PIDs yourself as demonstrated in this movie:
 
-###Create a custom pid with multiple urls
+### Create a custom pid with multiple urls
 This example demonstrates a custom pid that is bound to three resolve urls. This will make possible three ways of
 resolving with one pid:
 
@@ -205,7 +205,7 @@ Response:
 You do not need the locatt expicitly mentioned in the handle to redirect endusers to the desired locations. The country
 attribute can be used to direct users using GeoIP. We demonstrate this here:
 
-###Update a Pid with a new resolve Url
+### Update a Pid with a new resolve Url
 To change a resolve url, use the update method
 
 Request:
@@ -236,7 +236,7 @@ Response:
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 
-##Lookup bound attributes of a known pid
+## Lookup bound attributes of a known pid
 To know that bindings exist for a given pid, use the getPid method. In this example we find out that the resolve url is
 http://new-domain/
 
@@ -264,7 +264,7 @@ Response:
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 
-###Lookup a pid from its know resolve urls
+### Lookup a pid from its know resolve urls
 It is possible to find a pid through it's bound attributes such as resolve urls. In this example we look for pids that
 are bound to the resolve url http://some.domain.org/. Note that the reverse lookup is case sensitive and the result set
 is limited to 10 records.
@@ -322,7 +322,7 @@ Response:
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 
-###Lookup a pid from its know local identifiers
+### Lookup a pid from its know local identifiers
 It is possible to bind other attributes to a pid, such as a local identifier or any other tag for that matter. In this
 case, the local identifier needed to be set when creating or updating the pid.
 
@@ -384,7 +384,7 @@ Response:
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 
-###Quick pid method
+### Quick pid method
 Unless you are an service provider whose clients cannot supply anything else but local identifiers, this method would
 not be useful to an organization delivering pids. The GetQuickPid method utilizes the earlier mentioned methods:
 
@@ -394,22 +394,22 @@ the resolveUrl and localIdentifier.
 3. Pid update: when the localIdentifier is bound to an existing Pid and the supplied resolveUrl is different to the bound
 resolveUrl, a rebind will be made.
 
-###CreatePid and UpdatePid methods
+### CreatePid and UpdatePid methods
 The createPid will create a new PID but fail when the PID already was made in an earlier call.
 Likewise the updatePid will fail when the PID does not exist.
 The upsert method does exactly the same as the createPid and updatePid do separately; but throw no error.
 It is thus the most efficient method.
 
-###DeletePid method
+### DeletePid method
 This method will delete a pid and all it's bound attributes.
 
-##QR codes
+## QR codes
 Quick response codes are available using this URL:
 
 The metadata:
 
-/qr/metadata/[handle value]
+`/qr/metadata/[handle value]`
 
 And the QR image:
 
-/qr/[handle value]
+`/qr/[handle value]`
