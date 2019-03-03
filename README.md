@@ -202,7 +202,7 @@ Response:
         </SOAP-ENV:Body>
     </SOAP-ENV:Envelope>
 
-You do not need the locatt expicitly mentioned in the handle to redirect endusers to the desired locations. The country
+You do not need the locatt explicitly mentioned in the handle to redirect endusers to the desired locations. The country
 attribute can be used to direct users using GeoIP. We demonstrate this here:
 
 ###Update a Pid with a new resolve Url
